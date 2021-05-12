@@ -2,6 +2,9 @@
 .DS_Store
 .DS_STORE/
 
+# 
+.eslintcache
+
 # Build directories for Front-End Assets
 build/
 
