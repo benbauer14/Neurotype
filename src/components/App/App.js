@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import QQDemographs from '../QQDemographs/QQDemographs';
+
 import './App.css';
 
 class App extends Component {
@@ -53,6 +55,13 @@ class App extends Component {
               exact
               path="/user"
               component={UserPage}
+            />
+
+            <Route
+
+              exact
+              path="/questionnaire"
+              component={QQDemographs}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

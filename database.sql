@@ -26,16 +26,6 @@ CREATE TABLE participant (
     session_id integer REFERENCES session(id)
 );
 
-CREATE TABLE participant (
-    id SERIAL PRIMARY KEY,
-    name text,
-    gender text,
-    birthdate text,
-    height text,
-    weight integer,
-    session_id integer REFERENCES session(id)
-);
-
 CREATE TABLE session (
     id SERIAL PRIMARY KEY,
     time timestamp with time zone,
