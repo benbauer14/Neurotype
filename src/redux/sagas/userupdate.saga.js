@@ -16,7 +16,16 @@ function* updateUser(action) {
   }
 }
 
+function* addUser(action){
+  try {
+    yield axios.post('/register', action.payload)
+  } catch (error) {
+    console.log( 'Add new user request failed', error );
+  }
+}
+
 function* participantupdateSaga() {
+  yield takeLatest('ADD_RESEARCHER', addUser);
   yield takeLatest('UPDATE_USER', updateUser);
 }
 
