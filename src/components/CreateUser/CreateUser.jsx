@@ -23,7 +23,6 @@ const CreateUser = () => {
             name: userName,
             password: userPassword,
             role: userTitle,
-            group_id = groupID,
         }
 
         dispatch({type: 'ADD_RESEARCHER', payload: newUser })
