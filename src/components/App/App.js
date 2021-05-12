@@ -19,6 +19,7 @@ import UserPage from '../UserPage/UserPage';
 import QQDemographs from '../QQDemographs/QQDemographs';
 import Home from '../Home/Home';
 import CheckInPage from '../CheckInPage/CheckInPage';
+import AddPatient from '../AddPatient/AddPatient';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -49,14 +50,21 @@ class App extends Component {
             />
 
             <Route
-              // shows AboutPage at all times (logged in or not)
+              
               exact
               path="/home"
               component={Home}
             />
 
             <Route
-              // shows AboutPage at all times (logged in or not)
+              
+              exact
+              path="/addparticipant"
+              component={AddPatient}
+            />
+
+            <Route
+              
               exact
               path="/checkin"
               component={CheckInPage}

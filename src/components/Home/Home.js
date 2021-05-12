@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 // Basic functional component structure for React with default state
@@ -12,8 +13,10 @@ function HomePage(props) {
 
     return (
         <div>
-            <button>Select Patient</button> 
-            <button>Add Patient</button> 
+            <button>Select Participant</button>
+            <Link to="/addparticipant">
+            <button>Add Participant</button>
+            </Link>
         </div>
     );
 }
