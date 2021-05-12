@@ -30,6 +30,20 @@ router.post('/new', (req, res) => {
     })
 });
 
+/**
+ * PUT route template
+ */
+ router.post('/update', (req, res) => {
+    // Update participant info
+    console.log('in post', req.body)
+    const queryText = `UPDATE participant SET name=$2, gender=$3, birthdate = $4, height=$5, weight=$6 WHERE id= $1`
+    pool.query(queryText, [req.body.id, req.body.name, req.body.gender, req.body.birthdate, req.body.height, req.body.weight]).then((response) => {
+        res.sendStatus(201)
+    }).catch((err) => {
+        res.sendStatus(500)
+        console.log(err)
+    })
+});
 
 
 module.exports = router;
