@@ -17,6 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 
 import QQDemographs from '../QQDemographs/QQDemographs';
+import CreateUser from '../CreateUser/CreateUser';
 import Home from '../Home/Home';
 import CheckInPage from '../CheckInPage/CheckInPage';
 import AddPatient from '../AddPatient/AddPatient';
@@ -96,6 +97,13 @@ class App extends Component {
               component={QQDemographs}
             />
 
+            <Route
+
+              exact
+              path="/createuser"
+              component={CreateUser}
+            />
+            
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
