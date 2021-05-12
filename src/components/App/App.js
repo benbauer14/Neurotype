@@ -55,44 +55,6 @@ class App extends Component {
               component={UserPage}
             />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/info"
-              component={InfoPage}
-            />
-
-            {/* When a value is supplied for the authRedirect prop the user will
-            be redirected to the path supplied when logged in, otherwise they will
-            be taken to the component and path supplied. */}
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/user"
-              // - else shows LoginPage at /login
-              exact
-              path="/login"
-              component={LoginPage}
-              authRedirect="/user"
-            />
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/user"
-              // - else shows RegisterPage at "/registration"
-              exact
-              path="/registration"
-              component={RegisterPage}
-              authRedirect="/user"
-            />
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/user"
-              // - else shows LandingPage at "/home"
-              exact
-              path="/home"
-              component={LandingPage}
-              authRedirect="/user"
-            />
-
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
