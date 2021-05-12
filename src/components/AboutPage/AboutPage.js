@@ -24,6 +24,19 @@ const AboutPage = () => {
     dispatch({type: 'POST_PARTICIPANT', payload: patient})
   }
 
+
+  const postRes = () => {
+    const researcher = {
+      email: "Bob@bob.com",
+      name: "bob",
+      password: "bob",
+      role: 'Researcher',
+      group_id: 1
+    }
+    console.log(researcher)
+    dispatch({type: 'REGISTER', payload: researcher})
+  }
+
   const putPart = () => {
     const patient = {
       id: 3,
@@ -44,6 +57,8 @@ const AboutPage = () => {
         <button onClick={() => getPart()}>Get em</button>
         <button onClick={() => postPart()}>Post em</button>
         <button onClick={() => putPart()}>Update em</button>
+        <button onClick={() => postRes()}>Update em</button>
+
         {JSON.stringify(participants)}
 
       </div>
