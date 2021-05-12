@@ -38,12 +38,12 @@ router.put('/register/update', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const email = req.body.email;
   const role = req.body.role;
-  const groupid = req.body.groupid;
   const disabled = req.body.disabled
+  const id = req.body.id
 
-  const queryText = `UPDATE "user" SET name=$1, password=$2, email=$3, role=$4, group_id=$5, disabled=$6`;
+  const queryText = `UPDATE "user" SET name=$1, password=$2, email=$3, role=$4, disabled=$5 WHERE id=$6`;
   pool
-    .query(queryText, [name, password, email, role, groupid, disabled])
+    .query(queryText, [name, password, email, role, disabled, id])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('User registration failed: ', err);

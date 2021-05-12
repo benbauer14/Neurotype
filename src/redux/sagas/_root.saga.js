@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import participantsSaga from './participants.saga'
 import participantNewSaga from './participantnew.saga'
 import participantupdateSaga from './participantupdate.saga';
+import researcherupdateSaga from './researcherupdate.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     participantsSaga(),
     participantNewSaga(),
     participantupdateSaga(),
+    researcherupdateSaga(),
   ]);
 }
