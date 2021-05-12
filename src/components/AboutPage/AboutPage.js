@@ -24,12 +24,26 @@ const AboutPage = () => {
     dispatch({type: 'POST_PARTICIPANT', payload: patient})
   }
 
+  const putPart = () => {
+    const patient = {
+      id: 3,
+      name: "Bob",
+      Gender: "M",
+      birthdate: "1/1/2000",
+      height: 70,
+      weight: 1200
+    }
+    console.log(patient)
+    dispatch({type: 'UPDATE_PARTICIPANT', payload: patient})
+  }
+
     return (
       <>
       <div>
         <p>This page is used to test dispatches and store retrieval</p>
         <button onClick={() => getPart()}>Get em</button>
         <button onClick={() => postPart()}>Post em</button>
+        <button onClick={() => putPart()}>Update em</button>
         {JSON.stringify(participants)}
 
       </div>
