@@ -8,9 +8,13 @@ const AboutPage = () => {
 
   const dispatch = useDispatch()
   const participants = useSelector((store) => store.participants);
+  const users = useSelector((store) => store.users);
 
   const getPart = () => {
     dispatch({type: 'FETCH_PARTICIPANTS'})
+  }
+  const getRes = () => {
+    dispatch({type: 'FETCH_USERS'})
   }
   const postPart = () => {
     const patient = {
@@ -73,8 +77,9 @@ const AboutPage = () => {
         <button onClick={() => putPart()}>Update Participant</button>
         <button onClick={() => postRes()}>Create Researcher</button>
         <button onClick={() => putRes()}>Update Researcher</button>
+        <button onClick={() => getRes()}>Get Researchers</button>
         {JSON.stringify(participants)}
-
+        {JSON.stringify(users)}
       </div>
       </>
     );
