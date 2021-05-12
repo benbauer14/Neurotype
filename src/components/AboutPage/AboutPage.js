@@ -50,15 +50,29 @@ const AboutPage = () => {
     dispatch({type: 'UPDATE_PARTICIPANT', payload: patient})
   }
 
+  const putRes = () => {
+    const researcher = {
+      id: 2,
+      email: "Bob@bobby.com",
+      name: "bob",
+      password: "bob",
+      role: 'Researcher',
+      group_id: 1,
+      disabled: false
+    }
+    console.log(researcher)
+    dispatch({type: 'UPDATE_RESEARCHER', payload: researcher})
+  }
+
     return (
       <>
       <div>
         <p>This page is used to test dispatches and store retrieval</p>
-        <button onClick={() => getPart()}>Get em</button>
-        <button onClick={() => postPart()}>Post em</button>
-        <button onClick={() => putPart()}>Update em</button>
-        <button onClick={() => postRes()}>Update em</button>
-
+        <button onClick={() => getPart()}>Get Participants</button>
+        <button onClick={() => postPart()}>Create Participant</button>
+        <button onClick={() => putPart()}>Update Participant</button>
+        <button onClick={() => postRes()}>Create Researcher</button>
+        <button onClick={() => putRes()}>Update Researcher</button>
         {JSON.stringify(participants)}
 
       </div>
