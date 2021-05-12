@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
@@ -48,6 +48,14 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
+
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/login"
+              component={LoginPage}
+            />
+
 
             <Route
               
@@ -91,7 +99,7 @@ class App extends Component {
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     );

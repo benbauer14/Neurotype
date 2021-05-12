@@ -6,6 +6,8 @@ body,
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #444;
+  color: #efefef;
   margin: 0px;
 }
 
@@ -32,7 +34,7 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #098b8d;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -55,7 +57,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #15a4a7;
   text-decoration: none;
 }
 
@@ -72,8 +74,8 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: #098b8d;
+  color: #098b8d;
 }
 
 /* --------------------------------------------------------------------------------
@@ -101,7 +103,6 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
