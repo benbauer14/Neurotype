@@ -28,7 +28,6 @@ const CreateUser = () => {
         dispatch({type: 'ADD_RESEARCHER', payload: newUser })
     }
 
-
     return (
         <>
             <h2>Add a new Reseacher!</h2>
@@ -49,7 +48,7 @@ const CreateUser = () => {
                     Password:
                     <input type="text" value={userPassword} onChange={(event) => setUserPassword(event.target.value)}/>
                 </label>
-                <button>Submit</button>
+                <button onClick={ (event) => createThisUser() }>Submit</button>
             </form>
         </>
     )
