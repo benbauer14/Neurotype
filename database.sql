@@ -14,6 +14,7 @@ CREATE TABLE "user" (
     password text,
     role text,
     group_id integer REFERENCES "group"(id)
+    disabled boolean DEFAULT false
 );
 
 CREATE TABLE participant (
@@ -23,7 +24,8 @@ CREATE TABLE participant (
     birthdate text,
     height text,
     weight integer,
-    session_id integer REFERENCES session(id)
+    group_id integer,
+    disabled boolean DEFAULT false
 );
 
 CREATE TABLE session (
