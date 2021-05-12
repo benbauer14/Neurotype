@@ -17,6 +17,12 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 
 import QQDemographs from '../QQDemographs/QQDemographs';
+import Home from '../Home/Home';
+import CheckInPage from '../CheckInPage/CheckInPage';
+import InfoPage from '../InfoPage/InfoPage';
+import LandingPage from '../LandingPage/LandingPage';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 
@@ -40,6 +46,20 @@ class App extends Component {
               exact
               path="/about"
               component={AboutPage}
+            />
+
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/home"
+              component={Home}
+            />
+
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/checkin"
+              component={CheckInPage}
             />
 
             {/* For protected routes, the view could show one of several things on the same route.
