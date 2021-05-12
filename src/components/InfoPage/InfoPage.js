@@ -7,7 +7,7 @@ import React from 'react';
 
 const InfoPage = () => (
   <div>
-    <p>Info Page</p>
+    <p>Alex was here</p>
   </div>
 );
 

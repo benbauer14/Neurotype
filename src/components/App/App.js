@@ -15,6 +15,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
+
+import QQDemographs from '../QQDemographs/QQDemographs';
+import Home from '../Home/Home';
+import CheckInPage from '../CheckInPage/CheckInPage';
+import AddPatient from '../AddPatient/AddPatient';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -43,12 +48,36 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
+
             <Route
               // shows AboutPage at all times (logged in or not)
               exact
               path="/login"
               component={LoginPage}
             />
+
+
+            <Route
+              
+              exact
+              path="/home"
+              component={Home}
+            />
+
+            <Route
+              
+              exact
+              path="/addparticipant"
+              component={AddPatient}
+            />
+
+            <Route
+              
+              exact
+              path="/checkin"
+              component={CheckInPage}
+            />
+
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -58,6 +87,13 @@ class App extends Component {
               exact
               path="/user"
               component={UserPage}
+            />
+
+            <Route
+
+              exact
+              path="/questionnaire"
+              component={QQDemographs}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
