@@ -21,6 +21,10 @@ const AboutPage = () => {
     dispatch({type: 'FETCH_SESSIONS'})
   }
 
+  const getUniqueSessions = () => {
+    dispatch({type: 'FETCH_UNIQUESESSIONS', payload: {name: "Bob"}})
+  }
+
   const postPart = () => {
     const patient = {
       name: "Bob",
@@ -84,6 +88,8 @@ const AboutPage = () => {
         <button onClick={() => putRes()}>Update Researcher</button>
         <button onClick={() => getRes()}>Get Researchers</button>
         <button onClick={() => getSessions()}>Get Sessions</button>
+        <button onClick={() => getUniqueSessions()}>Get Unique Sessions by Patient Name</button>
+
         {JSON.stringify(participants)}
         {JSON.stringify(users)}
         {JSON.stringify(sessions)}
