@@ -27,6 +27,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import PINentry from '../PINentry/PINentry';
 
 import './App.css';
 
@@ -67,7 +68,11 @@ class App extends Component {
               path="/selectparticipant"
               component={SelectParticipant}
             />
-
+            <Route
+              exact
+              path="/pin"
+              component={PINentry}
+            />
             <Route
               
               exact
