@@ -52,24 +52,17 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
-
             <Route
-              // shows AboutPage at all times (logged in or not)
               exact
               path="/login"
               component={LoginPage}
             />
-
-
             <Route
-              
               exact
               path="/home"
               component={Home}
             />
-
             <Route
-              
               exact
               path="/selectparticipant"
               component={SelectParticipant}
@@ -81,9 +74,7 @@ class App extends Component {
               path="/addparticipant"
               component={AddPatient}
             />
-
             <Route
-              
               exact
               path="/checkin/:id"
               component={CheckInPage}
@@ -106,21 +97,16 @@ class App extends Component {
               path="/user"
               component={UserPage}
             />
-
             <Route
-
               exact
               path="/questionnaire"
               component={QQDemographs}
             />
-
             <Route
-
               exact
               path="/createuser"
               component={CreateUser}
             />
-            
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
