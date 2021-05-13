@@ -29,13 +29,18 @@ function AddParticipant(props) {
     console.log(patientName)
 
     return (
-        <div>
+        <div className="formPanel">
             <input placeholder="Name" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
+            <br/>
             <input placeholder="Gender" value={gender} onChange={(event) => setGender(event.target.value)}></input>
+            <br/>
             <input placeholder="Birthdate" value={birthdate} onChange={(event) => setBirthdate(event.target.value)}></input>
+            <br/>
             <input placeholder="Height" value={height} onChange={(event) => setHeight(event.target.value)}></input>
+            <br/>
             <input placeholder="Weight" value={weight} onChange={(event) => setWeight(event.target.value)}></input>
-            <button onClick={() => addParticipant()}>Add</button>
+            <br/>
+            <button className="btn" onClick={() => addParticipant()}>Add</button>
         </div>
     );
 }
