@@ -13,9 +13,11 @@ function HomePage(props) {
 
     return (
         <div>
-            <button>Select Participant</button>
+            <Link to="/selectparticipant">
+                <button>Select Participant</button>
+            </Link>
             <Link to="/addparticipant">
-            <button>Add Participant</button>
+                <button>Add Participant</button>
             </Link>
         </div>
     );
