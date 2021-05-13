@@ -49,36 +49,26 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
-
             <Route
-              // shows AboutPage at all times (logged in or not)
               exact
               path="/login"
               component={LoginPage}
             />
-
-
             <Route
-              
               exact
               path="/home"
               component={Home}
             />
-
             <Route
-              
               exact
               path="/addparticipant"
               component={AddPatient}
             />
-
             <Route
-              
               exact
               path="/checkin"
               component={CheckInPage}
             />
-
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -89,21 +79,16 @@ class App extends Component {
               path="/user"
               component={UserPage}
             />
-
             <Route
-
               exact
               path="/questionnaire"
               component={QQDemographs}
             />
-
             <Route
-
               exact
               path="/createuser"
               component={CreateUser}
             />
-            
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
