@@ -38,7 +38,7 @@ function AddParticipant(props) {
                 <input placeholder="Birthdate" value={birthdate} onChange={(event) => setBirthdate(event.target.value)}></input>
                 <input placeholder="Height" value={height} onChange={(event) => setHeight(event.target.value)}></input>
                 <input placeholder="Weight" value={weight} onChange={(event) => setWeight(event.target.value)}></input> */}
-                <Link to={`/checkin/${participant.id}`}>
+                <Link to={`/checkin/${participant.name}`}>
                     <button onClick={() => addParticipant()}>Add</button>
                 </Link>
             </div>
