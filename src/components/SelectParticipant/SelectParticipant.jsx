@@ -77,7 +77,7 @@ const SelectParticipant = () => {
             onChange={(e) => searchForParticipant(e)}
         />
         <button>Download</button>
-        
+        <table>
             <th>
                 <tr>Name</tr>
             </th>
@@ -116,8 +116,6 @@ const SelectParticipant = () => {
                     )
     })
     }
-
-                })}
 
         </table>
         
