@@ -12,16 +12,19 @@ function CheckIn(props) {
     //   const [heading, setHeading] = useState('Functional Component');
 
     return (
-        <div>
-            <Link to="/questionnaire">
-                <button>Check In</button>
-            </Link>
-            <button>Photo Activity</button>
-            <Link to="/dashboard">
-                <button>Dashboard</button>
-            </Link>
-            
-        </div>
+        <>
+            <h3>{JSON.stringify(props.match.params.id)}</h3>
+            <div>
+                <Link to="/questionnaire">
+                    <button>Check In</button>
+                </Link>
+                <button>Photo Activity</button>
+                <Link to="/dashboard">
+                    <button>Dashboard</button>
+                </Link>
+                
+            </div>
+        </>
     );
 }
 
