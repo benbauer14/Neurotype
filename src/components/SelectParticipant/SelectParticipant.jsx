@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
-import SearchBar from '../SearchBar/SearchBar';
+
+import { CSVLink } from 'react-csv'
+// import { Searchbar } from 'react-native-paper';
+
 import Select from 'react-select';
 import './SelectParticipant.css'
 
@@ -94,6 +97,7 @@ const SelectParticipant = () => {
                                 </tbody>
                         </>
                     )
+
                 })
                 
                 :
@@ -112,6 +116,14 @@ const SelectParticipant = () => {
                     )
     })
     }
+
+                })}
+
+        </table>
+        
+        <CSVLink data={participants} filename={"all-patients-info.csv"}><button>Download CVS</button></CSVLink>
+
+
 
         </div>
         </>
