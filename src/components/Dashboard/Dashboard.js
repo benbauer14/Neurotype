@@ -5,14 +5,16 @@ import Select from 'react-select';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
+    const sessions = useSelector((store) => store.sessions);
+    
 
     useEffect(() => {
-        dispatch({type: "FETCH_SESSION"})
+        dispatch({type: "FETCH_SESSIONS"})
     },[])
 
     return (
         <>
-            (Session Data)
+            {JSON.stringify(sessions)}
         </>
     )
 }
