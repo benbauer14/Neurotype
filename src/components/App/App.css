@@ -20,6 +20,7 @@ img {
 .center-box {
   margin: auto;
   max-width: 40%;
+  margin-top: 100px;
   align-content: center;
   text-align: center;
 }
