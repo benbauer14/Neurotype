@@ -57,13 +57,18 @@ const SelectParticipant = () => {
                     )
                 })}
             </th> 
-        </table> */}
 
+        </table>
+        
+        </table> */}
+        <button>Download</button>
+      
         <MDBDataTable 
             striped
             bordered
             data={data}
         />
+
 
         </>
     )
