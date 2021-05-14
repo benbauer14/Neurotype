@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv'
 // import { Searchbar } from 'react-native-paper';
 import Select from 'react-select';
 import './SelectParticipant.css'
@@ -53,7 +54,7 @@ const SelectParticipant = () => {
 
         </table>
         
-        <button>Download</button>
+        <CSVLink data={participants} filename={"all-patients-info.csv"}><button>Download CVS</button></CSVLink>
 
         {/* <MDBDataTable 
             striped
