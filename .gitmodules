@@ -1,0 +1,6 @@
+[submodule "neuromarkr-demo-pictureviewing"]
+	path = neuromarkr-demo-pictureviewing
+	url = https://github.com/neurotype/neuromarkr-demo-pictureviewing.git
+[submodule "neuromarkr-demo-survey"]
+	path = neuromarkr-demo-survey
+	url = https://github.com/neurotype/neuromarkr-demo-survey.git

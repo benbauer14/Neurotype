@@ -22,7 +22,7 @@ router.post('/register', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const email = req.body.email;
 
-  const queryText = `INSERT INTO "user" (name, password, email, role, group_id )
+  const queryText = `INSERT INTO "users" (name, password, email, role, group_id )
     VALUES ($1, $2, $3, 'Researcher', '1') RETURNING id`;
   pool
     .query(queryText, [name, password, email])
@@ -41,7 +41,7 @@ router.put('/register/update', (req, res, next) => {
   const disabled = req.body.disabled
   const id = req.body.id
 
-  const queryText = `UPDATE "user" SET name=$1, password=$2, email=$3, role=$4, disabled=$5 WHERE id=$6`;
+  const queryText = `UPDATE "users" SET name=$1, password=$2, email=$3, role=$4, disabled=$5 WHERE id=$6`;
   pool
     .query(queryText, [name, password, email, role, disabled, id])
     .then(() => res.sendStatus(201))
@@ -49,6 +49,17 @@ router.put('/register/update', (req, res, next) => {
       console.log('User registration failed: ', err);
       res.sendStatus(500);
     });
+});
+
+router.get('/register/users', (req, res) => {
+  // GET all users, do not respond with password or group id
+    const queryText = `SELECT name, email, role, disabled FROM "user"`
+    pool.query(queryText).then((response) => {
+        res.send(response.rows)
+    }).catch((err) => {
+        res.sendStatus(500)
+        console.log(err)
+    })
 });
 
 // Handles login form authenticate/login POST
