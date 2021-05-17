@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
@@ -8,6 +8,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // component name TemplateFunction with the name for the new component.
 function HomePage(props) {
     const history = useHistory();
+    const dispatch = useDispatch()
+    dispatch({type: 'SET_PAGE', payload: "HOME"})
 
     return (
         <div>
