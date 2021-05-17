@@ -28,6 +28,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import PINentry from '../PINentry/PINentry';
+import survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
+// import experiment from '../../neuromarkr-demo-pictureviewing/src/pages/Login'
 
 import './App.css';
 
@@ -53,6 +55,18 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/survey"
+              component={survey}
+            />
+            {/* <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/experiment"
+              component={experiment}
+            /> */}
             <Route
               exact
               path="/login"
