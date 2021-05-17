@@ -1,3 +1,4 @@
+
 import React, { useEffect  } from 'react';
 import { useHistory } from 'react-router-dom' 
 import { useDispatch } from 'react-redux';
@@ -16,6 +17,7 @@ const LoginPage = () => {
 
   const goToRegistration = () => {
     history.push('/registration');
+
   }
 
   return (

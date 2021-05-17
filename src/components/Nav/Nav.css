@@ -41,7 +41,3 @@
 .nav-link:hover {
   background-color: rgb(52, 149, 173);
 }
-
-.nav-right {
-  align-content: flex-end;
-}
