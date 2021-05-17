@@ -41,8 +41,8 @@ const AboutPage = () => {
   const postRes = () => {
     const researcher = {
       email: "Bob@bob.com",
-      name: "bob",
-      password: "bob",
+      name: "ben",
+      password: "ben",
       role: 'Researcher',
       group_id: 1
     }
