@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -10,7 +10,9 @@ function HomePage(props) {
     const history = useHistory();
     const dispatch = useDispatch()
     dispatch({type: 'SET_PAGE', payload: "HOME"})
-
+    useEffect(() => {
+        dispatch({type: 'SET_PAGE', payload: "HOME"})
+    }, [])
     return (
         <div>
             <Link to="/selectparticipant">

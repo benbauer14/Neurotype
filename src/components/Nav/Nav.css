@@ -7,6 +7,8 @@
 }
 
 .nav {
+  display: flex;
+  flex: 1 auto 1;
   margin: 0 0 30px;
   background-color: rgb(32, 115, 136);
   overflow: hidden;
@@ -28,10 +30,18 @@
   outline:0;
 }
 
+.pageName{
+  width: 75%;
+  
+}
+.pageName h2{
+  font-weight:100;
+}
+
 .nav-link:hover {
   background-color: rgb(52, 149, 173);
 }
 
 .nav-right {
-  float: right;
+  align-content: flex-end;
 }
