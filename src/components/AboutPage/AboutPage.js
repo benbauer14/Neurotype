@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState, Component, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 //this page is used to test dispatches and store retrieval.
@@ -76,6 +76,12 @@ const AboutPage = () => {
     console.log(researcher)
     dispatch({type: 'UPDATE_RESEARCHER', payload: researcher})
   }
+
+  dispatch({type: 'SET_PAGE', payload: "HOME"})
+  useEffect(() => {
+      dispatch({type: 'SET_PAGE', payload: "ABOUT"})
+  }, [])
+
 
     return (
       <>

@@ -23,10 +23,7 @@ import CheckInPage from '../CheckInPage/CheckInPage';
 import AddPatient from '../AddPatient/AddPatient';
 import SelectParticipant from '../SelectParticipant/SelectParticipant';
 import Dashboard from '../Dashboard/Dashboard';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
 import PINentry from '../PINentry/PINentry';
 import survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
 // import experiment from '../../neuromarkr-demo-pictureviewing/src/pages/Login'
