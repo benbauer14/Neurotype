@@ -25,6 +25,7 @@ import SelectParticipant from '../SelectParticipant/SelectParticipant';
 import Dashboard from '../Dashboard/Dashboard';
 import LoginPage from '../LoginPage/LoginPage';
 import PINentry from '../PINentry/PINentry';
+import RegisterPage from '../RegisterPage/RegisterPage';
 import survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
 // import experiment from '../../neuromarkr-demo-pictureviewing/src/pages/Login'
 
