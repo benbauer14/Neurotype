@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -12,8 +12,10 @@ function AddParticipant(props) {
     // let [birthdate, setBirthdate] = useState('');
     // let [height, setHeight] = useState('');
     // let [weight, setWeight] = useState('');
+    useEffect(() => {
+        dispatch({type: 'SET_PAGE', payload: "ADDPARTICIPANT"})
+    }, [])
 
-    
     const participant = {
         name: patientName,
         // gender: gender,
