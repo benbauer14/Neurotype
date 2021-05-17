@@ -10,7 +10,9 @@ const Dashboard = () => {
 
     useEffect(() => {
         dispatch({type: "FETCH_SESSIONS"})
+        dispatch({type: 'SET_PAGE', payload: "DASHBOARD"})
     },[])
+
 
     return (
         <>
