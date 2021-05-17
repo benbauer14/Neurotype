@@ -8,7 +8,6 @@ function* fetchUniqueSessions(action) {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     };
-    console.log(action.payload.participant_id + '!!!!')
     const response = yield axios.get('/api/session/participant/?p=' + action.payload.name);
     console.log(response.data)
     yield put({ type: 'SET_SESSIONS', payload: response.data });

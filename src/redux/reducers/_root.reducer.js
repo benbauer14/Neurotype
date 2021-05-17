@@ -4,6 +4,7 @@ import user from './user.reducer';
 import participants from './participants.reducer'
 import users from './users.reducer'
 import sessions from './sessions.reducer'
+import page from './page.reducer'
 
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   participants,
   users,
   sessions,
+  page,
 });
 
 export default rootReducer;
