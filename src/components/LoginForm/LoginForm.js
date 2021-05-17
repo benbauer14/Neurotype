@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import mapStoreToProps from '../../redux/mapStoreToProps';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-class LoginForm extends Component {
-  state = {
-    username: '',
-    password: '',
-  };
+const LoginForm = () => {
 
-  login = (event) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const errors = useSelector( store => store.errors );
+  const dispatch = useDispatch();
+
+  const login = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
-      this.props.dispatch({
+    if (username && password) {
+      dispatch({
         type: 'LOGIN',
         payload: {
-          username: this.state.username,
-          password: this.state.password,
+          username: username,
+          password: password,
         },
       });
     } else {
@@ -24,51 +24,44 @@ class LoginForm extends Component {
     }
   }; // end login
 
-  handleInputChangeFor = (propertyName) => (event) => {
-    this.setState({
-      [propertyName]: event.target.value,
-    });
-  };
+  return (
+    <form className="center-box" onSubmit={login}>
+      <h2>Login</h2>
+      {errors.loginMessage && (
+        <h3 className="alert" role="alert">
+          {errors.loginMessage}
+        </h3>
+      )}
+      <div>
+        <label htmlFor="username">
+          Username:
+          <input
+            type="text"
+            name="username"
+            required
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="password">
+          Password:
+          <input
+            type="password"
+            name="password"
+            required
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <input className="btn" type="submit" name="submit" value="Next" />
+      </div>
+    </form>
+  );
 
-  render() {
-    return (
-      <form className="center-box" onSubmit={this.login}>
-        <h2>Login</h2>
-        {this.props.store.errors.loginMessage && (
-          <h3 className="alert" role="alert">
-            {this.props.store.errors.loginMessage}
-          </h3>
-        )}
-        <div>
-          <label htmlFor="username">
-            Username:
-            <input
-              type="text"
-              name="username"
-              required
-              value={this.state.username}
-              onChange={this.handleInputChangeFor('username')}
-            />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password">
-            Password:
-            <input
-              type="password"
-              name="password"
-              required
-              value={this.state.password}
-              onChange={this.handleInputChangeFor('password')}
-            />
-          </label>
-        </div>
-        <div>
-          <input className="btn" type="submit" name="submit" value="Next" />
-        </div>
-      </form>
-    );
-  }
 }
 
-export default connect(mapStoreToProps)(LoginForm);
+export default LoginForm;
