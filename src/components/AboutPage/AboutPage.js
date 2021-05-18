@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState, Component, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 //this page is used to test dispatches and store retrieval.
@@ -41,8 +41,8 @@ const AboutPage = () => {
   const postRes = () => {
     const researcher = {
       email: "Bob@bob.com",
-      name: "bob",
-      password: "bob",
+      name: "ben",
+      password: "ben",
       role: 'Researcher',
       group_id: 1
     }
@@ -76,6 +76,12 @@ const AboutPage = () => {
     console.log(researcher)
     dispatch({type: 'UPDATE_RESEARCHER', payload: researcher})
   }
+
+  dispatch({type: 'SET_PAGE', payload: "HOME"})
+  useEffect(() => {
+      dispatch({type: 'SET_PAGE', payload: "ABOUT"})
+  }, [])
+
 
     return (
       <>

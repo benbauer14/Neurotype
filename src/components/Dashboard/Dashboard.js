@@ -10,9 +10,12 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         dispatch({type: "FETCH_SESSIONS"})
+        dispatch({type: 'SET_PAGE', payload: "DASHBOARD"})
     },[])
 
+
     console.log(props)
+
     return (
         <>
             {JSON.stringify(sessions)}

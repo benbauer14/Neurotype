@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -15,7 +15,8 @@ import './Home.css'
 function HomePage(props) {
     const history = useHistory();
     const dispatch = useDispatch()
-    dispatch({type: 'SET_PAGE', payload: "HOME"})
+    
+
 
     const BootstrapButton = withStyles({
         root: {
@@ -56,6 +57,10 @@ function HomePage(props) {
             },
         },
     })(Button);
+
+    useEffect(() => {
+        dispatch({type: 'SET_PAGE', payload: "HOME"})
+    }, [])
 
     return (
         <div class="container">

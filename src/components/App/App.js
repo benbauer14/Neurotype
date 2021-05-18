@@ -23,11 +23,10 @@ import CheckInPage from '../CheckInPage/CheckInPage';
 import AddPatient from '../AddPatient/AddPatient';
 import SelectParticipant from '../SelectParticipant/SelectParticipant';
 import Dashboard from '../Dashboard/Dashboard';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
 import PINentry from '../PINentry/PINentry';
+import survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
+// import experiment from '../../neuromarkr-demo-pictureviewing/src/pages/Login'
 
 
 import './App.css';
@@ -54,6 +53,18 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
+            <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/survey"
+              component={survey}
+            />
+            {/* <Route
+              // shows AboutPage at all times (logged in or not)
+              exact
+              path="/experiment"
+              component={experiment}
+            /> */}
             <Route
               exact
               path="/login"
@@ -112,6 +123,12 @@ class App extends Component {
               exact
               path="/createuser"
               component={CreateUser}
+            />
+
+            <Route
+              exact
+              path="/registration"
+              component={RegisterPage}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

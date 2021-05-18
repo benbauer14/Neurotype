@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import PinInput from 'react-pin-input';
 
 function PINentry(props) {
   const [PIN, setPIN] = useState('');
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({type: 'SET_PAGE', payload: "PIN"})
+}, [])
 
   return (
     <div className="center-box">

@@ -20,10 +20,14 @@ const Nav = (props) => {
 
   return (
     <div className="nav">
+      <div className="homelink">
       <Link to="/home">
         <h2 className="nav-title">neurotype</h2>
       </Link>
+      </div>
+      <div className="pageName">
       <h2>{page}</h2>
+      </div>
       <div className="nav-right">
         <Link className="nav-link" to={loginLinkData.path}>
           {/* Show this link if they are logged in or not,

@@ -31,6 +31,7 @@ const SelectParticipant = () => {
 
     useEffect(() => {
         dispatch({ type: "FETCH_PARTICIPANTS" })
+        dispatch({type: 'SET_PAGE', payload: "SELECTPARTICIPANT"})
     }, [])
 
     console.log('Participants', participants)
