@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Select from 'react-select';
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const dispatch = useDispatch();
     const sessions = useSelector((store) => store.sessions);
     
@@ -12,6 +12,7 @@ const Dashboard = () => {
         dispatch({type: "FETCH_SESSIONS"})
     },[])
 
+    console.log(props)
     return (
         <>
             {JSON.stringify(sessions)}
