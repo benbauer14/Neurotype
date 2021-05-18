@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import {FaClipboardCheck, FaBrain} from 'react-icons/fa';
+import {BsClipboardData} from 'react-icons/bs'
+import './CheckIn.css'
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -38,7 +42,7 @@ function CheckIn(props) {
                 '"Segoe UI Symbol"',
             ].join(','),
             '&:hover': {
-                backgroundColor: '#0069d9',
+                backgroundColor: 'rgb(39, 136, 160)',
                 borderColor: '#0062cc',
                 boxShadow: 'none',
             },
@@ -53,19 +57,21 @@ function CheckIn(props) {
         },
     })(Button);
 
+    console.log(props)
 
     return (
         <>
             <h3>{JSON.stringify(props.match.params.id)}</h3>
-            <div>
-                <Link to="/questionnaire">
-                    <BootstrapButton>Check In</BootstrapButton>
-                </Link>
-                <BootstrapButton>Photo Activity</BootstrapButton>
-                <Link to="/dashboard">
-                    <BootstrapButton>Dashboard</BootstrapButton>
-                </Link>
-                
+            <div class="container">
+                <div class ='center'>
+                    <Link to="/questionnaire">
+                        <BootstrapButton className='button' ><FaClipboardCheck></FaClipboardCheck>  Check In</BootstrapButton>
+                    </Link>
+                    <BootstrapButton className='button'><FaBrain></FaBrain>Photo Activity</BootstrapButton>
+                    <Link to="/dashboard">
+                        <BootstrapButton className='button'><BsClipboardData></BsClipboardData>Dashboard</BootstrapButton>
+                    </Link>
+                </div>
             </div>
         </>
     );

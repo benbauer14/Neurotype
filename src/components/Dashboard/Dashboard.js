@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const dispatch = useDispatch();
     const sessions = useSelector((store) => store.sessions);
     
@@ -12,6 +12,8 @@ const Dashboard = () => {
         dispatch({type: 'SET_PAGE', payload: "DASHBOARD"})
     },[])
 
+
+    console.log(props)
 
     return (
         <>

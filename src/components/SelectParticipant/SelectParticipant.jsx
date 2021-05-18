@@ -9,6 +9,7 @@ import Select from 'react-select';
 import './SelectParticipant.css'
 
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -17,10 +18,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+
 // import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 // import SaveIcon from '@material-ui/icons/Save';
 import {IoCloudDownload} from 'react-icons/io5';
+import {BsPersonCheckFill} from 'react-icons/bs'
 
 
 const SelectParticipant = () => {
@@ -130,7 +132,7 @@ const SelectParticipant = () => {
                 '"Segoe UI Symbol"',
             ].join(','),
             '&:hover': {
-                backgroundColor: '#0069d9',
+                backgroundColor: 'rgb(39, 136, 160)',
                 borderColor: '#0062cc',
                 boxShadow: 'none',
             },
@@ -182,7 +184,7 @@ const SelectParticipant = () => {
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{participant.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{participant.group_id}</StyledTableCell>
-                                            <StyledTableCell align="center"><Link to={`/checkin/${participant.name}`}><BootstrapButton>Select</BootstrapButton></Link></StyledTableCell>
+                                            <StyledTableCell align="center"><Link to={`/checkin/${participant.name}`} data={participant.id}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>
@@ -200,7 +202,7 @@ const SelectParticipant = () => {
                                         <TableRow >
                                             <StyledTableCell align="center">{filter.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{filter.group_id}</StyledTableCell>
-                                            <StyledTableCell align="center"><Link to={`/checkin/${filter.name}`}><button>Select</button></Link></StyledTableCell>
+                                            <StyledTableCell align="center"><Link to={`/checkin/${filter.name}`} data={filter}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>

@@ -1,0 +1,17 @@
+.createNewPart{
+    text-align: center;
+    margin-top: 3rem;
+}
+.addPart{
+    margin: 0 auto;
+    margin-top: 7rem;
+    display: block;
+    border-radius: 5px;
+    width: 250px;
+    height: 28px;
+}
+.addPartBtn{
+    float: right;
+    margin-right: 25rem !important;
+    margin-top: -2rem !important;
+}
