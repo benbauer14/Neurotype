@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, Component, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -77,6 +78,14 @@ const AboutPage = () => {
     dispatch({type: 'UPDATE_RESEARCHER', payload: researcher})
   }
 
+  const s3POST = () => {
+    axios.post('/api/s3upload/uploadToS3', {name: 'test'}).then ((response) => {
+      console.log(response)
+    }).catch((err) => {
+      console.log(err)
+    })
+    }
+
   dispatch({type: 'SET_PAGE', payload: "HOME"})
   useEffect(() => {
       dispatch({type: 'SET_PAGE', payload: "ABOUT"})
@@ -95,7 +104,7 @@ const AboutPage = () => {
         <button onClick={() => getRes()}>Get Researchers</button>
         <button onClick={() => getSessions()}>Get Sessions</button>
         <button onClick={() => getUniqueSessions()}>Get Unique Sessions by Patient Name</button>
-
+        <button onClick={() => s3POST()}>POST csv to S3</button>
         {JSON.stringify(participants)}
         {JSON.stringify(users)}
         {JSON.stringify(sessions)}
