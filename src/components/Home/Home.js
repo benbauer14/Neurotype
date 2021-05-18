@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -13,7 +13,6 @@ import './Home.css'
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
 function HomePage(props) {
-    const history = useHistory();
     const dispatch = useDispatch()
     
 
