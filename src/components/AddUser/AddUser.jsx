@@ -77,7 +77,7 @@ function AddUser(props) {
         },
     })(Button);
     
-    if(userRole === 'Site Admin' || 'Super Admin') {
+    if(userRole === 'Site Admin' || userRole === 'Super Admin') {
     return (
         <>
             <h2 className='createNewPart'>Create New User</h2>
@@ -95,28 +95,16 @@ function AddUser(props) {
                 </Link>
             </div>
         </>
-    );
+    )
     } else {
         return(
             <>
-            <h2 className='createNewPart'>Create New User</h2>
-            <div>
-                <input className='addPart' placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
-                <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
-                <input className='addPart' placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
-                <input className='addPart' placeholder="Group" value={group_id} onChange={(event) => setGroupID(event.target.value)}></input>
-                <select className='addPart' placeholder="Role" value={role} onChange={(event) => setRole(event.target.value)}>
-                {/* <option value='Site Admin'>Site Admin</option> */}
-                <option value='Researcher'>Researcher</option>
-                </select>
-                <Link >
-                    <BootstrapButton className='addPartBtn' onClick={() => addParticipant()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
-                </Link>
-            </div>
-        </>
+                <h3>Must Be a Site Admin</h3>
+            </>
         
         )
     }
+    
 }
 
 export default connect(mapStoreToProps)(AddUser);
