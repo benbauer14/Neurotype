@@ -29,12 +29,12 @@ const Nav = (props) => {
       <h2>{page}</h2>
       </div>
       <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
-          {/* Show this link if they are logged in or not,
+        {/* <Link className="nav-link" to={loginLinkData.path}>
+          Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
+          and call this link 'Login / Register' if they are not
           {loginLinkData.text}
-        </Link>
+        </Link> */}
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>

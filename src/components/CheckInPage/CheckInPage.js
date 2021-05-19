@@ -64,10 +64,12 @@ function CheckIn(props) {
             <h3>{JSON.stringify(props.match.params.id)}</h3>
             <div class="container">
                 <div class ='center'>
-                    <Link to="/questionnaire">
+                    <Link to="/survey">
                         <BootstrapButton className='button' ><FaClipboardCheck></FaClipboardCheck>  Check In</BootstrapButton>
                     </Link>
-                    <BootstrapButton className='button'><FaBrain></FaBrain>Photo Activity</BootstrapButton>
+                    <Link to="/experiment">
+                        <BootstrapButton className='button'><FaBrain></FaBrain>Photo Activity</BootstrapButton>
+                    </Link>
                     <Link to="/dashboard">
                         <BootstrapButton className='button'><BsClipboardData></BsClipboardData>Dashboard</BootstrapButton>
                     </Link>

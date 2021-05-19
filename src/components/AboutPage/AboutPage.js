@@ -51,6 +51,30 @@ const AboutPage = () => {
     dispatch({type: 'REGISTER', payload: researcher})
   }
 
+  const postSuprAdm = () => {
+    const suprAdm = {
+      email: "Super@Super.com",
+      name: "super",
+      password: "super",
+      role: "Super Admin",
+      group_id: 1
+    }
+    console.log(suprAdm)
+    dispatch({type: 'REGISTER', payload: suprAdm})
+  }
+
+  const postSiteAdm = () => {
+    const siteAdm = {
+      email: "Site@Site.com",
+      name: "site",
+      password: "site",
+      role: "Site Admin",
+      group_id: 1
+    }
+    console.log(siteAdm)
+    dispatch({type: 'REGISTER', payload: siteAdm})
+  }
+
   const putPart = () => {
     const patient = {
       id: 3,
@@ -100,6 +124,8 @@ const AboutPage = () => {
         <button onClick={() => postPart()}>Create Participant</button>
         <button onClick={() => putPart()}>Update Participant</button>
         <button onClick={() => postRes()}>Create Researcher</button>
+        <button onClick={() => postSuprAdm()}>Create Super Admin</button>
+        <button onClick={() => postSiteAdm()}>Create Site Admin</button>
         <button onClick={() => putRes()}>Update Researcher</button>
         <button onClick={() => getRes()}>Get Researchers</button>
         <button onClick={() => getSessions()}>Get Sessions</button>
