@@ -9,6 +9,7 @@ import researcherupdateSaga from './researcherupdate.saga'
 import usergetSaga from './userget.saga'
 import sessionsGetSaga from './sessionsget.saga';
 import sessionsUniqueSaga from './sessionsuniqueget.saga';
+import sessionnewSaga from './sessionNew.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     usergetSaga(),
     sessionsGetSaga(),
     sessionsUniqueSaga(),
+    sessionnewSaga(),
   ]);
 }
