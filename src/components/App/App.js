@@ -26,10 +26,8 @@ import Dashboard from '../Dashboard/Dashboard';
 import LoginPage from '../LoginPage/LoginPage';
 import PINentry from '../PINentry/PINentry';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
-// import testingUpload from '../AboutPage/testUpload'
-
-// import experiment from '../../neuromarkr-demo-pictureviewing/src/pages/Login'
+import Survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
+// import experiment from '../../neuromarkr-demo-pictureviewing/src/studies/pictureviewing'
 
 
 import './App.css';
@@ -62,12 +60,19 @@ class App extends Component {
               path="/testing"
               component={testingUpload}
             /> */}
-            <Route
+            
+            <ProtectedRoute
+              exact
+              path="/survey"
+            >
+              <Survey />
+            </ProtectedRoute>
+            {/* <Route
               // shows AboutPage at all times (logged in or not)
               exact
               path="/survey"
               component={survey}
-            />
+            /> */}
             {/* <Route
               // shows AboutPage at all times (logged in or not)
               exact
@@ -100,6 +105,7 @@ class App extends Component {
               path="/addparticipant"
               component={AddPatient}
             />
+            
             <Route
               exact
               path="/checkin/:id"
