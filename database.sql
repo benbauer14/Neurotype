@@ -30,7 +30,7 @@ CREATE TABLE participant (
 
 CREATE TABLE session (
     id SERIAL PRIMARY KEY,
-    time timestamp with time zone,
+    time timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
     notes text,
     user_id integer REFERENCES "user"(id),
     participant_id integer REFERENCES participant(id),

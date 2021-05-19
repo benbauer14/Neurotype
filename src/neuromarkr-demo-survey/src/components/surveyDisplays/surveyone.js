@@ -44,8 +44,8 @@ const SurveyOne = ()=> {
                 newObject[newKey] = data[keysFromData[i]]
               }
             }
-            console.log(data)
-            console.log(newObject)
+
+            return newObject
           }
 
     const onCompletePage = useCallback((data)=> {
