@@ -11,24 +11,25 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.YOUR_AWS_SECRET_ACCESS_KEY,
 });
 
-const body = [
-  {
-    name: 'sudhanshu',
-    age: 24,
-  },
-  {
-    name: 'ABC',
-    age: 18,
-  },
-  {
-    name: 'DEF',
-    age: 20,
-  },
-];
+// const body = [
+//   {
+//     name: 'sudhanshu',
+//     age: 24,
+//   },
+//   {
+//     name: 'ABC',
+//     age: 18,
+//   },
+//   {
+//     name: 'DEF',
+//     age: 20,
+//   },
+// ];
 
 router.post('/uploadToS3', (req, res) => {
-  const csvData = csvjson.toCSV(body, { headers: 'key' });
-  const params = {
+    const body = [req.body]
+    const csvData = csvjson.toCSV(body, { headers: 'key' });
+    const params = {
     Bucket: s3Bucket, // your bucket name
     Key: `${Date.now()}-user-data.csv`, // Date.now() is use for creating unique file name
     ACL: 'public-read',

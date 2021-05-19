@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import mapStoreToProps from '../../redux/mapStoreToProps';
 
 function UserPage () {
   // this component doesn't do much to start, just renders some user info to the DOM
