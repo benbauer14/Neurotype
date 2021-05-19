@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Select from 'react-select'
 
 function RegisterForm() {
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
   const errors = useSelector( (store) => store.errors);
   const dispatch = useDispatch();
 
@@ -14,15 +17,24 @@ function RegisterForm() {
     dispatch({
       type: 'REGISTER',
       payload: {
-        username: username,
+        email: email,
+        name: name,
         password: password,
+        role: role,
+        group_id: 1
       },
     });
   }; // end registerUser
 
+  const roleOptions = [
+    { label: 'Senior Researcher', value: 'Senior Researcher'},
+    { label: 'Lead Researcher', value: 'Lead Researcher'},
+    { label: 'Researcher', value: 'Researcher' },
+  ];
+
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h2>Register New Researcher</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
@@ -30,13 +42,25 @@ function RegisterForm() {
       )}
       <div>
         <label htmlFor="username">
-          Username:
+          Email (Username):
           <input
             type="text"
             name="username"
-            value={username}
+            value={email}
             required
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="name">
+          Name:
+          <input
+            type="text"
+            name="name"
+            value={name}
+            required
+            onChange={(event) => setName(event.target.value)}
           />
         </label>
       </div>
@@ -49,6 +73,17 @@ function RegisterForm() {
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="role">
+          Role:
+          <Select
+              options={roleOptions}
+              value={role}
+              onChange={setRole}
+              labelledBy="Add-Role"
           />
         </label>
       </div>
