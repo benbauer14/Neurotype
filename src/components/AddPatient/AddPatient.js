@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -10,6 +10,7 @@ import './AddPatient.css';
 
 function AddParticipant(props) {
     const dispatch = useDispatch();
+    const role = useSelector((store) => store.user.role)
 
     let [patientName, setPatientName] = useState('');
     // let [gender, setGender] = useState('');
@@ -74,7 +75,7 @@ function AddParticipant(props) {
             },
         },
     })(Button);
-
+    console.log(role)
     return (
         <>
             <h2 className='createNewPart'>Create New Participant</h2>

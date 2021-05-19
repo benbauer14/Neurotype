@@ -21,6 +21,7 @@ import CreateUser from '../CreateUser/CreateUser';
 import Home from '../Home/Home';
 import CheckInPage from '../CheckInPage/CheckInPage';
 import AddPatient from '../AddPatient/AddPatient';
+import AddUser from '../AddUser/AddUser';
 import SelectParticipant from '../SelectParticipant/SelectParticipant';
 import Dashboard from '../Dashboard/Dashboard';
 import LoginPage from '../LoginPage/LoginPage';
@@ -64,6 +65,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/survey"
+              authRedirect="/login"
             >
               <Survey />
             </ProtectedRoute>
@@ -84,35 +86,40 @@ class App extends Component {
               path="/login"
               component={LoginPage}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/home"
               component={Home}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/selectparticipant"
               component={SelectParticipant}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/pin"
               component={PINentry}
             />
-            <Route
+            <ProtectedRoute
               
               exact
               path="/addparticipant"
               component={AddPatient}
             />
-            
-            <Route
+            <ProtectedRoute
+              
+              exact
+              path="/adduser"
+              component={AddUser}
+            />
+            <ProtectedRoute
               exact
               path="/checkin/:id"
               component={CheckInPage}
             />
 
-            <Route
+            <ProtectedRoute
               
               exact
               path="/dashboard"
@@ -129,12 +136,12 @@ class App extends Component {
               path="/user"
               component={UserPage}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/questionnaire"
               component={QQDemographs}
             />
-            <Route
+            <ProtectedRoute
               exact
               path="/createuser"
               component={CreateUser}
