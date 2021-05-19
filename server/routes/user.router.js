@@ -23,6 +23,7 @@ router.post('/register', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const email = req.body.email;
   const role = req.body.role;
+
   const group_id = req.body.group_id;
 
   console.log(name, email)
@@ -30,6 +31,7 @@ router.post('/register', (req, res, next) => {
     VALUES ($1, $2, $3, $4, $5) RETURNING id`;
   pool
     .query(queryText, [email, name, password, role, group_id])
+
     .then(() => {
       console.log("success")
       res.sendStatus(201)

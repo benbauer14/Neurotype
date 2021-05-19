@@ -28,7 +28,7 @@ const ProtectedRoute = (props) => {
 
   let ComponentToShow;
 
-  if (store.user.id) {
+  if (store.user.role === 'Super Admin') {
     // if the user is logged in (only logged in users have ids)
     // show the component that is protected
     ComponentToShow = ComponentToProtect;
@@ -40,9 +40,9 @@ const ProtectedRoute = (props) => {
   
 
   // redirect a logged in user if an authRedirect prop has been provided
-  if (store.user.id && authRedirect != null) {
+  if (store.user.role === 'Super Admin' && authRedirect != null) {
     return <Redirect exact from={otherProps.path} to={authRedirect} />;
-  } else if (!store.user.id && authRedirect != null) {
+  } else if (!store.user.role === 'Super Admin' && authRedirect != null) {
     ComponentToShow = ComponentToProtect;
   }
   console.log(props)

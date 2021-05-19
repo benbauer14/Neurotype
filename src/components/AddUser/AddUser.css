@@ -1,0 +1,8 @@
+.addPart{
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: block;
+    border-radius: 5px;
+    width: 250px;
+    height: 28px;
+}

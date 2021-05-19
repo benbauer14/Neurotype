@@ -5,36 +5,37 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {BsFillPersonPlusFill} from 'react-icons/bs'
-import './AddPatient.css';
+import './AddUser.css'
 
 
-function AddParticipant(props) {
+
+function AddUser(props) {
     const dispatch = useDispatch();
-    const role = useSelector((store) => store.user.role)
+    const userRole = useSelector((store) => store.user.role)
 
-    let [patientName, setPatientName] = useState('');
-    // let [gender, setGender] = useState('');
-    // let [birthdate, setBirthdate] = useState('');
-    // let [height, setHeight] = useState('');
-    // let [weight, setWeight] = useState('');
+    let [name, setName] = useState('');
+    let [email, setEmail] = useState('');
+    let [password, setPassword] = useState('');
+    let [role, setRole] = useState('');
+    let [group_id, setGroupID] = useState('');
     useEffect(() => {
-        dispatch({type: 'SET_PAGE', payload: "ADDPARTICIPANT"})
+        dispatch({type: 'SET_PAGE', payload: "ADDUSER"})
     }, [])
 
-    const participant = {
-        name: patientName,
-        // gender: gender,
-        // birthdate: birthdate,
-        // height: height,
-        // weight: weight
+    const user = {
+        name: name,
+        email: email,
+        password: password,
+        role: role,
+        group_id: group_id
     }
     
 
     const addParticipant = () => {
-        dispatch({type: 'POST_PARTICIPANT', payload: participant})
+        dispatch({type: 'REGISTER', payload: user})
     }
 
-    console.log(patientName)
+    
 
     const BootstrapButton = withStyles({
         root: {
@@ -75,22 +76,35 @@ function AddParticipant(props) {
             },
         },
     })(Button);
-    console.log(role)
+    
+    if(userRole === 'Site Admin' || userRole === 'Super Admin') {
     return (
         <>
-            <h2 className='createNewPart'>Create New Participant</h2>
+            <h2 className='createNewPart'>Create New User</h2>
             <div>
-                <input className='addPart' placeholder="Participant ID" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
-                {/* <input placeholder="Gender" value={gender} onChange={(event) => setGender(event.target.value)}></input>
-                <input placeholder="Birthdate" value={birthdate} onChange={(event) => setBirthdate(event.target.value)}></input>
-                <input placeholder="Height" value={height} onChange={(event) => setHeight(event.target.value)}></input>
-                <input placeholder="Weight" value={weight} onChange={(event) => setWeight(event.target.value)}></input> */}
-                <Link to={`/checkin/${participant.name}`}>
+                <input className='addPart' placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
+                <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
+                <input className='addPart' placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
+                <input className='addPart' placeholder="Group" value={group_id} onChange={(event) => setGroupID(event.target.value)}></input>
+                <select className='addPart' placeholder="Role" value={role} onChange={(event) => setRole(event.target.value)}>
+                <option value='Site Admin'>Site Admin</option>
+                <option value='Researcher'>Researcher</option>
+                </select>
+                <Link >
                     <BootstrapButton className='addPartBtn' onClick={() => addParticipant()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
                 </Link>
             </div>
         </>
-    );
+    )
+    } else {
+        return(
+            <>
+                <h3>Must Be a Site Admin</h3>
+            </>
+        
+        )
+    }
+    
 }
 
-export default connect(mapStoreToProps)(AddParticipant);
+export default connect(mapStoreToProps)(AddUser);
