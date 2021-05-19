@@ -20,7 +20,7 @@ function RegisterForm() {
         email: email,
         name: name,
         password: password,
-        role: role,
+        role: role.value,
         group_id: 1
       },
     });
