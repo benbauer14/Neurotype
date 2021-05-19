@@ -49,10 +49,8 @@ const SurveyOne = ()=> {
           }
 
     const onCompletePage = useCallback((data)=> {
-        console.log(data);
-        // console.log('!!!!')
-        parseData(data)
-        // s3POST(data)
+        // console.log(data);
+        s3POST(parseData(data))
         setShowPage(!showPage);
     },[showPage])
     
