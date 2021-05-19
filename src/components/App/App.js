@@ -147,11 +147,11 @@ class App extends Component {
               component={CreateUser}
             />
 
-            {/* <Route
+            <Route
               exact
               path="/registration"
               component={RegisterPage}
-            /> */}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
