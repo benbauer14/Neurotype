@@ -11,12 +11,25 @@ const {
 router.get("/all", rejectUnauthenticated, (req, res) => {
   // GET all participants matching user's group
   console.log('in /all with user:', req.user);
-  const groupId = req.user.group_id;
-  let queryText = `SELECT * FROM participant WHERE group_id=$1`;
+  let queryText;
+  // if super admin, can view all participants
   if (req.user.role === 'Super Admin') {
     queryText = `SELECT * FROM participant`;
-  }
-  pool
+    pool
+    .query(queryText)
+    .then((response) => {
+      res.send(response.rows);
+    })
+    .catch((err) => {
+      res.sendStatus(500);
+      console.log(err);
+    });
+  } 
+  // otherwise, only from group
+  else {
+    const groupId = req.user.group_id;
+    queryText = `SELECT * FROM participant WHERE group_id=$1`;
+    pool
     .query(queryText, [groupId])
     .then((response) => {
       res.send(response.rows);
@@ -25,6 +38,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
       res.sendStatus(500);
       console.log(err);
     });
+  } 
 });
 /**
  * POST route template
