@@ -60,9 +60,21 @@ router.put('/register/update', (req, res, next) => {
     });
 });
 
+router.put('/disable', (req, res) => {
+  // const disabled = !req.body.disabled
+  console.log(req.body)
+  const queryText = `UPDATE "users" SET "disabled"=$1 WHERE "id"=$2`;
+  pool.query(queryText, ['TRUE', req.body.id])
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('User disable failed: ', err);
+    res.sendStatus(500);
+  })
+})
+
 router.get('/register/users', (req, res) => {
   // GET all users, do not respond with password or group id
-    const queryText = `SELECT name, email, role, disabled FROM "users"`
+    const queryText = `SELECT id, name, email, role, disabled, group_id FROM "users"`
     pool.query(queryText).then((response) => {
         res.send(response.rows)
     }).catch((err) => {

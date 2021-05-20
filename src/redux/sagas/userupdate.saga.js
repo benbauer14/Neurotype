@@ -24,9 +24,19 @@ function* addUser(action){
   }
 }
 
+function* disableUser(action){
+  try{
+    yield axios.put('/api/user/disable', action.payload)
+    // yield put({ type: 'FETCH_USERS'})
+  } catch (error) {
+    console.log('Update user request failed', error)
+  }
+}
+
 function* participantupdateSaga() {
   yield takeLatest('ADD_RESEARCHER', addUser);
   yield takeLatest('UPDATE_USER', updateUser);
+  yield takeLatest('DISABLE_USER', disableUser);
 }
 
 export default participantupdateSaga;
