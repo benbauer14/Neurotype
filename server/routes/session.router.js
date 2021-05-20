@@ -38,7 +38,6 @@ const {
         const newResponse = {}
         newResponse['id'] = response.rows[0].id
         newResponse['participant_name'] = req.body.participant_name
-        console.log(newResponse)
         res.send(newResponse)
     }).catch((err) => {
         res.sendStatus(500)
