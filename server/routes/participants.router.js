@@ -12,7 +12,10 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
   // GET all participants matching user's group
   console.log('in /all with user:', req.user);
   const groupId = req.user.group_id;
-  const queryText = `SELECT * FROM participant WHERE group_id=$1`;
+  let queryText = `SELECT * FROM participant WHERE group_id=$1`;
+  if (req.user.role === 'Super Admin') {
+    let queryText = `SELECT * FROM participant`;
+  }
   pool
     .query(queryText, [groupId])
     .then((response) => {
