@@ -3,6 +3,9 @@ const express = require('express');
 const AWS = require('aws-sdk');
 const csvjson = require('csvjson');
 const pool = require('../modules/pool');
+const {
+  rejectUnauthenticated,
+} = require("../modules/authentication-middleware");
 const router = express.Router();
 
 const s3Bucket = process.env.S3_BUCKET;
@@ -26,7 +29,7 @@ const s3 = new AWS.S3({
 //   },
 // ];
 
-router.post('/uploadToS3', (req, res) => {
+router.post('/uploadToS3', rejectUnauthenticated, (req, res) => {
     const body = [req.body]
     const csvData = csvjson.toCSV(body, { headers: 'key' });
     const params = {
