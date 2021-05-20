@@ -4,9 +4,12 @@ import { connect, useSelector  } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import {IoLogOutOutline} from 'react-icons/io5'
+import { IconContext } from "react-icons";
 
 const Nav = (props) => {
   const page = useSelector((store) => store.page);
+  const participant = useSelector((store) => store.currentsession.participant)
   
   let loginLinkData = {
     path: '/login',
@@ -17,7 +20,9 @@ const Nav = (props) => {
     loginLinkData.path = '/user';
     loginLinkData.text = 'Home';
   }
-
+  console.log(participant)
+ 
+  // if (participant === null){
   return (
     <div className="nav">
       <div className="homelink">
@@ -38,13 +43,19 @@ const Nav = (props) => {
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-            <Link className="nav-link" to="/about">
+            {/* <Link className="nav-link" to="/about">
               About
             </Link>
             <Link className="nav-link" to="/info">
               Info Page
-            </Link>
-            <LogOutButton className="nav-link" />
+            </Link> */}
+            <LogOutButton className="nav-link" >
+              <IconContext.Provider value={{size: '10em'}}>
+                <div>
+                  <IoLogOutOutline></IoLogOutOutline>
+                </div>
+              </IconContext.Provider>
+            </LogOutButton>
           </>
         )}
         {/* Always show this link since the about page is not protected */}
@@ -52,6 +63,7 @@ const Nav = (props) => {
       </div>
     </div>
   );
+          
 };
 
 export default connect(mapStoreToProps)(Nav);
