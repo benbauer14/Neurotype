@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React,{useState, useCallback} from 'react';
+import React,{useState, useCallback, useEffect} from 'react';
+import { useDispatch } from 'react-redux';
 import MySurvey from '../surveyTypes/surveytypeone';
 
 const SurveyOne = ()=> {
@@ -54,6 +55,11 @@ const SurveyOne = ()=> {
         setShowPage(!showPage);
     },[showPage])
     
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch({type: 'SET_PAGE', payload: "SURVEY"})
+    }, [])
+
     const setFinalPage = ()=> {
         return (
             <main>
