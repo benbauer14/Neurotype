@@ -14,7 +14,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
   let queryText;
   // if super admin, can view all participants
   if (req.user.role === 'Super Admin') {
-    queryText = `SELECT * FROM participant`;
+    queryText = `SELECT participant.id, participant.name, participant.gender, participant.birthdate, participant.disabled, participant.height, participant.weight, researchgroup.name AS groupName FROM participant JOIN researchgroup ON participant.group_id = researchgroup.id`;
     pool
     .query(queryText)
     .then((response) => {
@@ -28,7 +28,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
   // otherwise, only from group
   else {
     const groupId = req.user.group_id;
-    queryText = `SELECT * FROM participant WHERE group_id=$1`;
+    queryText = `SELECT participant.id, participant.name, participant.gender, participant.birthdate, participant.disabled, participant.height, participant.weight, researchgroup.name AS groupName FROM participant JOIN researchgroup ON participant.group_id = researchgroup.id WHERE group_id=$1`;
     pool
     .query(queryText, [groupId])
     .then((response) => {
