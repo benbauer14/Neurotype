@@ -14,7 +14,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
   const groupId = req.user.group_id;
   let queryText = `SELECT * FROM participant WHERE group_id=$1`;
   if (req.user.role === 'Super Admin') {
-    let queryText = `SELECT * FROM participant`;
+    queryText = `SELECT * FROM participant`;
   }
   pool
     .query(queryText, [groupId])
