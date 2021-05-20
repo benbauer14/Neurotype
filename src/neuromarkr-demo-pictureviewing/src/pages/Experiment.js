@@ -7,9 +7,13 @@ import { notion, useNotion } from "../services/notion";
 import { Nav } from "../components/Nav";
 import studyData from "../studies/pictureviewing";
 
-const study = window.lab.util.fromObject(studyData)
+const util = require('util');
 
-export function Experiment() {
+// const study = util(studyData)
+// const study = window.lab.util.fromObject(studyData)
+
+export default function Experiment() {
+  const study = studyData;
   const { user } = useNotion();
   const [brainwaves, setBrainwaves] = useState(null);
   

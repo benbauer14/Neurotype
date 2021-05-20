@@ -20,7 +20,7 @@ export const useNotion = () => {
   return useContext(NotionContext);
 };
 
-export function ProvideNotion({ children }) {
+export default function ProvideNotion({ children }) {
   const notionProvider = useProvideNotion();
 
   return (
