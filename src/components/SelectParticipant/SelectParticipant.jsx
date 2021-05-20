@@ -183,7 +183,7 @@ const SelectParticipant = () => {
                                     <TableBody className='hover={true}' component={Paper}>
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{participant.name}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{participant.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{participant.groupname}</StyledTableCell>
                                             <StyledTableCell align="center"><Link to={`/userhome/${participant.name}`} data={participant.id}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
                                         </TableRow>
                                     </TableBody>
