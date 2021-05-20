@@ -9,7 +9,7 @@ function* updateUser(action) {
       withCredentials: true,
     };
     console.log(action.payload)
-    yield axios.post('/api/user/registration/update', action.payload);
+    yield axios.put('/api/user/registration/update', action.payload);
     yield put({ type: 'FETCH_USERS' });
   } catch (error) {
     console.log('Update User request failed', error);

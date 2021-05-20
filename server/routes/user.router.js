@@ -43,16 +43,31 @@ router.post('/register', (req, res, next) => {
 });
 
 router.put('/register/update', (req, res, next) => {
+  console.log(req.body)
   const name = req.body.name;
+<<<<<<< HEAD
+=======
+  console.log(name)
+  // const password = encryptLib.encryptPassword(req.body.password);
+>>>>>>> 420cd71ab3e3d14bbc390c803e453afa10fb57b6
   const email = req.body.email;
   const role = req.body.role;
   const disabled = req.body.disabled
   const id = req.body.id
+<<<<<<< HEAD
   console.log(disabled)
 
   const queryText = `UPDATE "users" SET name=$1, email=$2, role=$3, disabled=$4 WHERE id=$5`;
   pool
     .query(queryText, [name, email, role, disabled, id])
+=======
+  const group = Number.parseInt(req.body.group_id)
+  
+
+  const queryText = `UPDATE "users" SET name=$1, email=$2, role=$3, group_id=$4 WHERE id=$5`;
+  pool
+    .query(queryText, [name, email, role, group, id])
+>>>>>>> 420cd71ab3e3d14bbc390c803e453afa10fb57b6
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('User registration failed: ', err);
@@ -62,14 +77,34 @@ router.put('/register/update', (req, res, next) => {
 
 router.put('/disable', (req, res) => {
   // const disabled = !req.body.disabled
-  console.log(req.body)
-  const queryText = `UPDATE "users" SET "disabled"=$1 WHERE "id"=$2`;
-  pool.query(queryText, ['TRUE', req.body.id])
-  .then(() => res.sendStatus(201))
-  .catch((err) => {
+  // let toggleDisable = ''
+  console.log(req.body);
+  if(req.body.disabled === true){
+    const toggleDisable = 'FALSE'
+    const queryText = `UPDATE "users" SET "disabled"=$1 WHERE "id"=$2`;
+    pool.query(queryText, [toggleDisable, req.body.id])
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
     console.log('User disable failed: ', err);
     res.sendStatus(500);
   })
+  } else if (req.body.disabled === false){
+    const toggleDisable = 'TRUE'
+    const queryText = `UPDATE "users" SET "disabled"=$1 WHERE "id"=$2`;
+    pool.query(queryText, [toggleDisable, req.body.id])
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+    console.log('User disable failed: ', err);
+    res.sendStatus(500);
+  })
+  }
+  // const queryText = `UPDATE "users" SET "disabled"=$1 WHERE "id"=$2`;
+  // pool.query(queryText, [toggleDisable, req.body.id])
+  // .then(() => res.sendStatus(201))
+  // .catch((err) => {
+  //   console.log('User disable failed: ', err);
+  //   res.sendStatus(500);
+  // })
 })
 
 router.get('/register/users', (req, res) => {

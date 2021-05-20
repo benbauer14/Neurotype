@@ -17,11 +17,21 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+
 import {MdDelete} from 'react-icons/md';
+import {GrRevert} from 'react-icons/gr';
 
 import './AdminEditPage.css';
+import EditUserInfo from '../EditUserInfo/EditUserInfo';
 
-const AdminEditPage = () => {
+import {
+    HashRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+  } from 'react-router-dom';
+
+const AdminEditPage = (props) => {
     const dispatch = useDispatch();
     const users = useSelector(store => store.users)
     const role = useSelector(store => store.user.role)
@@ -140,10 +150,6 @@ const AdminEditPage = () => {
         },
     })(Button);
 
-    const disableUser = () => {
-        
-    }
-
 
     if(role === 'Super Admin' || role === 'Site Admin') {
     return (
@@ -176,9 +182,31 @@ const AdminEditPage = () => {
             </TableHead> */}
                     {!searched ? // renders all participants 
                         users.map(user => {
-                            
+                            if(user.disabled === false){
                             return (
                                 <>
+
+                                    <TableBody className='hover={true}' component={Paper}>
+                                        <TableRow hover={true}>
+                                            <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center">
+                                                <Link to={`/editUser/${user.id}`}>
+                                                    <BootstrapButton className="editBtn" >Edit</BootstrapButton>
+                                                </Link>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}>
+                                                    <MdDelete></MdDelete>
+                                                </BootstrapButton>
+                                            </StyledTableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </>
+                            )} else if(user.disabled === true){
+                                return(
+                                    <>
 
                                     <TableBody className='hover={true}' component={Paper}>
                                         <TableRow hover={true}>
@@ -189,18 +217,22 @@ const AdminEditPage = () => {
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
                                             <StyledTableCell align="center" scope="row">
-                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}><MdDelete></MdDelete></BootstrapButton>
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}>
+                                                    <GrRevert></GrRevert>
+                                                </BootstrapButton>
                                             </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>
-                            )
+                                )
+                            }
 
                         })
 
                         : // if searched, render filtered participants
 
                         filtered.map(filter => {
+                            if(filter.disabled === false){
                             return (
                                 <>
 
@@ -213,12 +245,35 @@ const AdminEditPage = () => {
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
                                             <StyledTableCell align="center" scope="row">
-                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}><MdDelete></MdDelete></BootstrapButton>
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}>
+                                                    <MdDelete></MdDelete>
+                                                </BootstrapButton>
                                             </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>
-                            )
+                            )} else if(filter.disabled === true){
+                                return (
+                                    <>
+    
+                                        <TableBody component={Paper}>
+                                            <TableRow >
+                                                <StyledTableCell align="center">{filter.name}</StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
+                                                <StyledTableCell align="center">{filter.group_id}</StyledTableCell>
+                                                <StyledTableCell align="center">
+                                                    <BootstrapButton className="editBtn">Edit</BootstrapButton>
+                                                </StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">
+                                                    <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}>
+                                                        <GrRevert className='revertBtn'></GrRevert>
+                                                    </BootstrapButton>
+                                                </StyledTableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </>
+                                )
+                            }
                         })
                     }
 
