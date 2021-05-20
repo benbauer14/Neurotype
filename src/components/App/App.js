@@ -29,6 +29,7 @@ import PINentry from '../PINentry/PINentry';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
 import AdminEditPage from '../AdminEditPage/AdminEditPage';
+import EditUserInfo from '../EditUserInfo/EditUserInfo';
 // import experiment from '../../neuromarkr-demo-pictureviewing/src/studies/pictureviewing'
 
 
@@ -157,6 +158,11 @@ class App extends Component {
               exact
               path="/edit"
               component={AdminEditPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/editUser"
+              component={EditUserInfo}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
