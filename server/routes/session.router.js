@@ -1,11 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require("../modules/authentication-middleware");
 
 /**
  * GET route template
  */
- router.get('/all', (req, res) => {
+ router.get('/all', rejectUnauthenticated, (req, res) => {
     // GET all participants
       const queryText = `SELECT * FROM session`
       pool.query(queryText).then((response) => {
@@ -16,7 +19,7 @@ const router = express.Router();
       })
   });
 
-  router.get('/participant', (req, res) => {
+  router.get('/participant', rejectUnauthenticated, (req, res) => {
     // GET unique participants
       const queryText = `SELECT session.id, session.time, session.notes, session.user_id, session.participant_id, session.group_id FROM session JOIN participant ON session.participant_id = participant.id WHERE participant.name = $1`
       pool.query(queryText, [req.query.p]).then((response) => {

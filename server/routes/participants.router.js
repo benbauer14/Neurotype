@@ -29,7 +29,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
 /**
  * POST route template
  */
-router.post("/new", (req, res) => {
+router.post("/new", rejectUnauthenticated, (req, res) => {
   // POST new participants
   console.log("in post", req.body);
   const queryText = `INSERT INTO participant (name, gender, birthdate, height, weight) VALUES ($1, $2, $3, $4, $5) `;
@@ -53,7 +53,7 @@ router.post("/new", (req, res) => {
 /**
  * PUT route template
  */
-router.post("/update", (req, res) => {
+router.post("/update", rejectUnauthenticated, (req, res) => {
   // Update participant info
   console.log("in post", req.body);
   const queryText = `UPDATE participant SET name=$2, gender=$3, birthdate = $4, height=$5, weight=$6 WHERE id= $1`;
