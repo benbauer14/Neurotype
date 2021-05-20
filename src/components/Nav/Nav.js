@@ -9,7 +9,7 @@ import { IconContext } from "react-icons";
 
 const Nav = (props) => {
   const page = useSelector((store) => store.page);
-  const participant = useSelector((store) => store.currentsession.participant)
+  const participant = useSelector((store) => store.currentsession.rows)
   
   let loginLinkData = {
     path: '/login',
