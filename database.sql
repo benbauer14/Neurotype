@@ -1,7 +1,7 @@
 
 -- database name: neurosity
 
-CREATE TABLE "group" (
+CREATE TABLE "researchgroup" (
     id SERIAL PRIMARY KEY UNIQUE,
     name text,
     description text
