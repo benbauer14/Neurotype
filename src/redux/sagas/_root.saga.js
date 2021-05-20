@@ -11,6 +11,7 @@ import sessionsGetSaga from './sessionsget.saga';
 import sessionsUniqueSaga from './sessionsuniqueget.saga';
 import userUpdateSaga from './userupdate.saga';
 import sessionnewSaga from './sessionNew.saga';
+import surveynewSaga from './surveyresultsNew.saga'
 
 
 // rootSaga is the primary saga.
@@ -34,5 +35,6 @@ export default function* rootSaga() {
     sessionsGetSaga(),
     sessionsUniqueSaga(),
     sessionnewSaga(),
+    surveynewSaga(),
   ]);
 }
