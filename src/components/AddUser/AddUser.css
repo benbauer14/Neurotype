@@ -6,3 +6,18 @@
     width: 250px;
     height: 28px;
 }
+.addPartSelect{
+    margin: 0 auto;
+    margin-top: 1.1rem;
+    display: block;
+    border-radius: 5px;
+    width: 255px;
+    height: 32px;
+}
+.addPartDiv{
+    margin-top: 7rem;
+}
+.addPartBtn{
+    width: 60px;
+    height: 40px;
+}

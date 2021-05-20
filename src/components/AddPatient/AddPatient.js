@@ -61,7 +61,7 @@ function AddParticipant(props) {
                 '"Segoe UI Symbol"',
             ].join(','),
             '&:hover': {
-                backgroundColor: '#0069d9',
+                backgroundColor: 'rgb(39, 136, 160)',
                 borderColor: '#0062cc',
                 boxShadow: 'none',
             },

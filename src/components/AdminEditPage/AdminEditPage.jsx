@@ -6,7 +6,6 @@ import { CSVLink } from 'react-csv'
 // import { Searchbar } from 'react-native-paper';
 
 import Select from 'react-select';
-import './SelectParticipant.css'
 
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -16,33 +15,26 @@ import TableCell from '@material-ui/core/TableCell';
 // import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 
-// import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-// import SaveIcon from '@material-ui/icons/Save';
-import {IoCloudDownload} from 'react-icons/io5';
-import {BsPersonCheckFill} from 'react-icons/bs'
+import {MdDelete} from 'react-icons/md';
 
+import './AdminEditPage.css';
 
-const SelectParticipant = () => {
+const AdminEditPage = () => {
     const dispatch = useDispatch();
-    const participants = useSelector(store => store.participants)
+    const users = useSelector(store => store.users)
+    const role = useSelector(store => store.user.role)
 
     useEffect(() => {
-        dispatch({ type: "FETCH_PARTICIPANTS" })
+        dispatch({ type: "FETCH_USERS" })
         dispatch({type: 'SET_PAGE', payload: "SELECTPARTICIPANT"})
     }, [])
 
-    console.log('Participants', participants)
+    console.log('Users', users)
+    console.log(role)
 
 
-    let participantData = []
-    console.log(participantData)
-
-    participants.map(participant => {
-        participantData.push(participant.name)
-    })
     const BarStyling = { width: "20rem", background: "#F2F1F9", border: "none", padding: "0.5rem" };
 
     let search = '';
@@ -51,8 +43,9 @@ const SelectParticipant = () => {
     // this stores whether or not a search has happened 
     const [searched, setSearched] = useState(false);
     // conditionally renders the list of all natural areas or the filtered natural areas
+
     const displayList = () => {
-        let display = participants
+        let display = users
         if (searched) {
             display = filtered
         }
@@ -71,7 +64,7 @@ const SelectParticipant = () => {
             let regex = new RegExp(`${pattern}`, "gi");
             console.log(regex);
             // sets the filtered array equal to the sna's that match the query
-            setFiltered(participants.filter(participant => (participant.name + ' ').match(regex)))
+            setFiltered(users.filter(user => (user.name + ' ').match(regex)))
             console.log(filtered);
             // set the search state to the opposite of what it was
             setSearched(true);
@@ -147,12 +140,16 @@ const SelectParticipant = () => {
         },
     })(Button);
 
+    const disableUser = () => {
+        
+    }
 
-    
+
+    if(role === 'Super Admin' || role === 'Site Admin') {
     return (
         <>
             <div>
-                <h1 className="selectPart">Select Participant</h1>
+                <h1 className="selectPart">Edit Users</h1>
                 <input // search bar for participants 
                     className="searchBar"
                     style={BarStyling}
@@ -162,29 +159,38 @@ const SelectParticipant = () => {
                     onChange={(e) => searchForParticipant(e)}
                 />
                 
-                <CSVLink className="csvButton" data={participants} filename={"all-patients-info.csv"}><BootstrapButton variant="contained"
-                    color="default"><IoCloudDownload value={{ style: { verticalAlign: 'middle' } }} ></IoCloudDownload> Download CSV</BootstrapButton></CSVLink>
+                {/* <CSVLink className="csvButton" data={participants} filename={"all-patients-info.csv"}><BootstrapButton variant="contained"
+                    color="default"><IoCloudDownload value={{ style: { verticalAlign: 'middle' } }} ></IoCloudDownload> Download CSV</BootstrapButton></CSVLink> */}
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead component='th'>
                         <TableRow>
-                            <TableCell align="center">Participant Name</TableCell>
-                            <TableCell align="center">Group Name</TableCell>
-                            <TableCell align="center">Select</TableCell>
+                            <TableCell align="center">User Name</TableCell>
+                            <TableCell align="center">Role</TableCell>
+                            <TableCell align="center">Group</TableCell>
+                            <TableCell align="center">Edit</TableCell>
+                            <TableCell align="center">Disable</TableCell>
                         </TableRow>
                     </TableHead>
                     {/* <TableHead className="tableHead">
                 <tr>Select</tr>
             </TableHead> */}
                     {!searched ? // renders all participants 
-                        participants.map(participant => {
+                        users.map(user => {
+                            
                             return (
                                 <>
 
                                     <TableBody className='hover={true}' component={Paper}>
                                         <TableRow hover={true}>
-                                            <StyledTableCell align="center" scope="row">{participant.name}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{participant.group_id}</StyledTableCell>
-                                            <StyledTableCell align="center"><Link to={`/userhome/${participant.name}`} data={participant.id}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center">
+                                                <BootstrapButton className="editBtn">Edit</BootstrapButton>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}><MdDelete></MdDelete></BootstrapButton>
+                                            </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>
@@ -201,8 +207,14 @@ const SelectParticipant = () => {
                                     <TableBody component={Paper}>
                                         <TableRow >
                                             <StyledTableCell align="center">{filter.name}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{filter.group_id}</StyledTableCell>
-                                            <StyledTableCell align="center"><Link to={`/userhome/${filter.name}`} data={filter}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
+                                            <StyledTableCell align="center">{filter.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center">
+                                                <BootstrapButton className="editBtn">Edit</BootstrapButton>
+                                            </StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}><MdDelete></MdDelete></BootstrapButton>
+                                            </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>
@@ -219,6 +231,13 @@ const SelectParticipant = () => {
             </div>
         </>
     )
+    } else {
+        return(
+            <>
+                <h3>Must Be Admin To Edit</h3>
+            </>
+        )
+    }
 }
 
-export default SelectParticipant;
+export default AdminEditPage;
