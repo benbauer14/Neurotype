@@ -10,7 +10,7 @@ function* postSession(action) {
     };
     console.log(action.payload)
     const response = yield axios.post('/api/session/new', action.payload);
-    yield put({ type: 'SET_SESSION', payload: response.data.rows[0]});
+    yield put({ type: 'SET_SESSION', payload: response.data});
   } catch (error) {
     console.log('Participant POST request failed', error);
   }

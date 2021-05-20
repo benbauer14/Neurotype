@@ -28,6 +28,7 @@ import {BsPersonCheckFill} from 'react-icons/bs'
 const SelectParticipant = () => {
     const dispatch = useDispatch();
     const participants = useSelector(store => store.participants)
+    const user = useSelector(store => store.user)
 
     useEffect(() => {
         dispatch({ type: "FETCH_PARTICIPANTS" })
@@ -176,15 +177,22 @@ const SelectParticipant = () => {
                 <tr>Select</tr>
             </TableHead> */}
                     {!searched ? // renders all participants 
-                        participants.map(participant => {
+                        participants.map((participant, index) => {
+                            const sessiondata = {
+                                notes: "", 
+                                user_id: user.id, 
+                                participant_id: participant.id,
+                                participant_name: participant.name, 
+                                group_id: user.group_id
+                            }
                             return (
                                 <>
 
-                                    <TableBody className='hover={true}' component={Paper}>
+                                    <TableBody key={index} className='hover={true}' component={Paper}>
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{participant.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{participant.groupname}</StyledTableCell>
-                                            <StyledTableCell align="center"><Link to={`/userhome/${participant.name}`} data={participant.id}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
+                                            <StyledTableCell align="center"><Link to={`/userhome/${participant.name}`} data={participant.id}><BootstrapButton onClick={() => {dispatch({ type: "POST_SESSION", payload: sessiondata })}}><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
                                         </TableRow>
                                     </TableBody>
                                 </>
@@ -194,14 +202,14 @@ const SelectParticipant = () => {
 
                         : // if searched, render filtered participants
 
-                        filtered.map(filter => {
+                        filtered.map((filter, index) => {
                             return (
                                 <>
 
-                                    <TableBody component={Paper}>
-                                        <TableRow >
+                                    <TableBody key={index} component={Paper}>
+                                        <TableRow>
                                             <StyledTableCell align="center">{filter.name}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{filter.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{filter.groupname}</StyledTableCell>
                                             <StyledTableCell align="center"><Link to={`/userhome/${filter.name}`} data={filter}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link></StyledTableCell>
                                         </TableRow>
                                     </TableBody>

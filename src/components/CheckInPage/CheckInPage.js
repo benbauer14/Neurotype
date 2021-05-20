@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Button from '@material-ui/core/Button';
@@ -58,6 +58,10 @@ function CheckIn(props) {
     })(Button);
 
     console.log(props)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch({type: 'SET_PAGE', payload: "ACTIVITIES"})
+    }, [])
 
     return (
         <>
@@ -65,13 +69,13 @@ function CheckIn(props) {
             <div class="container">
                 <div class ='center'>
                     <Link to="/survey">
-                        <BootstrapButton className='button' ><FaClipboardCheck></FaClipboardCheck>  Check In</BootstrapButton>
+                        <BootstrapButton className='button' ><FaClipboardCheck></FaClipboardCheck> Survey</BootstrapButton>
                     </Link>
                     <Link to="/experiment">
-                        <BootstrapButton className='button'><FaBrain></FaBrain>Photo Activity</BootstrapButton>
+                        <BootstrapButton className='button'><FaBrain></FaBrain> Photo Activity</BootstrapButton>
                     </Link>
                     <Link to="/dashboard">
-                        <BootstrapButton className='button'><BsClipboardData></BsClipboardData>Dashboard</BootstrapButton>
+                        <BootstrapButton className='button'><BsClipboardData></BsClipboardData> Dashboard</BootstrapButton>
                     </Link>
                 </div>
             </div>
