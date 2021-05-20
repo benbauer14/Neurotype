@@ -43,7 +43,7 @@ router.post('/uploadToS3', rejectUnauthenticated, (req, res) => {
     if (s3Err) {
       throw s3Err;
     }
-    return res.status(200).json({ message: `File uploaded successfully at ${data.Location}` });
+    return res.status(200).json({ message: data.Location });
   });
 });
 module.exports = router;

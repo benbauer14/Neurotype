@@ -1,14 +1,22 @@
 import axios from 'axios';
 import React,{useState, useCallback, useEffect} from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import MySurvey from '../surveyTypes/surveytypeone';
 
 const SurveyOne = ()=> {
     const [showPage, setShowPage] = useState(true); // refreshing page will update to True
+    const session = useSelector(store => store.currentsession)
 
-    const s3POST = (data) => {
+    async function s3POST (data) {
         axios.post('/api/s3upload/uploadToS3', data).then ((response) => {
-          console.log(response)
+          console.log (response.data.message)
+          const surveydata = {
+            jsondata: data,
+            session_id: session.id,
+            csvlocation: response.data.message
+          }
+          dispatch({type: 'POST_SURVEY', payload: surveydata})
         }).catch((err) => {
           console.log(err)
         })
@@ -48,17 +56,22 @@ const SurveyOne = ()=> {
 
             return newObject
           }
+    const dispatch = useDispatch()
 
     const onCompletePage = useCallback((data)=> {
-        // console.log(data);
-        s3POST(parseData(data))
+        s3POST (data)
         setShowPage(!showPage);
     },[showPage])
     
-    const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch({type: 'SET_PAGE', payload: "SURVEY"})
     }, [])
+
+    async function sendData (data) {
+      let response = await s3POST(parseData(data))
+      return await response
+    }
 
     const setFinalPage = ()=> {
         return (
