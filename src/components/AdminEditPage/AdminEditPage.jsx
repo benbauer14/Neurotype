@@ -192,14 +192,14 @@ const AdminEditPage = (props) => {
                                             <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
                                             <StyledTableCell align="center">
-                                                <Link to="/editUser">
-                                                <Route to="/editUser" render={(props) => <EditUserInfo userToEdit={props.match.params} id={props.match.params.id} /> }>
+                                                <Link to={`/editUser/${user.id}`}>
                                                     <BootstrapButton className="editBtn" >Edit</BootstrapButton>
-                                                </Route>
                                                 </Link>
                                             </StyledTableCell>
                                             <StyledTableCell align="center" scope="row">
-                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}><MdDelete></MdDelete></BootstrapButton>
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}>
+                                                    <MdDelete></MdDelete>
+                                                </BootstrapButton>
                                             </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
@@ -217,7 +217,9 @@ const AdminEditPage = (props) => {
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
                                             <StyledTableCell align="center" scope="row">
-                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}><GrRevert></GrRevert></BootstrapButton>
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: user})}>
+                                                    <GrRevert></GrRevert>
+                                                </BootstrapButton>
                                             </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
@@ -243,7 +245,9 @@ const AdminEditPage = (props) => {
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
                                             <StyledTableCell align="center" scope="row">
-                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}><MdDelete></MdDelete></BootstrapButton>
+                                                <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}>
+                                                    <MdDelete></MdDelete>
+                                                </BootstrapButton>
                                             </StyledTableCell>
                                         </TableRow>
                                     </TableBody>
@@ -261,7 +265,9 @@ const AdminEditPage = (props) => {
                                                     <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="center" scope="row">
-                                                    <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}><GrRevert className='revertBtn'></GrRevert></BootstrapButton>
+                                                    <BootstrapButton onClick={() => dispatch({type: 'DISABLE_USER', payload: filter})}>
+                                                        <GrRevert className='revertBtn'></GrRevert>
+                                                    </BootstrapButton>
                                                 </StyledTableCell>
                                             </TableRow>
                                         </TableBody>

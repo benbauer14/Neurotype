@@ -25,16 +25,19 @@ function EditUserInfo(props) {
     const user = {
         name: name,
         email: email,
-        password: password,
+        // password: password,
         role: role,
-        group_id: group_id
+        group_id: Number.parseInt(group_id),
+        id: Number.parseInt(props.match.params.id)
     }
     
-
-    const addParticipant = () => {
-        dispatch({type: 'REGISTER', payload: user})
+    
+    const editUser = () => {
+        console.log(user)
+        dispatch({type: 'UPDATE_RESEARCHER', payload: user})
     }
 
+    console.log(user)
     
 
     const BootstrapButton = withStyles({
@@ -77,23 +80,25 @@ function EditUserInfo(props) {
         },
     })(Button);
     
-    console.log(props)
+    console.log(props.match.params.id)
     
     if(userRole === 'Site Admin' || userRole === 'Super Admin') {
     return (
         <>
-            <h2 className='createNewPart'>Create New User</h2>
+            <h2 className='createNewPart'>Edit User</h2>
             <div className="addPartDiv">
                 <input className='addPart' placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
-                <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
+                {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
                 <input className='addPart' placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
                 <input className='addPart' placeholder="Group" value={group_id} onChange={(event) => setGroupID(event.target.value)}></input>
                 <select className='addPartSelect' placeholder="Role" value={role} onChange={(event) => setRole(event.target.value)}>
-                <option value='Site Admin'>Site Admin</option>
                 <option value='Researcher'>Researcher</option>
+                <option value='Lead Researcher'>Lead Researcher</option>
+                <option value='Senior Researcher'> Senior Researcher</option>
+                <option value='Site Admin'>Site Admin</option>
                 </select>
                 <Link >
-                    <BootstrapButton className='addPartBtn' onClick={() => addParticipant()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
+                    <BootstrapButton className='addPartBtn' onClick={() => editUser()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
                 </Link>
             </div>
         </>

@@ -162,7 +162,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/editUser"
+              path="/editUser/:id"
               component={EditUserInfo}
             />
             {/* If none of the other routes matched, we will show a 404. */}
