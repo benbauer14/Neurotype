@@ -88,6 +88,16 @@ const AboutPage = () => {
     dispatch({type: 'UPDATE_PARTICIPANT', payload: patient})
   }
 
+  const postnewSession = () => {
+    const session = {
+      notes: "notes",
+      user_id: 2,
+      participant_id: 3,
+      group_id: 1,
+    }
+    dispatch({type: 'POST_SESSION', payload: session})
+  }
+
   const putRes = () => {
     const researcher = {
       id: 2,
@@ -167,6 +177,7 @@ const AboutPage = () => {
         <button onClick={() => getUniqueSessions()}>Get Unique Sessions by Patient Name</button>
         <button onClick={() => s3POST()}>POST csv to S3</button>
         <button onClick={() => parseData()}>Parse it</button>
+        <button onClick={() => postnewSession()}>New Session</button>
         {JSON.stringify(participants)}
         {JSON.stringify(users)}
         {JSON.stringify(sessions)}
