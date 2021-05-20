@@ -93,6 +93,7 @@ const AboutPage = () => {
       notes: "notes",
       user_id: 2,
       participant_id: 3,
+      participant_name: 'bob',
       group_id: 1,
     }
     dispatch({type: 'POST_SESSION', payload: session})
@@ -106,7 +107,7 @@ const AboutPage = () => {
       password: "bob",
       role: 'Researcher',
       group_id: 1,
-      disabled: false
+      disabled: 'TRUE'
     }
     console.log(researcher)
     dispatch({type: 'UPDATE_RESEARCHER', payload: researcher})
