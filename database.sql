@@ -1,7 +1,7 @@
 
 -- database name: neurosity
 
-CREATE TABLE "group" (
+CREATE TABLE "researchgroup" (
     id SERIAL PRIMARY KEY UNIQUE,
     name text,
     description text
@@ -13,7 +13,7 @@ CREATE TABLE "user" (
     name text,
     password text,
     role text,
-    group_id integer REFERENCES "group"(id)
+    group_id integer REFERENCES "group"(id),
     disabled boolean DEFAULT false
 );
 
