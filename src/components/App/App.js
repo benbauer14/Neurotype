@@ -30,8 +30,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
 import AdminEditPage from '../AdminEditPage/AdminEditPage';
 import EditUserInfo from '../EditUserInfo/EditUserInfo';
-// import experiment from '../../neuromarkr-demo-pictureviewing/src/studies/pictureviewing'
-// import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
+import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
 
 
 import './App.css';
@@ -78,12 +77,12 @@ class App extends Component {
               path="/survey"
               component={survey}
             /> */}
-            {/* <Route
+            <Route
               // shows AboutPage at all times (logged in or not)
               exact
               path="/experiment"
               component={experiment}
-            /> */}
+            />
             <Route
               exact
               path="/login"
