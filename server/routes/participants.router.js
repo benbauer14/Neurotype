@@ -13,6 +13,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
   console.log('in /all with user:', req.user);
   let queryText;
   // if super admin, can view all participants
+  console.log(req.user.role)
   if (req.user.role === 'Super Admin') {
     queryText = `SELECT participant.id, participant.name, participant.gender, participant.birthdate, participant.disabled, participant.height, participant.weight, researchgroup.name AS groupName FROM participant JOIN researchgroup ON participant.group_id = researchgroup.id`;
     pool
