@@ -1,0 +1,23 @@
+.inputs, .inputsName, .inputsPassword{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+.inputsName {
+    margin-top: 10px;
+}
+.submitButton{
+    margin-top: 20px;
+    display: block;
+}
+.selectGroup{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.addresearcher{
+    text-align: center;
+    align-items: middle;
+}
