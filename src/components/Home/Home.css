@@ -19,3 +19,10 @@
     min-width: 250px !important;
     min-height: 70px !important;
 }
+.editButton{
+  display: block !important;
+  margin: 2rem !important;
+  min-width: 250px !important;
+  height: 85px !important;
+  background-color: rgb(31, 148, 169) !important;
+}

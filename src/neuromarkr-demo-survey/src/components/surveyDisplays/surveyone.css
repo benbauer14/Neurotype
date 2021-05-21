@@ -1,0 +1,13 @@
+.doneBtn{
+    display: block !important;
+    margin: 2rem !important;
+    min-width: 150px !important;
+    min-height: 70px !important;
+    /* margin: 0; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: 8rem !important;
+}

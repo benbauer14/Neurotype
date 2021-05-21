@@ -65,7 +65,7 @@ function CheckIn(props) {
 
     return (
         <>
-            <h3>{JSON.stringify(props.match.params.id)}</h3>
+            {/* <h3>{JSON.stringify(props.match.params.id)}</h3> */}
             <div class="container">
                 <div class ='center'>
                     <Link to="/survey">
