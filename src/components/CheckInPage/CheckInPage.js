@@ -70,7 +70,7 @@ function CheckIn(props) {
                     <Link to="/experiment">
                         <BootstrapButton className='button'><FaBrain></FaBrain>Photo Activity</BootstrapButton>
                     </Link>
-                    <Link to="/dashboard">
+                    <Link to="/pin">
                         <BootstrapButton className='button'><BsClipboardData></BsClipboardData>Dashboard</BootstrapButton>
                     </Link>
                 </div>
