@@ -28,6 +28,12 @@ CREATE TABLE participant (
     disabled boolean DEFAULT false
 );
 
+CREATE TABLE pins (
+	id SERIAL PRIMARY KEY,
+	pin_number integer,
+	group_id integer REFERENCES "group"(id)
+);
+
 CREATE TABLE session (
     id SERIAL PRIMARY KEY,
     time timestamp with time zone DEFAULT CURRENT_TIMESTAMP,

@@ -9,6 +9,7 @@ import researcherupdateSaga from './researcherupdate.saga'
 import usergetSaga from './userget.saga'
 import sessionsGetSaga from './sessionsget.saga';
 import sessionsUniqueSaga from './sessionsuniqueget.saga';
+import pinSaga from './pin.saga';
 import userUpdateSaga from './userupdate.saga';
 import sessionnewSaga from './sessionNew.saga';
 import surveynewSaga from './surveyresultsNew.saga'
@@ -29,6 +30,7 @@ export default function* rootSaga() {
     participantsSaga(),
     participantNewSaga(),
     participantupdateSaga(),
+    pinSaga(),
     researcherupdateSaga(),
     usergetSaga(),
     userUpdateSaga(),
