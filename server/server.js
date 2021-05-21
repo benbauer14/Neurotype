@@ -14,6 +14,7 @@ const userRouter = require('./routes/user.router');
 const participantsRouter = require('./routes/participants.router')
 const sessionsRouter = require('./routes/session.router')
 const uploadRouter = require('./routes/s3upload.router')
+const pinRouter = require('./routes/pin.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -31,6 +32,7 @@ app.use('/api/user', userRouter);
 app.use('/api/participants', participantsRouter);
 app.use('/api/session', sessionsRouter);
 app.use('/api/s3upload', uploadRouter);
+app.use('/api/pin', pinRouter);
 
 // Serve static files
 app.use(express.static('build'));

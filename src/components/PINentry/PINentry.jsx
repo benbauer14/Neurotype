@@ -2,28 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import PinInput from 'react-pin-input';
+import { useHistory } from 'react-router';
 
 function PINentry(props) {
   const [PIN, setPIN] = useState('');
   const dispatch = useDispatch()
+  const history = useHistory();
 
   useEffect(() => {
     dispatch({type: 'SET_PAGE', payload: "PIN"});
-    let userGroup = useSelector((store) => {
-      return store.user.group_id;
-    });
   }, []);
 
+  let userGroup = useSelector((store) => {
+    return store.user.group_id;
+  });
   let correctPIN = useSelector((store) => {
-    return store.PIN
+    return store.pin
   })
 
   const submitPIN = () => {
-    dispatch({type: 'SET_PIN', payload: {
-      group_id: userGroup,
-      pin: PIN
-    }});
-
+    if (correctPIN === parseInt(PIN)) {
+      history.push('/dashboard')
+    } else {
+      alert('INCORRECT PIN')
+    }
   }
 
   return (
@@ -34,7 +36,7 @@ function PINentry(props) {
         length={5}
         initialValue=""
         secret
-        onChange={(value, index) => { setPIN(value); }}
+        onChange={(value, index) => { setPIN(value); dispatch({type: 'FETCH_PIN'}); }}
         type="numeric"
         inputMode="number"
         style={{ padding: "10px", alignContent: 'center' }}
