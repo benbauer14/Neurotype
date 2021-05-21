@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link} from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
@@ -14,8 +14,8 @@ import './Home.css'
 // component name TemplateFunction with the name for the new component.
 function HomePage(props) {
     const dispatch = useDispatch()
-    
-
+    const role = useSelector(store => store.user.role)
+    console.log(role)
 
     const BootstrapButton = withStyles({
         root: {
@@ -60,7 +60,8 @@ function HomePage(props) {
     useEffect(() => {
         dispatch({type: 'SET_PAGE', payload: "HOME"})
     }, [])
-
+    
+    if(role === 'Super Admin' || role === 'Site Admin') {
     return (
         <div class="container">
             <div class="center">
@@ -70,9 +71,27 @@ function HomePage(props) {
                 <Link to="/addparticipant">
                     <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Add Participant</BootstrapButton>
                 </Link>
+                <Link to="/edit">
+                    <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Edit Users</BootstrapButton>
+                </Link>
             </div>
         </div>
-    );
+    );} else {
+        return(
+            <>
+            <div class="container">
+                <div class="center">
+                    <Link to="/selectparticipant">
+                        <BootstrapButton className='button'><BsPersonCheckFill></BsPersonCheckFill> Select Participant</BootstrapButton>
+                    </Link>
+                    <Link to="/addparticipant">
+                        <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Add Participant</BootstrapButton>
+                    </Link>
+                </div>
+            </div>
+            </>
+        )
+    }
 }
 
 export default connect(mapStoreToProps)(HomePage);

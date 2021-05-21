@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Link} from 'react-router-dom';
 import PinInput from 'react-pin-input';
 
 function PINentry(props) {
@@ -29,7 +30,9 @@ function PINentry(props) {
         autoSelect={true}
         regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
       />
-      <input className="btn" type="submit" name="submit" value="Submit" onClick={()=>{console.log(PIN);}}/>
+      <Link to='/dashboard'>
+        <input className="btn" type="submit" name="submit" value="Submit" onClick={()=>{console.log(PIN);}}/>
+      </Link>
     </div>
   );
 }

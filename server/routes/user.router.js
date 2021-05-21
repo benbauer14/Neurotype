@@ -45,8 +45,6 @@ router.post('/register', (req, res, next) => {
 router.put('/register/update', (req, res, next) => {
   console.log(req.body)
   const name = req.body.name;
-  console.log(name)
-  // const password = encryptLib.encryptPassword(req.body.password);
   const email = req.body.email;
   const role = req.body.role;
   const disabled = req.body.disabled
