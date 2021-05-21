@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import PinInput from 'react-pin-input';
 
@@ -8,8 +8,23 @@ function PINentry(props) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({type: 'SET_PAGE', payload: "PIN"})
-}, [])
+    dispatch({type: 'SET_PAGE', payload: "PIN"});
+    let userGroup = useSelector((store) => {
+      return store.user.group_id;
+    });
+  }, []);
+
+  let correctPIN = useSelector((store) => {
+    return store.PIN
+  })
+
+  const submitPIN = () => {
+    dispatch({type: 'SET_PIN', payload: {
+      group_id: userGroup,
+      pin: PIN
+    }});
+
+  }
 
   return (
     <div className="center-box">
@@ -29,7 +44,7 @@ function PINentry(props) {
         autoSelect={true}
         regexCriteria={/^[ A-Za-z0-9_@./#&+-]*$/}
       />
-      <input className="btn" type="submit" name="submit" value="Submit" onClick={()=>{console.log(PIN);}}/>
+      <input className="btn" type="submit" name="submit" value="Submit" onClick={submitPIN}/>
     </div>
   );
 }
