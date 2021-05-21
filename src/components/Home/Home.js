@@ -71,6 +71,9 @@ function HomePage(props) {
                 <Link to="/addparticipant">
                     <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Add Participant</BootstrapButton>
                 </Link>
+                <Link to="/CreateUser">
+                    <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Create User</BootstrapButton>
+                </Link>
                 <Link to="/edit">
                     <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Edit Users</BootstrapButton>
                 </Link>
