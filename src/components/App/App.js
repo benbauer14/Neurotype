@@ -28,7 +28,10 @@ import LoginPage from '../LoginPage/LoginPage';
 import PINentry from '../PINentry/PINentry';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
+import AdminEditPage from '../AdminEditPage/AdminEditPage';
+import EditUserInfo from '../EditUserInfo/EditUserInfo';
 // import experiment from '../../neuromarkr-demo-pictureviewing/src/studies/pictureviewing'
+// import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
 
 
 import './App.css';
@@ -65,7 +68,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/survey"
-              authRedirect="/login"
+              component={Survey}
             >
               <Survey />
             </ProtectedRoute>
@@ -115,7 +118,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/checkin/:id"
+              path="/userhome/:id"
               component={CheckInPage}
             />
 
@@ -151,6 +154,16 @@ class App extends Component {
               exact
               path="/registration"
               component={RegisterPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/edit"
+              component={AdminEditPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/editUser/:id"
+              component={EditUserInfo}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

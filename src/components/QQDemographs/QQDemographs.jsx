@@ -18,7 +18,7 @@ const QQDemographs = () => {
             <div>
                 <h3>Age</h3>
                 <Select 
-    
+                    
                 />
             </div>
 

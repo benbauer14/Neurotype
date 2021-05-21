@@ -62,7 +62,7 @@ function AddUser(props) {
                 '"Segoe UI Symbol"',
             ].join(','),
             '&:hover': {
-                backgroundColor: '#0069d9',
+                backgroundColor: 'rgb(39, 136, 160)',
                 borderColor: '#0062cc',
                 boxShadow: 'none',
             },
@@ -81,12 +81,12 @@ function AddUser(props) {
     return (
         <>
             <h2 className='createNewPart'>Create New User</h2>
-            <div>
+            <div className="addPartDiv">
                 <input className='addPart' placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
                 <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
                 <input className='addPart' placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)}></input>
                 <input className='addPart' placeholder="Group" value={group_id} onChange={(event) => setGroupID(event.target.value)}></input>
-                <select className='addPart' placeholder="Role" value={role} onChange={(event) => setRole(event.target.value)}>
+                <select className='addPartSelect' placeholder="Role" value={role} onChange={(event) => setRole(event.target.value)}>
                 <option value='Site Admin'>Site Admin</option>
                 <option value='Researcher'>Researcher</option>
                 </select>

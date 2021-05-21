@@ -9,7 +9,7 @@ function* updateUser(action) {
       withCredentials: true,
     };
     console.log(action.payload)
-    yield axios.post('/api/user/registration/update', action.payload);
+    yield axios.put('/api/user/registration/update', action.payload);
     yield put({ type: 'FETCH_USERS' });
   } catch (error) {
     console.log('Update User request failed', error);
@@ -18,15 +18,25 @@ function* updateUser(action) {
 
 function* addUser(action){
   try {
-    yield axios.post('/register', action.payload)
+    yield axios.post('api/user/register', action.payload)
   } catch (error) {
     console.log( 'Add new user request failed', error );
+  }
+}
+
+function* disableUser(action){
+  try{
+    yield axios.put('/api/user/disable', action.payload)
+    // yield put({ type: 'FETCH_USERS'})
+  } catch (error) {
+    console.log('Update user request failed', error)
   }
 }
 
 function* participantupdateSaga() {
   yield takeLatest('ADD_RESEARCHER', addUser);
   yield takeLatest('UPDATE_USER', updateUser);
+  yield takeLatest('DISABLE_USER', disableUser);
 }
 
 export default participantupdateSaga;
