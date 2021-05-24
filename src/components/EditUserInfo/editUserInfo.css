@@ -1,4 +1,13 @@
 .addPartDiv{
     text-align: center;
     align-items: middle;
+    display: block !important;
+}
+.editUserIcon{
+    size: 30px !important;
+}
+.editButton{
+    display: flex !important;
+    margin: 2rem !important;
+    margin-top: 2rem !important;
 }

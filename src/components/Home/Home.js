@@ -6,6 +6,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {IoMdPersonAdd} from 'react-icons/io';
 import {BsPersonCheckFill} from 'react-icons/bs'
+import {FaUserEdit} from 'react-icons/fa';
 import './Home.css'
 
 
@@ -19,7 +20,7 @@ function HomePage(props) {
 
     const BootstrapButton = withStyles({
         root: {
-            boxShadow: '2px 2px 2px 1px rgba(0, 0, 0, 0.2);',
+            boxShadow: '2px 2px 2px 2px rgba(0, 0, 0, 0.2);',
             textTransform: 'none',
             textDecoration: 'none',
             fontSize: 16,
@@ -52,7 +53,7 @@ function HomePage(props) {
                 borderColor: '#005cbf',
             },
             '&:focus': {
-                boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+                boxShadow: '0 0 0 0.8rem rgba(0,123,255,.5)',
             },
         },
     })(Button);
@@ -60,7 +61,7 @@ function HomePage(props) {
     useEffect(() => {
         dispatch({type: 'SET_PAGE', payload: "HOME"})
         dispatch({type: 'RESET_PARTICIPANTS'})
-        dispatch({type: 'RESET_SESSION'})
+        dispatch({type: 'RESET_SESSIONgi'})
     }, [])
     
     if(role === 'Super Admin' || role === 'Site Admin') {
@@ -68,16 +69,16 @@ function HomePage(props) {
         <div class="container">
             <div class="center">
                 <Link to="/selectparticipant">
-                    <BootstrapButton className='button'><BsPersonCheckFill></BsPersonCheckFill> Select Participant</BootstrapButton>
+                    <BootstrapButton className='button'><BsPersonCheckFill size="30px" className="homeIcon"></BsPersonCheckFill><span className="vertical-line1"></span> Select Participant</BootstrapButton>
                 </Link>
                 <Link to="/addparticipant">
-                    <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Add Participant</BootstrapButton>
+                    <BootstrapButton className='button'><IoMdPersonAdd size="30px" className="homeIcon"></IoMdPersonAdd><span className="vertical-line3"></span> Add Participant</BootstrapButton>
                 </Link>
                 <Link to="/CreateUser">
-                    <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Create User</BootstrapButton>
+                    <BootstrapButton className='button'><IoMdPersonAdd size="30px" className="homeIcon"></IoMdPersonAdd><span className="vertical-line"></span> Create User</BootstrapButton>
                 </Link>
                 <Link to="/edit">
-                    <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Edit Users</BootstrapButton>
+                    <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line4"></span> <span className="btnText">Edit Users</span></BootstrapButton>
                 </Link>
             </div>
         </div>
