@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "UPDATE_PARTICIPANT" actions
 function* updateResearcher(action) {
@@ -10,6 +10,8 @@ function* updateResearcher(action) {
     };
     console.log(action.payload)
     yield axios.put('/api/user/register/update', action.payload);
+    yield put({ type: 'FETCH_USERS' });
+
   } catch (error) {
     console.log('Participant POST request failed', error);
   }
