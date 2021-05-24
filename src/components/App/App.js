@@ -30,9 +30,13 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
 import AdminEditPage from '../AdminEditPage/AdminEditPage';
 import EditUserInfo from '../EditUserInfo/EditUserInfo';
+
 // import experiment from '../../neuromarkr-demo-pictureviewing/src/studies/pictureviewing'
 import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
 
+
+// test
+import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
 
 import './App.css';
 
