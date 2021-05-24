@@ -9,7 +9,6 @@ function* fetchPIN() {
       withCredentials: true,
     };
     const response = yield axios.get('/api/pin', config);
-    console.log(response.data)
     yield put({ type: 'SET_PIN', payload: response.data.pin_number });
   } catch (error) {
     console.log('pin GET request failed', error);

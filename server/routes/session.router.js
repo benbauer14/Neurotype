@@ -19,6 +19,17 @@ const {
       })
   });
 
+  router.get('/groupid', rejectUnauthenticated, (req, res) => {
+    // GET all participants
+    const queryText = `SELECT * FROM session WHERE group_id=$1 `
+      pool.query(queryText, [req.query.gid]).then((response) => {
+          res.send(response.rows)
+      }).catch((err) => {
+          res.sendStatus(500)
+          console.log(err)
+      })
+  });
+
   router.get('/participant', rejectUnauthenticated, (req, res) => {
     // GET unique participants
       const queryText = `SELECT session.id, session.time, session.notes, session.user_id, session.participant_id, session.group_id FROM session JOIN participant ON session.participant_id = participant.id WHERE participant.name = $1`
