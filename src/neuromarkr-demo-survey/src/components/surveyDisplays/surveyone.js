@@ -130,7 +130,7 @@ const SurveyOne = ()=> {
     const setFinalPage = ()=> {
         return (
             <main>
-                <h1>Thanks for Completing the Survey!</h1>
+                <h1 className="surveyComplete">Thanks for Completing the Survey!</h1>
                 <Link to={`/userhome/${participant}`}>
                     <BootstrapButton className="doneBtn" onClick={() => {handleComplete()}}>Done</BootstrapButton>
                 </Link>

@@ -149,18 +149,30 @@ const AdminEditPage = (props) => {
         },
     })(Button);
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
     const handleDisable = () => {
         // dispatch({type: 'DISABLE_USER', payload: user})
-        Swal.fire({
+        Toast.fire({
             title: 'User Disabled',
             // text: 'User Disabled',
-            icon: 'info'
+            icon: 'warning'
         })
     }
     const handleEnable = () => {
-        Swal.fire({
+        Toast.fire({
             title: 'User Enabled',
-            icon: 'info'
+            icon: 'success'
         })
     }
 
@@ -280,7 +292,7 @@ const AdminEditPage = (props) => {
                                                 </StyledTableCell>
                                                 <StyledTableCell align="center" scope="row">
                                                     <BootstrapButton onClick={() => {dispatch({type: 'DISABLE_USER', payload: filter}); {handleEnable()}}}>
-                                                        <GrRevert className='revertBtn'></GrRevert>
+                                                        <GrRevert className='revertBtn' ></GrRevert>
                                                     </BootstrapButton>
                                                 </StyledTableCell>
                                             </TableRow>

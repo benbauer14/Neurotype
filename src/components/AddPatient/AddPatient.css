@@ -11,7 +11,17 @@
     height: 28px;
 }
 .addPartBtn{
-    float: right;
-    margin-right: 25rem !important;
-    margin-top: -2rem !important;
+    display: block !important; 
+    margin-left: 25rem !important;
+    margin-top: -35px !important;
+
 }
+.centerBtn {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
