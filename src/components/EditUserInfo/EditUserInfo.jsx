@@ -6,6 +6,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {BsFillPersonPlusFill} from 'react-icons/bs'
 import './editUserInfo.css'
+import axios from 'axios';
 
 
 
@@ -18,17 +19,26 @@ function EditUserInfo(props) {
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     let [role, setRole] = useState('');
-    let [group_id, setGroupID] = useState('');
+    let [groupname, setGroupName] = useState('');
+    let [group_id, setGroupId] = useState('');
+    let [groups, setGroups] = useState([]);
+
     useEffect(() => {
         dispatch({type: 'SET_PAGE', payload: "EDITUSER"})
         for(let i=0; i<users.length; i++){
             if(users[i].id === Number.parseInt(props.match.params.id)){
                 setName(users[i].name)
                 setEmail(users[i].email)
-                setGroupID(users[i].group_id)
+                setGroupName(users[i].groupname)
                 setRole(users[i].role)
+                setGroupId(users[i].group_id)
             }
         }
+        axios.get('/api/groups').then((response) => {
+            setGroups(response.data)
+            }).catch((err) => {
+            console.log("Error getting groups", err)
+            })
     }, [])
 
     const user = {
@@ -103,7 +113,16 @@ function EditUserInfo(props) {
                 <input className='addPart' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
                 {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
                 <input className='addPart' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
-                <input className='addPart' placeholder="Group" value={group_id} style={BarStyling} onChange={(event) => setGroupID(event.target.value)}></input>
+                <select className='addPartSelect' placeholder="Group" style={SelectStyling} onChange={(event) => setGroupId(event.target.value)}>
+                {groups.map(group =>{
+                    if(group.id === group_id){
+                        console.log(Number.parseInt(group.id))
+                        return(<option key={Number.parseInt(group.id)} selected="selected" value={Number.parseInt(group.id)}>{group.name}</option>)
+                    }else{
+                        return(<option key={Number.parseInt(group.id)} value={Number.parseInt(group.id)}>{group.name}</option>)
+                    }
+                    })}
+                </select>
                 <select className='addPartSelect' placeholder="Role" value={role} style={SelectStyling} onChange={(event) => setRole(event.target.value)}>
                     <option value='Researcher'>Researcher</option>
                     <option value='Site Admin'>Site Admin</option>
@@ -126,7 +145,16 @@ function EditUserInfo(props) {
                     <input className='addPart' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
                     {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
                     <input className='addPart' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
-                    <input className='addPart' placeholder="Group" value={group_id} style={BarStyling} onChange={(event) => setGroupID(event.target.value)}></input>
+                <select className='addPartSelect' placeholder="Role" value={group_id} style={SelectStyling} onChange={(event) => setGroupId(event.target.value)}>
+                {groups.map(group =>{
+                    if(group.id === group_id){
+                        console.log(Number.parseInt(group.id))
+                        return(<option key={Number.parseInt(group.id)} selected="selected" value={Number.parseInt(group.id)}>{group.name}</option>)
+                    }else{
+                        return(<option key={Number.parseInt(group.id)} value={Number.parseInt(group.id)}>{group.name}</option>)
+                    }
+                    })}
+                </select>
                     <select className='addPartSelect' placeholder="Role" value={role} style={SelectStyling} onChange={(event) => setRole(event.target.value)}>
                         <option value='Researcher'>Researcher</option>
                         <option value='Site Admin'>Site Admin</option>
