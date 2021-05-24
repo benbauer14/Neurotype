@@ -164,7 +164,10 @@ function EditUserInfo(props) {
             <>
                 <h2 className='createNewPart'>Edit User</h2>
                 <div className="addPartDiv">
-                <div className="center">
+
+                    <div className="center">
+
+
                     <input className='addPart' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
                     {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
                     <input className='addPart' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
