@@ -1,4 +1,4 @@
-.inputs, .inputsName, .inputsPassword{
+.inputs, .inputsName, .inputsPassword, .selectGroup, .titleSelect{
     margin: 0 auto;
     margin-bottom: 10px;
     display: block;
@@ -15,9 +15,11 @@
 .selectGroup{
     margin-bottom: 10px;
     display: block;
+
 }
+
 
 .addresearcher{
     text-align: center;
-    align-items: middle;
+    /* align-items: middle; */
 }
