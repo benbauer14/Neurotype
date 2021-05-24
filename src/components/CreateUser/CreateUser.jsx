@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
 import Button from '@material-ui/core/Button';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import {  withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import './createUser.css'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const BarStyling = { width: "20rem", height: 25, background: "#F2F1F9", border: "none", padding: "0.5rem" };
-const SelectStyling = { width: "21rem", border: "none", textAlign: "left" };
+const SelectStyling = { width: "21rem", height: 40, border: "none", textAlign: "left" };
 
 const BootstrapButton = withStyles({
     root: {
@@ -130,41 +124,19 @@ const CreateUser = () => {
     const conditionalTitles = () => {
         if(user.role === 'Site Admin'){
             return(
-            <FormControl>
-                    <Select
-                    id="demo-customized-select"
-                    placeholder="Title"
-                    value={userTitle}
-                    style={SelectStyling}
-                    onChange={(e) => {setUserTitle(e.target.value)}}
-                    input={<BootstrapInput />}
-                    >
-                    <MenuItem value="none" default disabled>
-                    Title
-                    </MenuItem>
-                    <MenuItem value='Researcher'>Researcher</MenuItem>
-                    </Select>
-            </FormControl>
+            <select className='titleSelect' placeholder="Title" value={userTitle} style={SelectStyling} onChange={(e) => {setUserTitle(e.target.value)}}>
+                <option value="" selected hidden disabled>Title</option>
+                <option value='Researcher'>Researcher</option>
+            </select>
             )
         }else if( user.role === 'Super Admin'){
             return(
-                <FormControl>
-                    <Select
-                    id="demo-customized-select"
-                    placeholder="Title"
-                    value={userTitle}
-                    style={SelectStyling}
-                    onChange={(e) => {setUserTitle(e.target.value)}}
-                    input={<BootstrapInput />}
-                    >
-                    <MenuItem value="none" default disabled>
-                    Title
-                    </MenuItem>
-                    <MenuItem value='Researcher'>Researcher</MenuItem>
-                    <MenuItem value='Site Admin'>Site Admin</MenuItem>
-                    <MenuItem value='Researcher'>Researcher</MenuItem>
-                    </Select>
-                </FormControl>
+            <select className='titleSelect' placeholder="Title" style={SelectStyling} onChange={(e) => {setUserTitle(e.target.value)}}>
+                <option value="" selected hidden disabled>Title</option>
+                <option value='Researcher'>Researcher</option>
+                <option value='Site Admin'>Site Admin</option>
+                <option value='Super Admin'>Super Admin</option>
+            </select>
             )
         }
     }
@@ -182,38 +154,23 @@ const CreateUser = () => {
                 }
             }
             return(
-                <FormControl>
-                    <Select
-                    id="demo-customized-select"
-                    value={userGroupID}
-                    className="selectGroup"
-                    style={SelectStyling}
-                    onChange={(e) => {setGroupID(e.target.value)}}
-                    input={<BootstrapInput />}
-                    >
-                        <MenuItem value={user.group_id}>{siteAdminGroup}</MenuItem>
-                    </Select>
-                </FormControl>
+            <div className="groupSelect">
+            <select className='selectGroup' placeholder="Group Name" value={userGroupID} style={SelectStyling} onChange={(e) => {setGroupID(e.target.value)}}>
+                <option value="" selected hidden disabled>Group Name</option>
+                <option value={user.group_id}>{siteAdminGroup}</option>
+            </select>
+            </div>
             )
         }else if(user.role === 'Super Admin'){
             return(
-                <FormControl>
-                    <Select
-                    id="demo-customized-select"
-                    className="selectGroup"
-                    value={userGroupID}
-                    style={SelectStyling}
-                    onChange={(e) => {setGroupID(e.target.value)}}
-                    input={<BootstrapInput />}
-                    >
-                    <MenuItem value="none" default disabled>
-                    Group Name
-                    </MenuItem>
+                <div className="groupSelect">
+                <select className='selectGroup' placeholder="Group Name" value={userGroupID} style={SelectStyling} onChange={(e) => {setGroupID(e.target.value)}}>
+                <option value="" selected hidden disabled>Group Name</option>
                     {groups.map(group =>{
-                        return(<MenuItem key='group.id' value='group.id'>{group.name}</MenuItem>)
+                        return(<option key={group.id} value={group.id}>{group.name}</option>)
                     })}
-                    </Select>
-                </FormControl>
+                </select>
+                </div>
             )
         }
     }

@@ -51,11 +51,7 @@ const Nav = (props) => {
             </Link> */}
             <p className="participantNav">Participant ID: <strong>{participant}</strong></p>
             <LogOutButton className="nav-link" >
-              <IconContext.Provider value={{size: '10em'}}>
-                <>
-                  <IoLogOutOutline></IoLogOutOutline>
-                </>
-              </IconContext.Provider>
+                  <IoLogOutOutline size="20px"></IoLogOutOutline>
             </LogOutButton>
           </>
         )}
@@ -92,11 +88,7 @@ const Nav = (props) => {
               Info Page
             </Link> */}
             <LogOutButton className="nav-link" >
-              <IconContext.Provider value={{size: '10em'}}>
-                <div>
-                  <IoLogOutOutline></IoLogOutOutline>
-                </div>
-              </IconContext.Provider>
+                  <IoLogOutOutline size="20px"></IoLogOutOutline>
             </LogOutButton>
           </>
         )}
