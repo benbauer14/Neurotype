@@ -72,10 +72,10 @@ const Dashboard = (props) => {
             <div>
                 <h1>Dashboard</h1>
                 
-                <Table className={classes.table} aria-label="customized table">
+                <Table className={classes.table}>
                     <TableHead component='th'>
                         <TableRow>
-                            <TableCell align="center">Session ID</TableCell>
+                            <TableCell style={{width:'5%'}} align="center">Session ID</TableCell>
                             <TableCell align="center">Researcher</TableCell>
                             <TableCell align="center">Participant</TableCell>
                             <TableCell align="center">Group</TableCell>
@@ -92,11 +92,11 @@ const Dashboard = (props) => {
                                     <TableBody key={index} className='hover={true}' component={Paper}>
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{session.id}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.user_id}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.participant_id}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.group_id}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.eegraw}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.survray}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{session.researchername}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{session.participantname}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{session.researchgroup}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{session.run}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{session.csvlocation}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{session.time}</StyledTableCell>                                           
                                         </TableRow>
                                     </TableBody>
