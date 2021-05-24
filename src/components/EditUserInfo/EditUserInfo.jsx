@@ -117,9 +117,9 @@ function EditUserInfo(props) {
                 {groups.map(group =>{
                     if(group.id === group_id){
                         console.log(Number.parseInt(group.id))
-                        return(<option key='group.id' selected="selected" value={Number.parseInt(group.id)}>{group.name}</option>)
+                        return(<option key={Number.parseInt(group.id)} selected="selected" value={Number.parseInt(group.id)}>{group.name}</option>)
                     }else{
-                        return(<option key='group.id' value={Number.parseInt(group.id)}>{group.name}</option>)
+                        return(<option key={Number.parseInt(group.id)} value={Number.parseInt(group.id)}>{group.name}</option>)
                     }
                     })}
                 </select>
@@ -149,9 +149,9 @@ function EditUserInfo(props) {
                 {groups.map(group =>{
                     if(group.id === group_id){
                         console.log(Number.parseInt(group.id))
-                        return(<option key='group.id' selected="selected" value={Number.parseInt(group.id)}>{group.name}</option>)
+                        return(<option key={Number.parseInt(group.id)} selected="selected" value={Number.parseInt(group.id)}>{group.name}</option>)
                     }else{
-                        return(<option key='group.id' value={Number.parseInt(group.id)}>{group.name}</option>)
+                        return(<option key={Number.parseInt(group.id)} value={Number.parseInt(group.id)}>{group.name}</option>)
                     }
                     })}
                 </select>
