@@ -7,9 +7,14 @@ import { notion, useNotion } from "../services/notion";
 import { Nav } from "../components/Nav";
 import studyData from "../studies/pictureviewing";
 
+import { useDispatch } from 'react-redux'
+
 const study = window.lab.util.fromObject(studyData)
 
 export default function Experiment() {
+
+  const dispatch = useDispatch();
+
   const { user } = useNotion();
   const [brainwaves, setBrainwaves] = useState(null);
   
@@ -34,7 +39,8 @@ export default function Experiment() {
       .subscribe((brainwaves) => {
         setBrainwaves(brainwaves);
         // all brainwave data from the task below, should be sent to database
-        console.log(JSON.stringify(brainwaves, null, 2)); 
+        console.log(JSON.stringify(brainwaves, null, 2));
+        dispatch({type: 'POST_BRAINWAVES', payload: brainwaves });
       })
     
     return () => {

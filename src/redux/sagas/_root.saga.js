@@ -12,7 +12,8 @@ import sessionsUniqueSaga from './sessionsuniqueget.saga';
 import pinSaga from './pin.saga';
 import userUpdateSaga from './userupdate.saga';
 import sessionnewSaga from './sessionNew.saga';
-import surveynewSaga from './surveyresultsNew.saga'
+import surveynewSaga from './surveyresultsNew.saga';
+import brainwavesSaga from './brainwaves.saga';
 
 
 // rootSaga is the primary saga.
@@ -38,5 +39,6 @@ export default function* rootSaga() {
     sessionsUniqueSaga(),
     sessionnewSaga(),
     surveynewSaga(),
+    brainwavesSaga(),
   ]);
 }
