@@ -36,7 +36,6 @@ import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
 
 
 // test
-// import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
 
 import './App.css';
 

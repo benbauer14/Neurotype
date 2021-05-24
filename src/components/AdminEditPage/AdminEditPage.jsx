@@ -216,7 +216,7 @@ const AdminEditPage = (props) => {
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.groupname}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <Link to={`/editUser/${user.id}`}>
                                                     <BootstrapButton className="editBtn" >Edit</BootstrapButton>
@@ -238,7 +238,7 @@ const AdminEditPage = (props) => {
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.groupname}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
@@ -266,7 +266,7 @@ const AdminEditPage = (props) => {
                                         <TableRow >
                                             <StyledTableCell align="center">{filter.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
-                                            <StyledTableCell align="center">{filter.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center">{filter.groupname}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
@@ -286,7 +286,7 @@ const AdminEditPage = (props) => {
                                             <TableRow >
                                                 <StyledTableCell align="center">{filter.name}</StyledTableCell>
                                                 <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
-                                                <StyledTableCell align="center">{filter.group_id}</StyledTableCell>
+                                                <StyledTableCell align="center">{filter.groupname}</StyledTableCell>
                                                 <StyledTableCell align="center">
                                                     <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                                 </StyledTableCell>

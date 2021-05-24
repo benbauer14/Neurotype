@@ -96,7 +96,7 @@ router.put('/disable', (req, res) => {
 
 router.get('/register/users', (req, res) => {
   // GET all users, do not respond with password or group id
-    const queryText = `SELECT id, name, email, role, disabled, group_id FROM "users" ORDER BY id`
+    const queryText = `SELECT users.id, users.name, users.email, users.role, users.disabled, users.group_id, researchgroup.name AS groupname FROM "users" JOIN researchgroup ON users.group_id = researchgroup.id ORDER BY id`
     pool.query(queryText).then((response) => {
         res.send(response.rows)
     }).catch((err) => {
