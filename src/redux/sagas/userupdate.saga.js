@@ -18,7 +18,7 @@ function* updateUser(action) {
 
 function* addUser(action){
   try {
-    yield axios.post('/register', action.payload)
+    yield axios.post('api/user/register', action.payload)
   } catch (error) {
     console.log( 'Add new user request failed', error );
   }
