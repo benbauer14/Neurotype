@@ -5,6 +5,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {BsFillPersonPlusFill} from 'react-icons/bs'
+import Swal from 'sweetalert2'
+import {FaUserEdit} from 'react-icons/fa';
 import './editUserInfo.css'
 import axios from 'axios';
 
@@ -14,6 +16,7 @@ function EditUserInfo(props) {
     const dispatch = useDispatch();
     const userRole = useSelector((store) => store.user.role)
     const users = useSelector((store) => store.users)
+    const history = useHistory()
 
     let [name, setName] = useState('');
     let [email, setEmail] = useState('');
@@ -50,10 +53,26 @@ function EditUserInfo(props) {
         id: Number.parseInt(props.match.params.id)
     }
     
-    const history = useHistory()
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
     const editUser = () => {
         console.log(user)
         dispatch({type: 'UPDATE_RESEARCHER', payload: user})
+        Toast.fire({
+            title: 'User Edited',
+            // text: 'User Disabled',
+            icon: 'success'
+        })
         history.push('/edit')
     }
 
@@ -99,7 +118,10 @@ function EditUserInfo(props) {
               },
           },
       })(Button);
-    
+
+      
+
+
     console.log(props.match.params.id)
     const BarStyling = { width: "20rem", height: 25, background: "#F2F1F9", border: "none", padding: "0.5rem" };
     const SelectStyling = { width: "21rem", height: 40, border: "none", textAlign: "left" };
@@ -130,7 +152,7 @@ function EditUserInfo(props) {
                 </select>
                 <br></br>
             <Link >
-                    <BootstrapButton className="editButton" onClick={() => editUser()}><BsFillPersonPlusFill></BsFillPersonPlusFill>Submit</BootstrapButton>
+                    <BootstrapButton className="editButton" onClick={() => editUser()}><FaUserEdit size="20px" className="editUserIcon"></FaUserEdit>Submit</BootstrapButton>
             </Link>
             </form>
             </div>
@@ -142,6 +164,10 @@ function EditUserInfo(props) {
             <>
                 <h2 className='createNewPart'>Edit User</h2>
                 <div className="addPartDiv">
+
+                    <div className="center">
+
+
                     <input className='addPart' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
                     {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
                     <input className='addPart' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
@@ -160,9 +186,10 @@ function EditUserInfo(props) {
                         <option value='Site Admin'>Site Admin</option>
                     </select>
 
-                <Link >
-                        <BootstrapButton className="editButton" onClick={() => editUser()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
-                </Link>
+                        <Link >
+                                <BootstrapButton className="editButton" onClick={() => editUser()}><FaUserEdit size="25px" className="editUserIcon"></FaUserEdit></BootstrapButton>
+                        </Link>
+                    </div>
                 </div>
     
             </>

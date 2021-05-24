@@ -10,7 +10,7 @@ const LogOutButton = (props) => (
     // is passed to it from it's parents through React props
     className={props.className}
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
-  ><div><IoLogOutOutline className='logOutIcon'></IoLogOutOutline></div>
+  ><div><IoLogOutOutline className='logOutIcon' size="20px"></IoLogOutOutline></div>
     Log Out
   </button>
 );
