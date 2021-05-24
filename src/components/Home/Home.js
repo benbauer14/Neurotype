@@ -59,6 +59,8 @@ function HomePage(props) {
 
     useEffect(() => {
         dispatch({type: 'SET_PAGE', payload: "HOME"})
+        dispatch({type: 'RESET_PARTICIPANTS'})
+        dispatch({type: 'RESET_SESSION'})
     }, [])
     
     if(role === 'Super Admin' || role === 'Site Admin') {
