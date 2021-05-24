@@ -1,0 +1,13 @@
+.addGroupBtn {
+    margin-top: 10px;
+}
+
+.addGroupInputs{
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    border-radius: 5px;
+    width: 250px;
+    height: 28px;
+}

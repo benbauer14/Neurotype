@@ -30,6 +30,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Survey from '../../neuromarkr-demo-survey/src/components/surveyDisplays/surveyone'
 import AdminEditPage from '../AdminEditPage/AdminEditPage';
 import EditUserInfo from '../EditUserInfo/EditUserInfo';
+import CreateGroup from '../CreateGroup/CreateGroup'
 
 // import experiment from '../../neuromarkr-demo-pictureviewing/src/studies/pictureviewing'
 import experiment from '../../neuromarkr-demo-pictureviewing/src/App';
@@ -95,6 +96,11 @@ class App extends Component {
               exact
               path="/home"
               component={Home}
+            />
+            <ProtectedRoute
+              exact
+              path="/newgroup"
+              component={CreateGroup}
             />
             <ProtectedRoute
               exact
