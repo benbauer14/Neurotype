@@ -17,10 +17,14 @@ const uploadRouter = require('./routes/s3upload.router')
 const pinRouter = require('./routes/pin.router')
 const surveyRouter = require('./routes/survey.router')
 const groupRouter = require('./routes/group.router')
+const eegRouter = require('./routes/eeg.router')
 
 // Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json();
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({limit: '5mb'}));
+app.use(express.urlencoded({limit: '5mb'}));
+
 
 // Passport Session Configuration //
 app.use(sessionMiddleware);
@@ -37,6 +41,7 @@ app.use('/api/s3upload', uploadRouter);
 app.use('/api/pin', pinRouter);
 app.use('/api/survey', surveyRouter);
 app.use('/api/groups', groupRouter);
+app.use('/api/eeg', eegRouter);
 
 // Serve static files
 app.use(express.static('build'));
