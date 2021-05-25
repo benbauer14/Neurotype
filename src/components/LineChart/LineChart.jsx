@@ -971,8 +971,10 @@ const LineChart = () => {
                         beginAtZero: true,
                         ticks:{
                             autoSkip: false,
-                            fontColor: "white"
-                        }
+                            fontColor: "White",
+                            maxTicksLimit: 50
+                        },
+                        gridLines: {zeroLineWidth: 100}
                 }],
                 yAxes: [{
                     beginAtZero: true,

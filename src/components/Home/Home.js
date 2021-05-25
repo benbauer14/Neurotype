@@ -61,9 +61,19 @@ function HomePage(props) {
     useEffect(() => {
         dispatch({type: 'SET_PAGE', payload: "HOME"})
         dispatch({type: 'RESET_PARTICIPANTS'})
-        dispatch({type: 'RESET_SESSIONgi'})
+        dispatch({type: 'RESET_SESSION'})
     }, [])
     
+    const createGroup = () => {
+        if(role === 'Super Admin'){
+        return(
+        <Link to="/newgroup">
+            <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line4"></span> <span className="btnText">Create Group</span></BootstrapButton>
+        </Link>
+        )
+        }
+    }
+
     if(role === 'Super Admin' || role === 'Site Admin') {
     return (
         <div class="container">
@@ -80,6 +90,7 @@ function HomePage(props) {
                 <Link to="/edit">
                     <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line4"></span> <span className="btnText">Edit Users</span></BootstrapButton>
                 </Link>
+                {createGroup()}
             </div>
         </div>
     );} else {

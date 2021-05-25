@@ -16,8 +16,23 @@ function* fetchSessions() {
   }
 }
 
+function* fetchSessionsGroup (action) {
+  try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
+    const response = yield axios.get('/api/session/groupid?gid=' + action.payload);
+    console.log(response.data)
+    yield put({ type: 'SET_SESSIONS', payload: response.data });
+  } catch (error) {
+    console.log('Sessions GET request failed', error);
+  }
+}
+
 function* sessionsGetSaga() {
   yield takeLatest('FETCH_SESSIONS', fetchSessions);
+  yield takeLatest('FETCH_SESSIONGROUP', fetchSessionsGroup);
 }
 
 export default sessionsGetSaga;
