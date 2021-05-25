@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Link} from 'react-router-dom';
 import PinInput from 'react-pin-input';
 import { useHistory } from 'react-router';
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {IoLogOutOutline} from 'react-icons/io5';
+import './LogOutButton.css';
 
 const LogOutButton = (props) => (
   <button
@@ -8,7 +10,7 @@ const LogOutButton = (props) => (
     // is passed to it from it's parents through React props
     className={props.className}
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
-  >
+  ><div><IoLogOutOutline className='logOutIcon'></IoLogOutOutline></div>
     Log Out
   </button>
 );
