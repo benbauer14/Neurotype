@@ -27,7 +27,7 @@ function EditUserInfo(props) {
     let [groups, setGroups] = useState([]);
 
     useEffect(() => {
-        dispatch({type: 'SET_PAGE', payload: "EDITUSER"})
+
         for(let i=0; i<users.length; i++){
             if(users[i].id === Number.parseInt(props.match.params.id)){
                 setName(users[i].name)
@@ -42,6 +42,7 @@ function EditUserInfo(props) {
             }).catch((err) => {
             console.log("Error getting groups", err)
             })
+        dispatch({type: 'SET_PAGE', payload: "EDITUSER"})
     }, [])
 
     const user = {
