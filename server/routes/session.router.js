@@ -15,7 +15,8 @@ const {
       JOIN researchgroup ON session.group_id = researchgroup.id
       JOIN participant ON session.participant_id = participant.id
       LEFT JOIN surveyraw ON session.id = surveyraw.session_id
-      LEFT JOIN eegraw ON session.id = eegraw.session_id`
+      LEFT JOIN eegraw ON session.id = eegraw.session_id
+      ORDER BY session.id`
       pool.query(queryText).then((response) => {
           res.send(response.rows)
       }).catch((err) => {
@@ -31,7 +32,8 @@ const {
     JOIN researchgroup ON session.group_id = researchgroup.id
     JOIN participant ON session.participant_id = participant.id
     LEFT JOIN surveyraw ON session.id = surveyraw.session_id
-    LEFT JOIN eegraw ON session.id = eegraw.session_id WHERE session.group_id=$1 `
+    LEFT JOIN eegraw ON session.id = eegraw.session_id WHERE session.group_id=$1 
+    ORDER BY session.id`
       pool.query(queryText, [req.query.gid]).then((response) => {
           res.send(response.rows)
       }).catch((err) => {

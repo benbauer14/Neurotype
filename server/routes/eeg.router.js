@@ -8,8 +8,8 @@ const {
  router.post('/new', (req, res) => {
     // POST new survey results
     console.log('in post', req.body.jsondata)
-    const queryText = `INSERT INTO surveyraw (json, session_id, csvlocation) VALUES ($1, $2, $3) RETURNING id`
-    pool.query(queryText, [req.body.jsondata, req.body.session_id, req.body.csvlocation]).then((response) => {
+    const queryText = `INSERT INTO eegraw (run, json, session_id) VALUES ($1, $2, $3)`
+    pool.query(queryText, [req.body.run, req.body.json, req.body.session_id]).then((response) => {
         res.sendStatus(201)
     }).catch((err) => {
         res.sendStatus(500)
