@@ -79,7 +79,8 @@ function AddParticipant(props) {
     return (
         <>
             <h2 className='createNewPart'>Create New Participant</h2>
-            <div>
+            <div className="centerBtn">
+            <div className="addBtn1">
                 <input className='addPart' placeholder="Participant ID" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
                 {/* <input placeholder="Gender" value={gender} onChange={(event) => setGender(event.target.value)}></input>
                 <input placeholder="Birthdate" value={birthdate} onChange={(event) => setBirthdate(event.target.value)}></input>
@@ -88,6 +89,7 @@ function AddParticipant(props) {
                 <Link to={`/checkin/${participant.name}`}>
                     <BootstrapButton className='addPartBtn' onClick={() => addParticipant()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
                 </Link>
+            </div>
             </div>
         </>
     );

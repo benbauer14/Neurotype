@@ -7,13 +7,20 @@ import { notion, useNotion } from "../services/notion";
 import { Nav } from "../components/Nav";
 import studyData from "../studies/pictureviewing";
 
-const util = require('util');
+import { useDispatch, useSelector } from 'react-redux'
+import axios from "axios";
 
-// const study = util(studyData)
-// const study = window.lab.util.fromObject(studyData)
+
+
+const study = window.lab.util.fromObject(studyData)
 
 export default function Experiment() {
-  const study = studyData;
+
+  const session = useSelector(store => store.currentsession)
+const participant = useSelector((store) => store.currentsession.participant_name)
+
+  const dispatch = useDispatch();
+
   const { user } = useNotion();
   const [brainwaves, setBrainwaves] = useState(null);
   
@@ -22,6 +29,20 @@ export default function Experiment() {
       navigate("/login");
     }
   }, [user]);
+
+  async function s3POST (data) {
+    axios.post('/api/s3upload/uploadToS3', data).then ((response) => {
+      console.log (response.data.message)
+      const eegdata = {
+        json: data,
+        session_id: session.id,
+        run: response.data.message
+      }
+      dispatch({type: 'POST_BRAINWAVES', payload: eegdata });
+    }).catch((err) => {
+      console.log(err)
+    })
+    }
 
   useEffect(() => {
     study.run();
@@ -38,7 +59,8 @@ export default function Experiment() {
       .subscribe((brainwaves) => {
         setBrainwaves(brainwaves);
         // all brainwave data from the task below, should be sent to database
-        console.log(JSON.stringify(brainwaves, null, 2)); 
+        // console.log(JSON.stringify(brainwaves, null, 2));
+        s3POST(brainwaves)
       })
     
     return () => {

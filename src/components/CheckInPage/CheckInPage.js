@@ -65,19 +65,18 @@ function CheckIn(props) {
 
     return (
         <>
-            <h3>{JSON.stringify(props.match.params.id)}</h3>
+            {/* <h3>{JSON.stringify(props.match.params.id)}</h3> */}
             <div class="container">
                 <div class ='center'>
                     <Link to="/survey">
-                        <BootstrapButton className='button' ><FaClipboardCheck></FaClipboardCheck> Survey</BootstrapButton>
+                        <BootstrapButton className='button' ><FaClipboardCheck size="30px" className="userHomeIcon"></FaClipboardCheck><span className="vertical-line2"></span> Survey</BootstrapButton>
                     </Link>
                     <Link to="/experiment">
-                        <BootstrapButton className='button'><FaBrain></FaBrain> Photo Activity</BootstrapButton>
+                        <BootstrapButton className='button'><FaBrain size="30px" className="userHomeIcon"></FaBrain><span className="vertical-line3"></span> Photo Activity</BootstrapButton>
                     </Link>
                     <Link to="/pin">
                         <BootstrapButton className='button'>
-                            <BsClipboardData></BsClipboardData>
-                            Dashboard
+                            <BsClipboardData size="30px" className="userHomeIcon"></BsClipboardData><span className="vertical-line"></span> Dashboard
                         </BootstrapButton>
                     </Link>
                 </div>

@@ -5,16 +5,6 @@ const {
   rejectUnauthenticated,
 } = require("../modules/authentication-middleware");
 
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
-  // GET route code here
-});
-
-/**
- * POST route template
- */
  router.post('/new', (req, res) => {
     // POST new survey results
     console.log('in post', req.body.jsondata)

@@ -10,8 +10,31 @@ const {
  */
  router.get('/all', rejectUnauthenticated, (req, res) => {
     // GET all participants
-      const queryText = `SELECT * FROM session`
+      const queryText = `SELECT session.id, session.time, session.notes, session.user_id, session.participant_id, session.group_id, users.name AS researchername, researchgroup.name AS researchgroup, participant.name AS participantname, surveyraw.csvlocation, eegraw.run FROM session
+      JOIN users ON session.user_id = users.id
+      JOIN researchgroup ON session.group_id = researchgroup.id
+      JOIN participant ON session.participant_id = participant.id
+      LEFT JOIN surveyraw ON session.id = surveyraw.session_id
+      LEFT JOIN eegraw ON session.id = eegraw.session_id
+      ORDER BY session.id`
       pool.query(queryText).then((response) => {
+          res.send(response.rows)
+      }).catch((err) => {
+          res.sendStatus(500)
+          console.log(err)
+      })
+  });
+
+  router.get('/groupid', rejectUnauthenticated, (req, res) => {
+    // GET all participants
+    const queryText = `SELECT session.id, session.time, session.notes, session.user_id, session.participant_id, session.group_id, users.name AS researchername, researchgroup.name AS researchgroup, participant.name AS participantname, surveyraw.csvlocation, eegraw.run FROM session
+    JOIN users ON session.user_id = users.id
+    JOIN researchgroup ON session.group_id = researchgroup.id
+    JOIN participant ON session.participant_id = participant.id
+    LEFT JOIN surveyraw ON session.id = surveyraw.session_id
+    LEFT JOIN eegraw ON session.id = eegraw.session_id WHERE session.group_id=$1 
+    ORDER BY session.id`
+      pool.query(queryText, [req.query.gid]).then((response) => {
           res.send(response.rows)
       }).catch((err) => {
           res.sendStatus(500)

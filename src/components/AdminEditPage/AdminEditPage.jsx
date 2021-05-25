@@ -37,7 +37,7 @@ const AdminEditPage = (props) => {
 
     useEffect(() => {
         dispatch({ type: "FETCH_USERS" })
-        dispatch({type: 'SET_PAGE', payload: "SELECTPARTICIPANT"})
+        dispatch({type: 'SET_PAGE', payload: "EDITUSER"})
     }, [])
 
     console.log('Users', users)
@@ -149,18 +149,30 @@ const AdminEditPage = (props) => {
         },
     })(Button);
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+
     const handleDisable = () => {
         // dispatch({type: 'DISABLE_USER', payload: user})
-        Swal.fire({
+        Toast.fire({
             title: 'User Disabled',
             // text: 'User Disabled',
-            icon: 'info'
+            icon: 'warning'
         })
     }
     const handleEnable = () => {
-        Swal.fire({
+        Toast.fire({
             title: 'User Enabled',
-            icon: 'info'
+            icon: 'success'
         })
     }
 
@@ -204,7 +216,7 @@ const AdminEditPage = (props) => {
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.groupname}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <Link to={`/editUser/${user.id}`}>
                                                     <BootstrapButton className="editBtn" >Edit</BootstrapButton>
@@ -226,7 +238,7 @@ const AdminEditPage = (props) => {
                                         <TableRow hover={true}>
                                             <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{user.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center" scope="row">{user.groupname}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
@@ -254,7 +266,7 @@ const AdminEditPage = (props) => {
                                         <TableRow >
                                             <StyledTableCell align="center">{filter.name}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
-                                            <StyledTableCell align="center">{filter.group_id}</StyledTableCell>
+                                            <StyledTableCell align="center">{filter.groupname}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                             </StyledTableCell>
@@ -274,13 +286,13 @@ const AdminEditPage = (props) => {
                                             <TableRow >
                                                 <StyledTableCell align="center">{filter.name}</StyledTableCell>
                                                 <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
-                                                <StyledTableCell align="center">{filter.group_id}</StyledTableCell>
+                                                <StyledTableCell align="center">{filter.groupname}</StyledTableCell>
                                                 <StyledTableCell align="center">
                                                     <BootstrapButton className="editBtn">Edit</BootstrapButton>
                                                 </StyledTableCell>
                                                 <StyledTableCell align="center" scope="row">
                                                     <BootstrapButton onClick={() => {dispatch({type: 'DISABLE_USER', payload: filter}); {handleEnable()}}}>
-                                                        <GrRevert className='revertBtn'></GrRevert>
+                                                        <GrRevert className='revertBtn' ></GrRevert>
                                                     </BootstrapButton>
                                                 </StyledTableCell>
                                             </TableRow>
