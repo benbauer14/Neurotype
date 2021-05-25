@@ -61,7 +61,6 @@ const participant = useSelector((store) => store.currentsession.participant_name
         // all brainwave data from the task below, should be sent to database
         // console.log(JSON.stringify(brainwaves, null, 2));
         s3POST(brainwaves)
-        return(<button>Return to Activities Page</button>)
       })
     
     return () => {
