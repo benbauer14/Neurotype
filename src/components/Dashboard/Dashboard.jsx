@@ -133,7 +133,7 @@ const Dashboard = (props) => {
                     <StyledTableCell scope="row">{session.researchername}</StyledTableCell>
                     <StyledTableCell scope="row">{session.participantname}</StyledTableCell>
                     <StyledTableCell scope="row">{session.researchgroup}</StyledTableCell>
-                    <StyledTableCell align="center" scope="row">{session.run}</StyledTableCell>
+                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
                     <StyledTableCell align="center" scope="row">{session.csvlocation}</StyledTableCell>
                     <StyledTableCell align="center" scope="row">{session.time}</StyledTableCell>
                   </TableRow>
@@ -146,7 +146,6 @@ const Dashboard = (props) => {
         {/* <CSVLink data={participants} filename={"all-patients-info.csv"}><button>Download CSV</button></CSVLink> */}
         {/* <a target="_blank" href={activity.link}>{activity.link}</a> */}
         {/* <Link to={`/userhome/${filter.name}`} data={filter}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></Link> */}
-
 
       </div>
     </>
