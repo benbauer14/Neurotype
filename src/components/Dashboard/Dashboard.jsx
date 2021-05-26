@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv'
 // import { Searchbar } from 'react-native-paper';
 
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
+import {withStyles} from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -38,10 +39,12 @@ const Dashboard = (props) => {
     }))(TableCell);
 
 
-    const useStyle = makeStyles => ({
+    const useStyle = makeStyles({
         table: {
-            minWidth: 450,
-            maxWidth: 650
+            minWidth: "60%",
+            maxWidth: "90%",
+            marginLeft: "auto",
+            marginRight: "auto",
         },
     });
 
@@ -69,19 +72,18 @@ const Dashboard = (props) => {
     // )
     return (
         <>
-            <div>
-                <h1>Dashboard</h1>
+            <div className="tablebox">
                 
                 <Table className={classes.table}>
                     <TableHead component='th'>
                         <TableRow>
-                            <TableCell style={{width:'5%'}} align="center">Session ID</TableCell>
-                            <TableCell align="center">Researcher</TableCell>
-                            <TableCell align="center">Participant</TableCell>
-                            <TableCell align="center">Group</TableCell>
-                            <TableCell align="center">EEG Raw Data</TableCell>
-                            <TableCell align="center">Survey Raw Data</TableCell>
-                            <TableCell align="center">Date/Time</TableCell>
+                            <TableCell >Session ID</TableCell>
+                            <TableCell >Researcher</TableCell>
+                            <TableCell >Participant</TableCell>
+                            <TableCell >Group</TableCell>
+                            <TableCell >EEG Raw Data</TableCell>
+                            <TableCell >Survey Raw Data</TableCell>
+                            <TableCell >Date/Time</TableCell>
                         </TableRow>
                     </TableHead>
                     
@@ -91,10 +93,10 @@ const Dashboard = (props) => {
 
                                     <TableBody key={index} className='hover={true}' component={Paper}>
                                         <TableRow hover={true}>
-                                            <StyledTableCell align="center" scope="row">{session.id}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.researchername}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.participantname}</StyledTableCell>
-                                            <StyledTableCell align="center" scope="row">{session.researchgroup}</StyledTableCell>
+                                            <StyledTableCell scope="row">{session.id}</StyledTableCell>
+                                            <StyledTableCell scope="row">{session.researchername}</StyledTableCell>
+                                            <StyledTableCell scope="row">{session.participantname}</StyledTableCell>
+                                            <StyledTableCell scope="row">{session.researchgroup}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{session.run}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{session.csvlocation}</StyledTableCell>
                                             <StyledTableCell align="center" scope="row">{session.time}</StyledTableCell>                                           
