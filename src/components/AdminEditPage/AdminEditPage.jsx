@@ -168,12 +168,14 @@ const AdminEditPage = (props) => {
             // text: 'User Disabled',
             icon: 'warning'
         })
+        dispatch({ type: "FETCH_USERS" })
     }
     const handleEnable = () => {
         Toast.fire({
             title: 'User Enabled',
             icon: 'success'
         })
+        dispatch({ type: "FETCH_USERS" })
     }
 
 
