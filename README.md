@@ -10,11 +10,11 @@ This tablet web application is designed to allow a researcher to obtain data fro
 
 This application was presented on Facebook live and Zoom on 6/1/2021. 
 
-<img src="/public/images/Screen Shot 2021-05-04 at 9.26.09 AM.png"/>
+
 
 ## Technologies
 
-Javascript
+- Javascript
 - HTML
 - CSS
 - Material UI
@@ -27,12 +27,7 @@ Javascript
 - AWS
 - ChartsJS
 
-<img src="public/images/Splash.png"/>
-<img src="public/images/Search.png"/>
-<img src="public/images/SearchResults.png"/>
-<img src="public/images/SearchModal.png"/>
-<img src="public/images/Chat.png"/>
-<img src="public/images/NewListing.png"/>
+
 
 
 
