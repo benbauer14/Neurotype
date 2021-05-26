@@ -6,6 +6,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import {IoMdPersonAdd} from 'react-icons/io';
 import {BsPersonCheckFill} from 'react-icons/bs'
+import {BsClipboardData} from 'react-icons/bs'
 import {FaUserEdit} from 'react-icons/fa';
 import './Home.css'
 
@@ -70,6 +71,7 @@ function HomePage(props) {
         <Link to="/newgroup">
             <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line4"></span> <span className="btnText">Create Group</span></BootstrapButton>
         </Link>
+        
         )
         }
     }
@@ -90,6 +92,11 @@ function HomePage(props) {
                 <Link to="/edit">
                     <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line4"></span> <span className="btnText">Edit Users</span></BootstrapButton>
                 </Link>
+                <Link to="/pin">
+                    <BootstrapButton className='button'>
+                        <BsClipboardData size="30px" className="userHomeIcon"></BsClipboardData><span className="vertical-line"></span> Dashboard
+                    </BootstrapButton>
+                </Link>
                 {createGroup()}
             </div>
         </div>
@@ -103,6 +110,11 @@ function HomePage(props) {
                     </Link>
                     <Link to="/addparticipant">
                         <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Add Participant</BootstrapButton>
+                    </Link>
+                    <Link to="/pin">
+                        <BootstrapButton className='button'>
+                            <BsClipboardData size="30px" className="userHomeIcon"></BsClipboardData><span className="vertical-line"></span> Dashboard
+                        </BootstrapButton>
                     </Link>
                 </div>
             </div>
