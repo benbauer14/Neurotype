@@ -29,7 +29,7 @@ export function Instructions() {
             When you're ready please click "Begin" below!
         </p>
       
-      <Link to="/experiment">Begin</Link>
+      <Link to="/experiment"><button>Begin</button></Link>
       </div>
     
     </main>
