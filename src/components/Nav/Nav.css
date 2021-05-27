@@ -4,11 +4,14 @@
     display: inline-block;
     color: #f2f2f2;
     padding-left: 10px;
+    margin-top: 2rem;
+    margin-left: 10px;
 }
 
 .nav {
   display: flex;
   flex: 1 auto 1;
+  height: 6rem;
   margin: 0 0 30px;
   background-color: rgb(32, 115, 136);
   overflow: hidden;
@@ -24,7 +27,8 @@
   text-decoration: none;
   font-size: 15px;
   font-weight: 900;
-  margin-left: 11rem;
+  margin-left: 13rem;
+  margin-right: -5px;
   margin-top: -10px;
   margin-bottom: 8px;
   /* these last two make the logout button in
@@ -40,6 +44,7 @@
 }
 .pageName h2{
   font-weight:100;
+  margin-top: 2rem;
 }
 
 .nav-link:hover {
@@ -48,4 +53,5 @@
 .participantNav{
   margin-bottom: -3rem;
   margin-top: 2rem;
+  font-size: 18px;
 }
