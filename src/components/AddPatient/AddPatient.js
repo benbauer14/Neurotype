@@ -93,7 +93,7 @@ function AddParticipant(props) {
             },
         },
     })(Button);
-    if(role === 'Super Admin'){
+
     return (
         <>
 
@@ -119,26 +119,6 @@ function AddParticipant(props) {
             </div>
         </>
     );
-}else{
-    return (
-        <>
-            <h2 className='createNewPart'>Create New Participant</h2>
-
-            <div className="center">
-                <input className='addPart' placeholder="Participant ID" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
-                <select className='addPartSelect' placeholder="Role" value={role} onChange={(event) => setGender(event.target.value)}>
-                    <option value='M'>Male</option>
-                    <option value='F'>Female</option>
-                </select>
-                <input placeholder="Birthdate" type="date" value={birthdate} onChange={(event) => setBirthdate(event.target.value)}></input>
-                <input placeholder="Height (inches)" type="number" value={height} onChange={(event) => setHeight(event.target.value)}></input>
-                <input placeholder="Weight (lb)" type="number" value={weight} onChange={(event) => setWeight(event.target.value)}></input> 
-                    <BootstrapButton className='button' onClick={() => addParticipant()}><BsFillPersonPlusFill></BsFillPersonPlusFill><span className="vertical-line4"></span> <span className="btnText">Add Participant</span></BootstrapButton>
-                    <BootstrapButton className='button'><IoMdPersonAdd size="30px" className="homeIcon"></IoMdPersonAdd><span className="vertical-line"></span> Create User</BootstrapButton>
-            </div>
-
-        </>
-    );
-}
+    
 }
 export default connect(mapStoreToProps)(AddParticipant);
