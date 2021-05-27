@@ -97,11 +97,13 @@ function AddParticipant(props) {
     return (
         <>
 
-            <h2 className='createNewPart'>Create New Participant</h2>
+            
             <div className="center">
+                
             <div className="addBtn1">
+            <h2 className='createNewPart'>Create New Participant</h2>
                 <input className='addPart' style={BarStyling} placeholder="Participant ID" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
-                <select className='addPartSelect' style={SelectStyling} placeholder="Role" value={role} onChange={(event) => setGender(event.target.value)}>
+                <select className='addPart' style={SelectStyling} placeholder="Role" value={role} onChange={(event) => setGender(event.target.value)}>
                     <option value="" hidden>Gender</option>
                     <option value='M'>Male</option>
                     <option value='F'>Female</option>
@@ -110,7 +112,7 @@ function AddParticipant(props) {
                 <input className='addPart' style={BarStyling} placeholder="Height (inches)" type="number" value={height} onChange={(event) => setHeight(event.target.value)}></input>
                 <input className='addPart' style={BarStyling} placeholder="Weight (lb)" type="number" value={weight} onChange={(event) => setWeight(event.target.value)}></input> 
 
-                    <BootstrapButton className='button' onClick={() => addParticipant()}><IoMdPersonAdd size="30px" className="homeIcon"> </IoMdPersonAdd><span className="vertical-line"></span> Create Participant</BootstrapButton>
+                    <BootstrapButton className='addPartButton' onClick={() => addParticipant()}>Create Participant</BootstrapButton>
                     
 
             </div>

@@ -8,7 +8,7 @@
     margin: 0 auto;
     margin-top: 7rem;
     margin-bottom: 5px !important;
-    margin-left: 25px !important;
+    margin-left: 30px !important;
     display: block;
     border-radius: 5px;
     width: 250px;
@@ -26,7 +26,7 @@
     margin-top: -25px !important;
     margin-bottom: 10px;
 }
-=======
+
 .container {
     height: 200px;
     position: relative;
@@ -52,11 +52,15 @@
     width: 400px;
     margin: 0 auto;
     margin-bottom: 10px;
-    margin-top: 5rem;
+    margin-top: 26rem;
     display: block;
     vertical-align: middle;
     box-shadow: 5px 5px 15px rgb(45, 44, 44);
     text-align: center;
+  }
+  .addPartButton{
+      margin-top: 2rem !important;
+      margin-bottom: 2rem !important;
   }
   .button{
     display: block !important;

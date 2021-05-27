@@ -30,6 +30,7 @@
 .addresearcher{
     text-align: center;
     /* align-items: middle; */
+    margin-top: 16rem !important;
 }
 .createUserCard{
     border: solid rgb(148, 146, 146) 1px;
