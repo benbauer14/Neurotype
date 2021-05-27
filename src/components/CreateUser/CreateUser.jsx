@@ -115,7 +115,7 @@ const CreateUser = () => {
             name: userName,
             password: userPassword,
             role: userTitle,
-            group_id: groupID
+            group_id: userGroupID
         }
 
         dispatch({type: 'ADD_RESEARCHER', payload: newUser })
@@ -126,7 +126,7 @@ const CreateUser = () => {
             return(
             
             <select className='titleSelect' placeholder="Title" value={userTitle} style={SelectStyling} onChange={(e) => {setUserTitle(e.target.value)}}>
-                <option value="" selected hidden disabled>Title</option>
+                <option value="" hidden>Title</option>
                 <option value='Researcher'>Researcher</option>
             </select>
             
@@ -135,7 +135,9 @@ const CreateUser = () => {
             return(
             
             <select className='titleSelect' placeholder="Title" style={SelectStyling} onChange={(e) => {setUserTitle(e.target.value)}}>
+
                 <option className='selectTitle' value="" selected hidden disabled>Title</option>
+
                 <option value='Researcher'>Researcher</option>
                 <option value='Site Admin'>Site Admin</option>
                 <option value='Super Admin'>Super Admin</option>

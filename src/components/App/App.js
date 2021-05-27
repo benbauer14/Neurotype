@@ -20,10 +20,10 @@ import QQDemographs from '../QQDemographs/QQDemographs';
 import CreateUser from '../CreateUser/CreateUser';
 import Home from '../Home/Home';
 import CheckInPage from '../CheckInPage/CheckInPage';
-import AddPatient from '../AddPatient/AddPatient';
+import AddPatient from '../AddPatient/AddPatient'
 import AddUser from '../AddUser/AddUser';
 import SelectParticipant from '../SelectParticipant/SelectParticipant';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from '../Dashboard/Dashboard'
 import LoginPage from '../LoginPage/LoginPage';
 import PINentry from '../PINentry/PINentry';
 import RegisterPage from '../RegisterPage/RegisterPage';

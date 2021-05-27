@@ -47,7 +47,7 @@ router.get("/all", rejectUnauthenticated, (req, res) => {
 router.post("/new", rejectUnauthenticated, (req, res) => {
   // POST new participants
   console.log("in post", req.body);
-  const queryText = `INSERT INTO participant (name, gender, birthdate, height, weight) VALUES ($1, $2, $3, $4, $5) `;
+  const queryText = `INSERT INTO participant (name, gender, birthdate, height, weight, group_id) VALUES ($1, $2, $3, $4, $5, $6) `;
   pool
     .query(queryText, [
       req.body.name,
@@ -55,6 +55,7 @@ router.post("/new", rejectUnauthenticated, (req, res) => {
       req.body.birthdate,
       req.body.height,
       req.body.weight,
+      req.body.group_id
     ])
     .then((response) => {
       res.sendStatus(201);

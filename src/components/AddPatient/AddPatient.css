@@ -1,3 +1,4 @@
+
 .createNewPart{
     text-align: center;
     margin-top: 1.5rem;
@@ -25,13 +26,23 @@
     margin-top: -25px !important;
     margin-bottom: 10px;
 }
-.centerBtn {
+=======
+.container {
+    height: 200px;
+    position: relative;
+    display: block;
+    margin-top: 18rem;
+  }
+  
+  .center {
+
     margin: 0;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+
     
   }
 .addBtn1{
@@ -45,4 +56,67 @@
     display: block;
     vertical-align: middle;
     box-shadow: 5px 5px 15px rgb(45, 44, 44);
+    text-align: center;
+  }
+  .button{
+    display: block !important;
+    margin: 2rem !important;
+    min-width: 250px !important;
+    min-height: 70px !important;
+}
+.editButton{
+  display: block !important;
+  margin: 2rem !important;
+  min-width: 250px !important;
+  height: 85px !important;
+  background-color: rgb(31, 148, 169) !important;
+}
+.homeIcon{
+  float: left !important;
+  margin-left: 30px !important;
+  margin-right: -25px !important;
+}
+.vertical-line{
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  margin: 0 15px;
+  height: 25px;
+}
+.vertical-line1{
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  margin: 0 10px;
+  height: 25px;
+  margin-left: 35px;
+  
+}
+.vertical-line4{
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  margin: 0 18px;
+  height: 25px;
+  margin-left: 10px;
+  
+}
+.btnText{
+  margin-top: -10px !important;
+}
+.MuiButton-text-4 {
+  padding: 6px 8px;
+}
+.WithStyles-Button--root-38 {
+    color: white;
+    border: 1px solid;
+    /* padding: 6px 12px; */
+    font-size: 16px;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    border-color: rgb(32, 115, 136);
+    text-transform: none;
+    text-decoration: none;
+    background-color: rgb(32, 115, 136);
+}
+.createNewPart{
+    text-align: center;
 }
