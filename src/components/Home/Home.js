@@ -106,10 +106,10 @@ function HomePage(props) {
             <div class="container">
                 <div class="center">
                     <Link to="/selectparticipant">
-                        <BootstrapButton className='button'><BsPersonCheckFill></BsPersonCheckFill> Select Participant</BootstrapButton>
+                        <BootstrapButton className='button'><BsPersonCheckFill size="30px"></BsPersonCheckFill><span className="vertical-line"></span> Select Participant</BootstrapButton>
                     </Link>
                     <Link to="/addparticipant">
-                        <BootstrapButton className='button'><IoMdPersonAdd></IoMdPersonAdd>Add Participant</BootstrapButton>
+                        <BootstrapButton className='button'><IoMdPersonAdd size="30px"></IoMdPersonAdd><span className="vertical-line"></span> Add Participant</BootstrapButton>
                     </Link>
                     <Link to="/pin">
                         <BootstrapButton className='button'>
