@@ -180,10 +180,10 @@ const AdminEditPage = (props) => {
     if(role === 'Super Admin' || role === 'Site Admin') {
     return (
         <>
-            <div>
+            <div className="adminEditDiv">
                 <h1 className="selectPart">Edit Users</h1>
                 <input // search bar for participants 
-                    className="searchBar"
+                    className="searchBar2"
                     style={BarStyling}
                     key="random1"
                     // value={keyword}
@@ -193,7 +193,7 @@ const AdminEditPage = (props) => {
                 
                 {/* <CSVLink className="csvButton" data={participants} filename={"all-patients-info.csv"}><BootstrapButton variant="contained"
                     color="default"><IoCloudDownload value={{ style: { verticalAlign: 'middle' } }} ></IoCloudDownload> Download CSV</BootstrapButton></CSVLink> */}
-                <Table className={classes.table} aria-label="customized table">
+                <Table className="adminEditTable" aria-label="customized table">
                     <TableHead component='th'>
                         <TableRow>
                             <TableCell align="center">User Name</TableCell>

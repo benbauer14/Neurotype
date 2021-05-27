@@ -104,11 +104,14 @@ function CreateGroup() {
     if(userRole === 'Super Admin') {
     return (
         <>
-            <h2 className='createNewPart'>Create New Group</h2>
+            
             <div className="addPartDiv">
-                <input className='addGroupInputs' placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
-                <input className='addGroupInputs' placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
-                <input className='addGroupInputs' type='number' placeholder="PIN" value={PIN} onChange={(event) => setPIN(event.target.value)}></input>
+            <h2 className='createNewGroup'>Create New Group</h2>
+                <div className="groupInputs">
+                    <input className='addGroupInputs' placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
+                    <input className='addGroupInputs' placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
+                    <input className='addGroupInputs' type='number' placeholder="PIN" value={PIN} onChange={(event) => setPIN(event.target.value)}></input>
+                </div>
                 <Link >
                     <BootstrapButton className='addGroupBtn' onClick={() => addGroup()}> Create Group</BootstrapButton>
                 </Link>

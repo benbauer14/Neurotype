@@ -94,9 +94,10 @@ function PINentry(props) {
 
   return (
     <div className="center-box">
-      <h2>Please enter PIN to view the dashboard.</h2>
+      <h2>Please enter PIN</h2>
       {/* using react-pin-input */}
       <PinInput
+        className='pinEntry'
         length={5}
         initialValue=""
         secret
@@ -104,7 +105,7 @@ function PINentry(props) {
         type="numeric"
         inputMode="number"
         style={{ padding: "10px", alignContent: 'center' }}
-        inputStyle={{ borderColor: "#098b8d" }}
+        inputStyle={{ borderColor: "#098b8d", backgroundColor: 'white' }}
         inputFocusStyle={{ borderColor: "white" }}
         onComplete={(value, index) => { }}
         autoSelect={true}

@@ -78,17 +78,21 @@ function AddParticipant(props) {
     console.log(role)
     return (
         <>
-            <h2 className='createNewPart'>Create New Participant</h2>
+            
             <div className="centerBtn">
+                
             <div className="addBtn1">
+            <h2 className='createNewPart'>Create New Participant</h2>
                 <input className='addPart' placeholder="Participant ID" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
                 {/* <input placeholder="Gender" value={gender} onChange={(event) => setGender(event.target.value)}></input>
                 <input placeholder="Birthdate" value={birthdate} onChange={(event) => setBirthdate(event.target.value)}></input>
                 <input placeholder="Height" value={height} onChange={(event) => setHeight(event.target.value)}></input>
                 <input placeholder="Weight" value={weight} onChange={(event) => setWeight(event.target.value)}></input> */}
+                <div className="addPartBtnDiv">
                 <Link to={`/checkin/${participant.name}`}>
                     <BootstrapButton className='addPartBtn' onClick={() => addParticipant()}><BsFillPersonPlusFill></BsFillPersonPlusFill></BootstrapButton>
                 </Link>
+                </div>
             </div>
             </div>
         </>

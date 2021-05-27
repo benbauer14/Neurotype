@@ -12,6 +12,7 @@
   margin: 0 0 30px;
   background-color: rgb(32, 115, 136);
   overflow: hidden;
+  box-shadow: 3px 3px 15px rgb(45, 44, 44);
 }
 
 .nav-link {

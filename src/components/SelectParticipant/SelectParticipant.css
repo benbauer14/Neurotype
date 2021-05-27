@@ -17,6 +17,17 @@ a, a:hover, a:focus, a:active {
 }
 .selectPart{
     text-align: center;
+    /* border-bottom: solid black 1px; */
+    /* margin: 0 auto !important; */
+    /* text-shadow: 2px 2px 1px #292929; */
+
+}
+.selectPartHead{
+    /* border-bottom: solid rgb(32, 115, 136)1px;
+    margin-top: 2rem !important;
+    background-color: rgb(32, 115, 136); */
+    margin: 0 auto !important;
+    margin-bottom: 4rem !important; 
 }
 .tableRow:hover {
     background-color: rgba(0, 0, 0, 0.07);
@@ -28,16 +39,40 @@ a, a:hover, a:focus, a:active {
 }
 .searchBar{
     margin: 0 auto;
+    margin-bottom: 4rem;
+    margin-top: 2rem;
     display: block;
     border-radius: 5px;
+    box-shadow: 3px 3px 15px rgb(45, 44, 44);
 }
 .csvButton{
     float: right;
-    margin-right: 14rem;
+    margin-right: 17.5rem;
     margin-bottom: 3rem;
-    margin-top: -2rem;
+    margin-top: -1rem;
+    box-shadow: 3px 3px 12px rgb(45, 44, 44);
 }
 .react-icons {
     vertical-align: middle;
     margin-right: 5px;
+}
+.selectPartDiv{
+    border: solid rgb(148, 146, 146) 1px;
+    border-radius: 15px;
+    background-color: rgb(148, 146, 146) ;
+    width: 45rem;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 7rem;
+    display: block;
+    vertical-align: middle;
+    box-shadow: 5px 5px 15px rgb(45, 44, 44);
+}
+.selectTable{
+    width: 42rem !important;
+    margin: 0 auto;
+    vertical-align: middle;
+    margin-bottom: 2rem;
+    box-shadow: 5px 5px 15px rgb(45, 44, 44);
+    border-radius: 5px !important;
 }
