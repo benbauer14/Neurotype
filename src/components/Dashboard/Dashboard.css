@@ -20,11 +20,11 @@ th,td {
     border-color: #BCBCBC;
     /* word-wrap:break-word; */
     text-align: center !important;
-
 }
 
 
 .partDash{
+
     display: block !important;
 }
 .researchDash{
@@ -38,3 +38,4 @@ th,td {
 .sessionDash{
     width: 10px !important;
 }
+

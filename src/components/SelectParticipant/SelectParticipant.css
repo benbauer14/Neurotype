@@ -19,7 +19,7 @@ a, a:hover, a:focus, a:active {
     text-align: center;
     /* border-bottom: solid black 1px; */
     /* margin: 0 auto !important; */
-    /* text-shadow: 2px 2px 1px #292929; */
+    text-shadow: 2px 2px 5px #292929;
 
 }
 .selectPartHead{
