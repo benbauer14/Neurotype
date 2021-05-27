@@ -116,8 +116,8 @@ const Dashboard = (props) => {
           <TableHead component='th'>
             <TableRow>
               <TableCell >Session ID</TableCell>
-              <TableCell >Researcher</TableCell>
-              <TableCell >Participant</TableCell>
+              <TableCell ><span className='researchDash'>Researcher</span></TableCell>
+              <TableCell ><span className='researchDash'>Participant</span></TableCell>
               <TableCell >Group</TableCell>
               <TableCell >EEG Raw Data</TableCell>
               <TableCell >Survey Raw Data</TableCell>
@@ -132,8 +132,8 @@ const Dashboard = (props) => {
                   <TableRow hover={true}>
                     <StyledTableCell scope="row">{session.id}</StyledTableCell>
                     <StyledTableCell scope="row">{session.researchername}</StyledTableCell>
-                    <StyledTableCell scope="row">{session.participantname}</StyledTableCell>
-                    <StyledTableCell scope="row">{session.researchgroup}</StyledTableCell>
+                    <StyledTableCell className='partDash' scope="row">{session.participantname}</StyledTableCell>
+                    <StyledTableCell  scope="row"><span className='researchDash'>{session.researchgroup}</span></StyledTableCell>
                     <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
                     <StyledTableCell align="center" scope="row"><a target="_blank" href={session.csvlocation}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
                     <StyledTableCell align="center" scope="row">{session.time}</StyledTableCell>

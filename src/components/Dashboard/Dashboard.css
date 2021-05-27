@@ -19,3 +19,9 @@ th,td {
     border-color: #BCBCBC;
     /* word-wrap:break-word; */
 }
+.partDash{
+    margin-left: -10px !important;
+}
+.researchDash{
+    margin-left: -9px;
+}   
