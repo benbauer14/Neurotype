@@ -29,6 +29,12 @@ th,td {
 }
 .researchDash{
     margin-left: -9px;
+
+    /* table-layout: auto;
+    width: 10px !important; */
+    
+}   
+
 }
 
 .datetime{
@@ -38,4 +44,5 @@ th,td {
 .sessionDash{
     width: 10px !important;
 }
+
 
