@@ -1,14 +1,15 @@
 .dashTable{
     width: 48rem !important;
-    
     margin: 0 auto;
     table-layout: fixed;
+
 }
 .tablebox{
     margin-top: 4rem !important;
     width: 5rem !important;
     margin: 0 auto !important;
     vertical-align: middle !important;
+
     float: left;
     table-layout: fixed;
 }
@@ -18,10 +19,22 @@ th,td {
     border-width: 1px;
     border-color: #BCBCBC;
     /* word-wrap:break-word; */
+    text-align: center !important;
+
 }
+
+
 .partDash{
-    margin-left: -10px !important;
+    display: block !important;
 }
 .researchDash{
     margin-left: -9px;
-}   
+}
+
+.datetime{
+    font-size: 11px !important;
+}
+
+.sessionDash{
+    width: 10px !important;
+}
