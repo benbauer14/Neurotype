@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -30,9 +30,10 @@ function AddUser(props) {
         group_id: group_id
     }
     
-
+    const history = useHistory()
     const addParticipant = () => {
         dispatch({type: 'REGISTER', payload: user})
+        history.push('/')
     }
 
     

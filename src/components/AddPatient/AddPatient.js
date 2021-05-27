@@ -103,7 +103,7 @@ function AddParticipant(props) {
             <div className="addBtn1">
             <h2 className='createNewPart'>Create New Participant</h2>
                 <input className='addPart' style={BarStyling} placeholder="Participant ID" value={patientName} onChange={(event) => setPatientName(event.target.value)}></input>
-                <select className='addPart' style={SelectStyling} placeholder="Role" value={role} onChange={(event) => setGender(event.target.value)}>
+                <select className='addPart' style={SelectStyling} placeholder="Role" onChange={(event) => setGender(event.target.value)}>
                     <option value="" hidden>Gender</option>
                     <option value='M'>Male</option>
                     <option value='F'>Female</option>

@@ -6,6 +6,7 @@ import InputBase from '@material-ui/core/InputBase';
 import './createUser.css'
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const BarStyling = { width: "20rem", height: 25, background: "#F2F1F9", border: "none", padding: "0.5rem" };
 const SelectStyling = { width: "21rem", height: 40, border: "none", textAlign: "left" };
@@ -107,7 +108,7 @@ const CreateUser = () => {
     const [ userGroupID, setGroupID ] = useState( '' );
     const [ groups, setGroups] = useState('')
 
-
+    const history = useHistory()
     const createThisUser = () => {
 
         let newUser = {
@@ -119,6 +120,7 @@ const CreateUser = () => {
         }
 
         dispatch({type: 'ADD_RESEARCHER', payload: newUser })
+        history.push('/')
     }
 
     const conditionalTitles = () => {
