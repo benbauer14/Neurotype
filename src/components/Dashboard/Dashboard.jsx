@@ -116,7 +116,7 @@ const Dashboard = (props) => {
         <Table className='dashTable'>
           <TableHead component='th'>
             <TableRow>
-              <TableCell >Session ID</TableCell>
+              <TableCell > <span className='seshDash'>Session ID</span></TableCell>
               <TableCell ><span className='researchDash'>Researcher</span></TableCell>
               <TableCell ><span className='researchDash'>Participant</span></TableCell>
               <TableCell >Group</TableCell>
@@ -131,7 +131,7 @@ const Dashboard = (props) => {
               <>
                 <TableBody key={index} className='hover={true}' component={Paper}>
                   <TableRow hover={true}>
-                    <StyledTableCell scope="row">{session.id}</StyledTableCell>
+                    <StyledTableCell scope="row"><span className='seshDash'>{session.id}</span></StyledTableCell>
                     <StyledTableCell scope="row">{session.researchername}</StyledTableCell>
                     <StyledTableCell className='partDash' scope="row">{session.participantname}</StyledTableCell>
                     <StyledTableCell  scope="row"><span className='researchDash'>{session.researchgroup}</span></StyledTableCell>
