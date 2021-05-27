@@ -123,6 +123,11 @@ const CreateUser = () => {
         history.push('/')
     }
 
+    const dateTimeFormat = (datetime) => {
+    //format yyyy-mm-ddThh:mm:ss:mlsZ
+    return(datetime.slice(5,7) + "-" + datetime.slice(8,10) + "-" + datetime.slice(0,5), datetime.slice(11,13)+":" + datetime.slice(14,16) + datetime.slice(18,20))
+    }
+
     const conditionalTitles = () => {
         if(user.role === 'Site Admin'){
             return(
