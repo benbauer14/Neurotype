@@ -29,6 +29,7 @@
     min-width: 250px !important;
     min-height: 70px !important;
     box-shadow: 5px 5px 15px rgb(45, 44, 44) !important;
+    border-radius: 8px  !important;
 }
 .editButton{
   display: block !important;
@@ -47,6 +48,7 @@
   border-left: 1px solid #ccc;
   margin: 0 15px;
   height: 25px;
+  margin-left: 20px;
 }
 .vertical-line1{
   display: inline-block;
@@ -62,6 +64,14 @@
   margin: 0 18px;
   height: 25px;
   margin-left: 10px;
+  
+}
+.vertical-line5{
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  margin: 0 18px;
+  height: 25px;
+  margin-left: 28px;
   
 }
 .btnText{

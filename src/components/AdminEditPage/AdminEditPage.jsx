@@ -38,7 +38,7 @@ const AdminEditPage = (props) => {
     useEffect(() => {
         dispatch({ type: "FETCH_USERS" })
         dispatch({type: 'SET_PAGE', payload: "EDITUSER"})
-    }, [])
+    },)
 
     console.log('Users', users)
     console.log(role)
