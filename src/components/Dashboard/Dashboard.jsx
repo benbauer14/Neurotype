@@ -141,8 +141,8 @@ const Dashboard = (props) => {
 
                     <StyledTableCell  scope="row"><span className='partDash'>{session.participantname}</span></StyledTableCell>
                     <StyledTableCell  scope="row"><span className='partDash'>{session.researchgroup}</span></StyledTableCell>
-                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
-                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.csvlocation}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
+                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><FiDownload></FiDownload></BootstrapButton></a></StyledTableCell>
+                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.csvlocation}><BootstrapButton><FiDownload></FiDownload></BootstrapButton></a></StyledTableCell>
                     <StyledTableCell align="center" scope="row"><span className="datetime">{dateTimeFormat(session.time)}</span></StyledTableCell>
 
                   </TableRow>
