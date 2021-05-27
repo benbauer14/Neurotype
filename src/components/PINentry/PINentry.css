@@ -1,3 +1,21 @@
 .pinBtn{
     margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    width: 150px;
+    box-shadow: 5px 5px 10px rgb(45, 44, 44) !important;
+}
+.pinEntry{
+
+}
+.center-box{
+    border: solid rgb(148, 146, 146) 1px;
+    border-radius: 10px;
+    background-color: rgb(165, 167, 167);
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 16rem !important;
+    display: block;
+    vertical-align: middle;
+    box-shadow: 5px 5px 15px rgb(45, 44, 44);
 }

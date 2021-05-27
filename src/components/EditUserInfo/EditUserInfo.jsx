@@ -129,13 +129,15 @@ function EditUserInfo(props) {
     if(userRole === 'Super Admin') {
     return (
         <>
-            <h2 className='createNewPart'>Edit User</h2>
+            
 
-            <div className="addPartDiv">
+            <div className="editPartDiv">
+            <h2 className='createNewPart'>Edit User</h2>
             <form>
-                <input className='addPart' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
+                <div className="editInputs">
+                <input className='editUser' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
                 {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
-                <input className='addPart' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
+                <input className='editUser' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
                 <select className='addPartSelect' placeholder="Group" style={SelectStyling} onChange={(event) => setGroupId(event.target.value)}>
                 {groups.map(group =>{
                     if(group.id === group_id){
@@ -151,9 +153,10 @@ function EditUserInfo(props) {
                     <option value='Site Admin'>Site Admin</option>
                     <option value='Super Admin'>Super Admin</option>
                 </select>
+                </div>
                 <br></br>
             <Link >
-                    <BootstrapButton className="editButton" onClick={() => editUser()}><FaUserEdit size="20px" className="editUserIcon"></FaUserEdit>Submit</BootstrapButton>
+                    <BootstrapButton className="editButton" onClick={() => editUser()}>Submit</BootstrapButton>
             </Link>
             </form>
             </div>
@@ -163,15 +166,15 @@ function EditUserInfo(props) {
     } else if (userRole === 'Site Admin' ) {
         return (
             <>
+                
+                <div className="editPartDiv">
                 <h2 className='createNewPart'>Edit User</h2>
-                <div className="addPartDiv">
-
-                    <div className="center">
+                    <div className="editInputs">
 
 
-                    <input className='addPart' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
+                    <input className='editUser' placeholder="Name" value={name} style={BarStyling} onChange={(event) => setName(event.target.value)}></input>
                     {/* <input className='addPart' placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)}></input> */}
-                    <input className='addPart' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
+                    <input className='editUser' placeholder="Email" value={email} style={BarStyling} onChange={(event) => setEmail(event.target.value)}></input>
                 <select className='addPartSelect' placeholder="Role" value={group_id} style={SelectStyling} onChange={(event) => setGroupId(event.target.value)}>
                 {groups.map(group =>{
                     if(group.id === group_id){
@@ -186,11 +189,11 @@ function EditUserInfo(props) {
                         <option value='Researcher'>Researcher</option>
                         <option value='Site Admin'>Site Admin</option>
                     </select>
-
+                    </div>
                         <Link >
                                 <BootstrapButton className="editButton" onClick={() => editUser()}><FaUserEdit size="25px" className="editUserIcon"></FaUserEdit></BootstrapButton>
                         </Link>
-                    </div>
+                    
                 </div>
     
             </>

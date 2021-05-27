@@ -96,6 +96,7 @@ function AddParticipant(props) {
     if(role === 'Super Admin'){
     return (
         <>
+
             <h2 className='createNewPart'>Create New Participant</h2>
             <div className="center">
             <div className="addBtn1">
@@ -111,6 +112,7 @@ function AddParticipant(props) {
 
                     <BootstrapButton className='button' onClick={() => addParticipant()}><IoMdPersonAdd size="30px" className="homeIcon"> </IoMdPersonAdd><span className="vertical-line"></span> Create Participant</BootstrapButton>
                     
+
             </div>
             </div>
         </>

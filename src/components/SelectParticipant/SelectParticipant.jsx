@@ -152,8 +152,10 @@ const SelectParticipant = () => {
     
     return (
         <>
-            <div>
-                <h1 className="selectPart">Select Participant</h1>
+            <div className="selectPartDiv">
+                <div className='selectPartHead'>
+                    <h1 className="selectPart">Select Participant</h1>
+                </div>
                 <input // search bar for participants 
                     className="searchBar"
                     style={BarStyling}
@@ -165,7 +167,7 @@ const SelectParticipant = () => {
                 
                 <CSVLink className="csvButton" data={participants} filename={"all-patients-info.csv"}><BootstrapButton variant="contained"
                     color="default"><IoCloudDownload value={{ style: { verticalAlign: 'middle' } }} ></IoCloudDownload> Download CSV</BootstrapButton></CSVLink>
-                <Table className={classes.table} aria-label="customized table">
+                <Table className="selectTable" aria-label="customized table">
                     <TableHead component='th'>
                         <TableRow>
                             <TableCell align="center">Participant Name</TableCell>

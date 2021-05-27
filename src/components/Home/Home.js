@@ -69,7 +69,7 @@ function HomePage(props) {
         if(role === 'Super Admin'){
         return(
         <Link to="/newgroup">
-            <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line4"></span> <span className="btnText">Create Group</span></BootstrapButton>
+            <BootstrapButton className='button'><FaUserEdit size="30px" className="homeIcon"></FaUserEdit><span className="vertical-line5"></span> <span className="btnText">Create Group</span></BootstrapButton>
         </Link>
         
         )

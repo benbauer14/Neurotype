@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import './Dashboard.css'
 
 import { CSVLink } from 'react-csv'
 // import { Searchbar } from 'react-native-paper';
@@ -39,16 +40,16 @@ const Dashboard = (props) => {
   }))(TableCell);
 
 
-  const useStyle = makeStyles({
-    table: {
-      minWidth: "60%",
-      maxWidth: "90%",
-      marginLeft: "auto",
-      marginRight: "auto",
-    },
-  });
+  // const useStyle = makeStyles({
+  //   table: {
+  //     minWidth: "30%",
+  //     maxWidth: "40%",
+  //     marginLeft: "auto",
+  //     marginRight: "auto",
+  //   },
+  // });
 
-  const classes = useStyle();
+  // const classes = useStyle();
 
   const BootstrapButton = withStyles({
     root: {
@@ -111,7 +112,7 @@ const Dashboard = (props) => {
     <>
       <div className="tablebox">
 
-        <Table className={classes.table}>
+        <Table className='dashTable'>
           <TableHead component='th'>
             <TableRow>
               <TableCell >Session ID</TableCell>

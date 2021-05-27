@@ -124,19 +124,25 @@ const CreateUser = () => {
     const conditionalTitles = () => {
         if(user.role === 'Site Admin'){
             return(
+            
             <select className='titleSelect' placeholder="Title" value={userTitle} style={SelectStyling} onChange={(e) => {setUserTitle(e.target.value)}}>
                 <option value="" hidden>Title</option>
                 <option value='Researcher'>Researcher</option>
             </select>
+            
             )
         }else if( user.role === 'Super Admin'){
             return(
+            
             <select className='titleSelect' placeholder="Title" style={SelectStyling} onChange={(e) => {setUserTitle(e.target.value)}}>
-                <option value="" hidden>Title</option>
+
+                <option className='selectTitle' value="" selected hidden disabled>Title</option>
+
                 <option value='Researcher'>Researcher</option>
                 <option value='Site Admin'>Site Admin</option>
                 <option value='Super Admin'>Super Admin</option>
             </select>
+            
             )
         }
     }
@@ -177,14 +183,16 @@ const CreateUser = () => {
 
     return (
         <div className="addresearcher">
-            <h2>Add a new Reseacher</h2>
+            
+            <div className='createUserCard'>
+            <h2 className='addResearcher'>Create New Reseacher</h2>
             <form>
                     <input // email
                     className="inputs"
                     style={BarStyling}
                     key="random1"
                     // value={keyword}
-                    placeholder={"email"}
+                    placeholder={"Email"}
                     onChange={(e) => setUserEmail(e.target.value)}
                 />
                 {conditionalTitles()}
@@ -201,15 +209,16 @@ const CreateUser = () => {
                     style={BarStyling}
                     key="random3"
                     // value={keyword}
-                    placeholder={"password"}
+                    placeholder={"Password"}
                     onChange={(e) => setUserPassword(e.target.value)}
                 />
                 {conditionalGroup()}
 
-                <p><BootstrapButton className="submitButton" onClick={ (event) => createThisUser() }>Submit</BootstrapButton></p>
+                <p><BootstrapButton className="submitButton2" onClick={ (event) => createThisUser() }>Submit</BootstrapButton></p>
 
 
             </form>
+            </div>
         </div>
     )
 }

@@ -1,3 +1,32 @@
+
+.createNewPart{
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+}
+.addPart{
+    margin: 0 auto;
+    margin-top: 7rem;
+    margin-bottom: 5px !important;
+    margin-left: 25px !important;
+    display: block;
+    border-radius: 5px;
+    width: 250px;
+    height: 28px;
+    box-shadow: 3px 3px 10px rgb(45, 44, 44) !important;
+    border: solid white 1px;
+}
+.addPartBtn{
+    display: block !important; 
+    margin-left: 20rem !important;
+    margin-top: -35px !important;
+    box-shadow: 3px 3px 10px rgb(45, 44, 44) !important;
+}
+.addPartBtnDiv{
+    margin-top: -25px !important;
+    margin-bottom: 10px;
+}
+=======
 .container {
     height: 200px;
     position: relative;
@@ -6,12 +35,27 @@
   }
   
   .center {
+
     margin: 0;
     position: absolute;
     top: 30%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+
+    
+  }
+.addBtn1{
+    border: solid rgb(148, 146, 146) 1px;
+    border-radius: 10px;
+    background-color: rgb(146, 148, 148);
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 5rem;
+    display: block;
+    vertical-align: middle;
+    box-shadow: 5px 5px 15px rgb(45, 44, 44);
     text-align: center;
   }
   .button{
