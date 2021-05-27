@@ -108,6 +108,11 @@ const Dashboard = (props) => {
   //         {JSON.stringify(sessions)}
   //     </>
   // )
+  const dateTimeFormat = (datetime) => {
+    //format yyyy-mm-ddThh:mm:ss:mlsZ
+    return(datetime.slice(5,7) + "-" + datetime.slice(8,10) + "-" + datetime.slice(0,4) + " " + datetime.slice(11,13)+":" + datetime.slice(14,16) + ":" + datetime.slice(17,19))
+    }
+
   return (
     <>
       <div className="tablebox">
@@ -136,7 +141,7 @@ const Dashboard = (props) => {
                     <StyledTableCell scope="row">{session.researchgroup}</StyledTableCell>
                     <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
                     <StyledTableCell align="center" scope="row"><a target="_blank" href={session.csvlocation}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
-                    <StyledTableCell align="center" scope="row">{session.time}</StyledTableCell>
+                    <StyledTableCell align="center" scope="row">{dateTimeFormat(session.time)}</StyledTableCell>
                   </TableRow>
                 </TableBody>
               </>
