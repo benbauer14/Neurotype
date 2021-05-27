@@ -17,6 +17,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
+import {FiDownload} from 'react-icons/fi'
 
 // import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 // import SaveIcon from '@material-ui/icons/Save';
@@ -134,8 +135,8 @@ const Dashboard = (props) => {
                     <StyledTableCell scope="row">{session.researchername}</StyledTableCell>
                     <StyledTableCell className='partDash' scope="row">{session.participantname}</StyledTableCell>
                     <StyledTableCell  scope="row"><span className='researchDash'>{session.researchgroup}</span></StyledTableCell>
-                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
-                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.csvlocation}><BootstrapButton><BsPersonCheckFill></BsPersonCheckFill></BootstrapButton></a></StyledTableCell>
+                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.run}><BootstrapButton><FiDownload></FiDownload></BootstrapButton></a></StyledTableCell>
+                    <StyledTableCell align="center" scope="row"><a target="_blank" href={session.csvlocation}><BootstrapButton><FiDownload></FiDownload></BootstrapButton></a></StyledTableCell>
                     <StyledTableCell align="center" scope="row">{session.time}</StyledTableCell>
                   </TableRow>
                 </TableBody>

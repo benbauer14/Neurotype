@@ -18,10 +18,15 @@ th,td {
     border-width: 1px;
     border-color: #BCBCBC;
     /* word-wrap:break-word; */
+    text-align: center !important;
 }
 .partDash{
-    margin-left: -10px !important;
+    table-layout: fixed;
+    width: 10px !important;
 }
 .researchDash{
     margin-left: -9px;
+    /* table-layout: auto;
+    width: 10px !important; */
+    
 }   

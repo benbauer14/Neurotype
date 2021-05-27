@@ -94,10 +94,10 @@ function PINentry(props) {
 
   return (
     <div className="center-box">
-      <h2>Please enter PIN</h2>
+      <h2 className='pinEntry'>Please enter PIN</h2>
       {/* using react-pin-input */}
       <PinInput
-        className='pinEntry'
+        
         length={5}
         initialValue=""
         secret
