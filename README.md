@@ -9,7 +9,7 @@ Admin Login - this screenshot displays all of the options available to an admin.
 
 <img src="public/images/adminlogin.png">
 
-Select Participant - this screenshot shows all participants from all sites to the Super Admin role. Site admins and researchers can see only participants from their site: 
+Activities - this screenshot shows navigation page to the Neurosity Survey and EEG repos:
 
 <img src="public/images/admin-selectpart.png">
 
