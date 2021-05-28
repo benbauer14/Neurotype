@@ -34,6 +34,7 @@ const AdminEditPage = (props) => {
     const dispatch = useDispatch();
     const users = useSelector(store => store.users)
     const role = useSelector(store => store.user.role)
+    const usergroup = useSelector(store => store.user.group_id)
 
     useEffect(() => {
         dispatch({ type: "FETCH_USERS" })
@@ -179,7 +180,7 @@ const AdminEditPage = (props) => {
     }
 
 
-    if(role === 'Super Admin' || role === 'Site Admin') {
+    if(role === 'Super Admin' ){
     return (
         <>
             <div className="adminEditDiv">
@@ -314,7 +315,143 @@ const AdminEditPage = (props) => {
             </div>
         </>
     )
-    } else {
+    } else if ( role === 'Site Admin') {
+        return (
+            <>
+                <div className="adminEditDiv">
+                    <h1 className="selectPart">Edit Users</h1>
+                    <input // search bar for participants 
+                        className="searchBar2"
+                        style={BarStyling}
+                        key="random1"
+                        // value={keyword}
+                        placeholder={"search"}
+                        onChange={(e) => searchForParticipant(e)}
+                    />
+                    
+                    {/* <CSVLink className="csvButton" data={participants} filename={"all-patients-info.csv"}><BootstrapButton variant="contained"
+                        color="default"><IoCloudDownload value={{ style: { verticalAlign: 'middle' } }} ></IoCloudDownload> Download CSV</BootstrapButton></CSVLink> */}
+                    <Table className="adminEditTable" aria-label="customized table">
+                        <TableHead component='th'>
+                            <TableRow>
+                                <TableCell align="center">User Name</TableCell>
+                                <TableCell align="center">Role</TableCell>
+                                <TableCell align="center">Group</TableCell>
+                                <TableCell align="center">Edit</TableCell>
+                                <TableCell align="center">Disable</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        {/* <TableHead className="tableHead">
+                    <tr>Select</tr>
+                </TableHead> */}
+                        {!searched ? // renders all participants 
+                            users.map(user => {
+                                if(user.disabled === false && user.group_id === usergroup){
+                                return (
+                                    <>
+    
+                                        <TableBody className='hover={true}' component={Paper}>
+                                            <TableRow hover={true}>
+                                                <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">{user.groupname}</StyledTableCell>
+                                                <StyledTableCell align="center">
+                                                    <Link to={`/editUser/${user.id}`}>
+                                                        <BootstrapButton className="editBtn" >Edit</BootstrapButton>
+                                                    </Link>
+                                                </StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">
+                                                    <BootstrapButton onClick={() => {dispatch({type: 'DISABLE_USER', payload: user}); {handleDisable()}}}>
+                                                        <MdDelete></MdDelete>
+                                                    </BootstrapButton>
+                                                </StyledTableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </>
+                                )} else if(user.disabled === true && user.group_id === usergroup){
+                                    return(
+                                        <>
+    
+                                        <TableBody className='hover={true}' component={Paper}>
+                                            <TableRow hover={true}>
+                                                <StyledTableCell align="center" scope="row">{user.name}</StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">{user.role}</StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">{user.groupname}</StyledTableCell>
+                                                <StyledTableCell align="center">
+                                                    <BootstrapButton className="editBtn">Edit</BootstrapButton>
+                                                </StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">
+                                                    <BootstrapButton onClick={() => {dispatch({type: 'DISABLE_USER', payload: user}); {handleEnable()}}} >
+                                                        <GrRevert></GrRevert>
+                                                    </BootstrapButton>
+                                                </StyledTableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </>
+                                    )
+                                }
+    
+                            })
+    
+                            : // if searched, render filtered participants
+    
+                            filtered.map(filter => {
+                                if(filter.disabled === false && filter.group_id === usergroup){
+                                return (
+                                    <>
+    
+                                        <TableBody component={Paper}>
+                                            <TableRow >
+                                                <StyledTableCell align="center">{filter.name}</StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
+                                                <StyledTableCell align="center">{filter.groupname}</StyledTableCell>
+                                                <StyledTableCell align="center">
+                                                    <BootstrapButton className="editBtn">Edit</BootstrapButton>
+                                                </StyledTableCell>
+                                                <StyledTableCell align="center" scope="row">
+                                                    <BootstrapButton onClick={() => {dispatch({type: 'DISABLE_USER', payload: filter}); {handleDisable()}}}>
+                                                        <MdDelete></MdDelete>
+                                                    </BootstrapButton>
+                                                </StyledTableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </>
+                                )} else if(filter.disabled === true && filter.group_id === usergroup){
+                                    return (
+                                        <>
+        
+                                            <TableBody component={Paper}>
+                                                <TableRow >
+                                                    <StyledTableCell align="center">{filter.name}</StyledTableCell>
+                                                    <StyledTableCell align="center" scope="row">{filter.role}</StyledTableCell>
+                                                    <StyledTableCell align="center">{filter.groupname}</StyledTableCell>
+                                                    <StyledTableCell align="center">
+                                                        <BootstrapButton className="editBtn">Edit</BootstrapButton>
+                                                    </StyledTableCell>
+                                                    <StyledTableCell align="center" scope="row">
+                                                        <BootstrapButton onClick={() => {dispatch({type: 'DISABLE_USER', payload: filter}); {handleEnable()}}}>
+                                                            <GrRevert className='revertBtn' ></GrRevert>
+                                                        </BootstrapButton>
+                                                    </StyledTableCell>
+                                                </TableRow>
+                                            </TableBody>
+                                        </>
+                                    )
+                                }
+                            })
+                        }
+    
+                    </Table>
+    
+                    {/* <CSVLink data={participants} filename={"all-patients-info.csv"}><button>Download CSV</button></CSVLink> */}
+    
+    
+    
+                </div>
+            </>
+        )
+
+    } else{
         return(
             <>
                 <h3>Must Be Admin To Edit</h3>
