@@ -6,6 +6,8 @@ import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {IoLogOutOutline} from 'react-icons/io5'
 import { IconContext } from "react-icons";
+import {BsHouseDoor} from 'react-icons/bs'
+
 
 const Nav = (props) => {
   const page = useSelector((store) => store.page);
@@ -65,7 +67,7 @@ const Nav = (props) => {
         <div className="nav">
       <div className="homelink">
       <Link to="/home">
-        <h2 className="nav-title">neurotype</h2>
+        <h2 className="nav-title"><BsHouseDoor size='20px'></BsHouseDoor>neurotype</h2>
       </Link>
       </div>
       <div className="pageName">
