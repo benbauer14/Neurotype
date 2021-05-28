@@ -56,5 +56,6 @@
   font-size: 18px;
 }
 .homelink{
-  width: 45%;
+  min-width: 165px;
+
 }
