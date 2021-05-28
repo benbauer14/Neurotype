@@ -29,7 +29,7 @@ const Nav = (props) => {
     <div className="nav">
       <div className="homelink">
       <Link to="/home">
-        <h2 className="nav-title">neurotype</h2>
+        <h2 className="nav-title"><BsHouseDoor size='20px'></BsHouseDoor>neurotype</h2>
       </Link>
       </div>
       <div className="pageName">
