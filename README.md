@@ -5,7 +5,7 @@ This tablet web application is designed to allow a researcher to obtain data fro
 
 This application was presented on Facebook live and Zoom on 6/1/2021.
 
-Heroku Link: https://neurotype.herokuapp.com/
+Heroku Link (please view using IPAD view for proper render): https://neurotype.herokuapp.com/
 
 Admin Login - this screenshot displays all of the options available to an admin. Each role is conditionally rendered to provide access to allowed functions:
 
